@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BFB0AE85-359F-4D69-93BD-984C0CF180DE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DingKit</RootNamespace>
+    <AssemblyName>DingKit</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ajax">
+      <HintPath>bin\Ajax.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNetPager">
+      <HintPath>bin\AspNetPager.dll</HintPath>
+    </Reference>
+    <Reference Include="Chartlet">
+      <HintPath>bin\Chartlet.dll</HintPath>
+    </Reference>
+    <Reference Include="Com.EEShou.Www.TreeControl">
+      <HintPath>bin\Com.EEShou.Www.TreeControl.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetTextBox">
+      <HintPath>bin\DotNetTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel">
+      <HintPath>bin\Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ExtAspNet">
+      <HintPath>bin\ExtAspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="iTextAsian">
+      <HintPath>bin\iTextAsian.dll</HintPath>
+    </Reference>
+    <Reference Include="iTextAsianCmaps">
+      <HintPath>bin\iTextAsianCmaps.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>bin\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>bin\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="MattBerseth.WebControls.AJAX">
+      <HintPath>bin\MattBerseth.WebControls.AJAX.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Vbe.Interop, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Microsoft.Vbe.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\office.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfViewer">
+      <HintPath>bin\PdfViewer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WFNetCtrl">
+      <HintPath>bin\WFNetCtrl.dll</HintPath>
+    </Reference>
+    <Reference Include="WordPlugin">
+      <HintPath>bin\WordPlugin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CConfig.cs" />
+    <Compile Include="CCookie.cs" />
+    <Compile Include="CDataCrypt.cs" />
+    <Compile Include="CDataValidate.cs" />
+    <Compile Include="CExcel.cs" />
+    <Compile Include="CExcelEdit.cs" />
+    <Compile Include="CFile.cs" />
+    <Compile Include="CFunctions.cs" />
+    <Compile Include="CHtml.cs" />
+    <Compile Include="CImgCut.cs" />
+    <Compile Include="CJSDialog.cs" />
+    <Compile Include="CJson.cs" />
+    <Compile Include="CMessageBox.cs" />
+    <Compile Include="COdbc.cs" />
+    <Compile Include="COleDb.cs" />
+    <Compile Include="COracle.cs" />
+    <Compile Include="CPinYin.cs" />
+    <Compile Include="CSelections.cs" />
+    <Compile Include="CSql.cs" />
+    <Compile Include="CSqlERP.cs" />
+    <Compile Include="CSql_Room.cs" />
+    <Compile Include="CTree.cs" />
+    <Compile Include="CUI.cs" />
+    <Compile Include="CWeek.cs" />
+    <Compile Include="HtmlOperate.cs" />
+    <Compile Include="ProcessInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SDPdfFormWriter.cs" />
+    <Compile Include="SDPdfMergerManager.cs" />
+    <Compile Include="UploadInfo.cs" />
+    <Compile Include="extCSelections.cs" />
+    <Compile Include="WordOperate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Ajax.dll" />
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\AspNetPager.dll" />
+    <Content Include="bin\Chartlet.dll" />
+    <Content Include="bin\Com.EEShou.Www.TreeControl.dll" />
+    <Content Include="bin\Debug\Ajax.dll" />
+    <Content Include="bin\Debug\AjaxControlToolkit.dll" />
+    <Content Include="bin\Debug\AspNetPager.dll" />
+    <Content Include="bin\Debug\Chartlet.dll" />
+    <Content Include="bin\Debug\Com.EEShou.Www.TreeControl.dll" />
+    <Content Include="bin\Debug\DingKit.dll" />
+    <Content Include="bin\Debug\DingKit.pdb" />
+    <Content Include="bin\Debug\DotNetTextBox.dll" />
+    <Content Include="bin\Debug\EnvDTE.dll" />
+    <Content Include="bin\Debug\ExtAspNet.dll" />
+    <Content Include="bin\Debug\IFBLL.dll" />
+    <Content Include="bin\Debug\IFBLL.pdb" />
+    <Content Include="bin\Debug\iTextAsian.dll" />
+    <Content Include="bin\Debug\iTextAsianCmaps.dll" />
+    <Content Include="bin\Debug\itextsharp.dll" />
+    <Content Include="bin\Debug\itextsharp.xtra.dll" />
+    <Content Include="bin\Debug\MattBerseth.WebControls.AJAX.dll" />
+    <Content Include="bin\Debug\PdfViewer.dll" />
+    <Content Include="bin\Debug\stdole.dll" />
+    <Content Include="bin\Debug\WFNetCtrl.dll" />
+    <Content Include="bin\Debug\WordPlugin.dll" />
+    <Content Include="bin\DotNetTextBox.dll" />
+    <Content Include="bin\Excel.dll" />
+    <Content Include="bin\ExtAspNet.dll" />
+    <Content Include="bin\iTextAsian.dll" />
+    <Content Include="bin\iTextAsianCmaps.dll" />
+    <Content Include="bin\itextsharp.dll" />
+    <Content Include="bin\itextsharp.xtra.dll" />
+    <Content Include="bin\MattBerseth.WebControls.AJAX.dll" />
+    <Content Include="bin\Microsoft.Vbe.Interop.dll" />
+    <Content Include="bin\office.dll" />
+    <Content Include="bin\office.xml" />
+    <Content Include="bin\PdfViewer.dll" />
+    <Content Include="bin\WFNetCtrl.dll" />
+    <Content Include="bin\WordPlugin.dll" />
+    <Content Include="Dll\Ajax.dll" />
+    <Content Include="Dll\AjaxControlToolkit.dll" />
+    <Content Include="Dll\AspNetPager.dll" />
+    <Content Include="Dll\Chartlet.dll" />
+    <Content Include="Dll\Com.EEShou.Www.TreeControl.dll" />
+    <Content Include="Dll\Debug\Ajax.dll" />
+    <Content Include="Dll\Debug\AjaxControlToolkit.dll" />
+    <Content Include="Dll\Debug\AspNetPager.dll" />
+    <Content Include="Dll\Debug\Chartlet.dll" />
+    <Content Include="Dll\Debug\Com.EEShou.Www.TreeControl.dll" />
+    <Content Include="Dll\Debug\DingKit.dll" />
+    <Content Include="Dll\Debug\DingKit.pdb" />
+    <Content Include="Dll\Debug\DotNetTextBox.dll" />
+    <Content Include="Dll\Debug\EnvDTE.dll" />
+    <Content Include="Dll\Debug\ExtAspNet.dll" />
+    <Content Include="Dll\Debug\IFBLL.dll" />
+    <Content Include="Dll\Debug\IFBLL.pdb" />
+    <Content Include="Dll\Debug\iTextAsian.dll" />
+    <Content Include="Dll\Debug\iTextAsianCmaps.dll" />
+    <Content Include="Dll\Debug\itextsharp.dll" />
+    <Content Include="Dll\Debug\itextsharp.xtra.dll" />
+    <Content Include="Dll\Debug\MattBerseth.WebControls.AJAX.dll" />
+    <Content Include="Dll\Debug\PdfViewer.dll" />
+    <Content Include="Dll\Debug\stdole.dll" />
+    <Content Include="Dll\Debug\WFNetCtrl.dll" />
+    <Content Include="Dll\Debug\WordPlugin.dll" />
+    <Content Include="Dll\DotNetTextBox.dll" />
+    <Content Include="Dll\Excel.dll" />
+    <Content Include="Dll\ExtAspNet.dll" />
+    <Content Include="Dll\iTextAsian.dll" />
+    <Content Include="Dll\iTextAsianCmaps.dll" />
+    <Content Include="Dll\itextsharp.dll" />
+    <Content Include="Dll\itextsharp.xtra.dll" />
+    <Content Include="Dll\MattBerseth.WebControls.AJAX.dll" />
+    <Content Include="Dll\Microsoft.Vbe.Interop.dll" />
+    <Content Include="Dll\office.dll" />
+    <Content Include="Dll\office.xml" />
+    <Content Include="Dll\PdfViewer.dll" />
+    <Content Include="Dll\WFNetCtrl.dll" />
+    <Content Include="Dll\WordPlugin.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dll\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
