@@ -10,6 +10,7 @@ public class Order : IHttpHandler {
 
     public void ProcessRequest(HttpContext context)
     {
+           
         string fun = CFun.GetParam("do");
         if (fun == "GetPaymentData")
         {

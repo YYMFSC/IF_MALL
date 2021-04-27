@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1145
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "manage", "manage\", "{8D3533FB-9F7B-482E-A95F-F2F68A607589}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = "{BFB0AE85-359F-4D69-93BD-984C0CF180DE}|DingKit.dll;"
+		ProjectReferences = "{BFB0AE85-359F-4D69-93BD-984C0CF180DE}|DingKit.dll;{565457ce-8c9e-4b45-bff1-2c3ccaf9f335}|IF_Model.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/manage"
 		Debug.AspNetCompiler.PhysicalPath = "manage\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\manage\"
@@ -22,10 +22,13 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "manage", "manage\", "{8D353
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "58843"
+		SlnRelativePath = "manage\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DingKit", "DingKit\DingKit.csproj", "{BFB0AE85-359F-4D69-93BD-984C0CF180DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IF_Model", "IF_Model\IF_Model.csproj", "{565457CE-8C9E-4B45-BFF1-2C3CCAF9F335}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +44,10 @@ Global
 		{BFB0AE85-359F-4D69-93BD-984C0CF180DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFB0AE85-359F-4D69-93BD-984C0CF180DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFB0AE85-359F-4D69-93BD-984C0CF180DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{565457CE-8C9E-4B45-BFF1-2C3CCAF9F335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{565457CE-8C9E-4B45-BFF1-2C3CCAF9F335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{565457CE-8C9E-4B45-BFF1-2C3CCAF9F335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{565457CE-8C9E-4B45-BFF1-2C3CCAF9F335}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
