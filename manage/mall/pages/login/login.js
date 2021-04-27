@@ -1,4 +1,10 @@
 // pages/login/login.js
+
+const app = getApp();
+import {
+    User
+} from '../../common/model/user.js'
+let user = new User();
 var ajax = require('../../common/ajax/ajax.js'),
   config = require('../../common/data/config.js');
 var Mcaptcha = require('../../common/utils/mcaptcha.js');
@@ -40,7 +46,12 @@ Page({
 //表单提交
   loginClick:function(e){
     var errMs = '';
-    var that = this;
+      var that = this;
+      user.login( {
+          data: {
+              code: 'ding'
+          }
+      });
     //验证验证码
     var res1 = that.mcaptcha.validate(that.data.imgCode);
     if (that.data.openid == "") {
