@@ -1,0 +1,74 @@
+<!--pages/pay/pay.wxml-->
+<import src="../../common/pub/pub.wxml" />
+<view id="main" class="bg-grey">
+    <template is="address" data="{{addr}}"></template>
+    <view class="delivery bg-white">
+        <view class="item font-size-1">
+            <view>配送方式</view>
+            <view>多点配送</view>
+        </view>
+        <view class="item font-size-1">
+            <view>配送时间</view>
+            <view>今天（周五）18:00-19:00</view>
+        </view>
+    </view>
+
+    <view class="pay bg-white base-style">
+        <view class="item font-size-1">
+            <view class="head">
+                <view class="icon weixinpay"></view>
+                <view class="text">在线支付</view>
+            </view>
+            <view class="icon checkbox {{payway==1 ? 'checked':''}}" bindtap="payway" data-payway="1"></view>
+        </view>
+        <view class="item font-size-1">
+            <view class="head">
+                <view class="icon offlinepayment "></view>
+                <view class="text">货到付款</view>
+            </view>
+            <view class="icon checkbox {{payway==0 ? 'checked':''}}" bindtap="payway" data-payway="0"></view>
+        </view>
+    </view>
+
+    <view class="comment bg-white font-size-1">
+        <view class="text">备注</view>
+        <input placeholder="填写安全存放地址，请按门铃等配送相关要求" bindinput="inputKey"></input>
+    </view>
+
+    <view class="priceInfo bg-white">
+        <view class="head font-size-1">订单价格</view>
+        <view class="detail font-size-3 font-grey">
+            <view class="item">
+                <view>商品金额</view>
+                <view>￥{{originall}}</view>
+
+            </view>
+            <view class="item">
+                <view>促销优惠</view>
+                <view>￥-{{discount}}</view>
+
+            </view>
+            <view class="item">
+                <view>基础运费(优惠后金额大于55元免运费)</view>
+                <view>￥{{deliverFee}}</view>
+            </view>
+        </view>
+        <view class="sum font-size-1">
+            <view>实际支付</view>
+            <view class="font-orange">￥{{all}}</view>
+        </view>
+    </view>
+
+    <view class="proList bg-white">
+        <view class="head font-size-1">商品清单</view>
+        <template is="itemList-line" data="{{proData, showAdd, showCount}}"></template>
+    </view>
+
+    <view class="foot font-orange bg-white">
+        <view class="summary">
+            <view class="font-size-2">合计</view>
+            <view class="font-size-0 font-bold">￥{{all}}</view>
+        </view>
+        <view class="submit bg-orange font-white font-size-3" bindtap="submitOrder">提交订单</view>
+    </view>
+</view>

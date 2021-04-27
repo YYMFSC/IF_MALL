@@ -1,0 +1,66 @@
+<!--pages/mine/mine.wxml-->
+<import src="../../common/pub/pub.wxml" />
+<view id="main" class="bg-grey">
+	<view id="head" style="height: 350rpx;">
+		<view class="user">
+			<view class="photo">
+				<image src="../images/ldkx.jpg"></image>
+			</view>
+			<view class="userInfo">
+				<view class="userName">
+					<text class="font-size-2">{{user.userInfo.name}}</text>
+					<text class="font-size-4 brand degree-{{user.userInfo.degree}}">V{{user.userInfo.degree}}会员</text>
+				</view>
+				<view style="margin-top: 10rpx;">
+					<text class="font-size-3">15990013074</text>
+				</view>
+			</view>
+		</view>
+		<view class="account">
+			<view class="item" wx:for="{{user.account}}" style="{{(index+1)%3!=0 ? 'border-right: solid #eee 1rpx;':''}}">
+				<view class="font-black">{{item.num}}</view>
+				<text class="font-size-3 font-grey-deep">{{item.text}}</text>
+			</view>
+		</view>
+	</view>
+
+	<view class="rows base-style font-size-1 font-grey-deep">
+		<navigator url="../order/order">
+			<view class="item">
+				<icon class="icon orders"></icon>
+				<text>全部订单</text>
+			</view>
+		</navigator>
+		<view class="item">
+			<icon class="icon group-buying"></icon>
+			<text>订单物流</text>
+		</view>
+		<view class="item">
+			<icon class="icon scan"></icon>
+			<text>个人信息</text>
+		</view>
+	</view>
+	<view class="rows base-style font-size-1 font-grey-deep">
+		<view class="item">
+			<icon class="icon member"></icon>
+			<text>会员中心</text>
+		</view>
+		<navigator url="../address-edit/address-edit">
+		<view class="item">
+			<icon class="icon address"></icon>
+			<text>收获地址</text>
+		</view>
+		</navigator>
+		<view class="item">
+			<icon class="icon help"></icon>
+			<text>帮助中心</text>
+		</view>
+	</view>
+	<view class="rows base-style font-size-1 font-grey-deep">
+		<view class="item">
+			<icon class="icon service"></icon>
+			<text>客服电话40088208820</text>
+		</view>
+	</view>
+</view>
+<template is="navbar" data="{{tabs, currentPage}}"></template>

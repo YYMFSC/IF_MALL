@@ -28,8 +28,8 @@ public class address : IHttpHandler {
     {
         string code = CFun.GetParam("code");
 
-        string appid = "wxc8cd2c7633ea023a";
-        string secret = "ee5e5ba40fce3bb91c6b69a8ca2340e0";
+        string appid = "wx90376f9593b46729";//wxc8cd2c7633ea023a
+        string secret = "8619cdc1cf317628d8ca2b059789b5e5";//ee5e5ba40fce3bb91c6b69a8ca2340e0
         string grant_type = "authorization_code";
         string url = string.Format("https://api.weixin.qq.com/sns/jscode2session?appid={0}&secret={1}&js_code={2}&grant_type={3}",
             appid, secret, code, grant_type);

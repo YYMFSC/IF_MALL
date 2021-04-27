@@ -1,0 +1,37 @@
+/* pages/pay-success/pay-success.wxss */
+#main .success {
+    border-radius: 0 0 1000rpx 1000rpx/0 0 100rpx 100rpx;
+    height: 400rpx;
+    text-align: center;
+    padding-top: 150rpx;
+}
+#main .success image {
+    width: 400rpx;
+    height: 200rpx;
+}
+
+#main .btn {
+    margin-top: 100rpx;
+    display: flex;
+    justify-content: center;
+}
+#main .btn .toHome{
+    margin: 0 15rpx;
+    width: 161rpx;
+    height: 76rpx;
+    line-height: 76rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    border: solid 2rpx #f5692e;
+    color: #f5692e;
+}
+#main .btn .order {
+    margin: 0 15rpx;
+    width: 165rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    background-color: #f5692e;
+    color: #fff;
+}

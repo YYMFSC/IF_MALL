@@ -1,0 +1,126 @@
+<!-- 轮播图
+name: slider
+data:
+    DICT swiperData
+    STR  dotColor(例如 'rgba(0,0,0,.3)')  
+ -->
+<template name="slider">
+	<view class="slider">
+		<swiper autoplay="{{true}}" indicator-dots="{{true}}" indicator-active-color="{{dotColor==null ? 'rgba(0,0,0,.8)':dotColor}}">
+			<block wx:for="{{swiperData}}">
+				<swiper-item>
+					<navigator url="{{item.link}}" redirect>
+						<image src="{{item.img}}" />
+					</navigator>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+</template>
+
+<!-- 底部菜单栏模板
+name: navbar
+data: 
+    DICT tabs
+ -->
+<template name="navbar">
+	<view id="toolBar" class="base-style">
+		<view class="item" wx:for="{{tabs}}">
+			<navigator url="{{item.url}}" redirect>
+				<view class="icon bar {{item.className}} {{item.className==currentPage ? 'current':''}}"></view>
+				<view class="num font-size-4" wx:if="{{item.className=='cart'}}">{{item.tag}}</view>
+				<view class="title font-size-4 {{item.className==currentPage ? 'font-orange':'font-grey'}}">{{item.text}}</view>
+			</navigator>
+		</view>
+	</view>
+</template>
+
+<!-- 搜索栏模板
+name: searchBox
+data: 
+    BOOL searchBox
+bindtap: search, close
+bindinput: inputKey
+ -->
+<template name="searchBox">
+	<view class="base-style searchBox">
+		<view class="Box bg-grey">
+			<icon class='icon search' bindtap="search"></icon>
+			<icon class='icon close-small' bindtap="close" wx:if="{{searchBox}}"></icon>
+			<input class="font-size-2" placeholder='搜索商品' bindinput="inputKey" />
+		</view>
+	</view>
+</template>
+
+<!-- 列状商品表
+name: itemList-line
+data: 
+    DICT proData,
+    BOOL showAdd
+bindtap: toProduct, cartAdd
+ -->
+<template name="itemList-line">
+	<view class="item-line" wx:for="{{proData}}" bindtap="toProduct" data-pro-id="{{item.id}}">
+		<view class="pic">
+			<image aspectFit src="{{item.img}}" />
+		</view>
+		<view class="proInfo">
+			<view class="proName font-size-1 font-grey-deep">{{item.title}}</view>
+			<view class="buy">
+				<view class="price">
+					<view class="font-size-4 font-grey font-dline">￥{{item.originPrice}}</view>
+					<view class="font-size-1 font-orange font-bold">￥{{item.price}}</view>
+				</view>
+				<view class="add base-style" wx:if="{{showAdd}}">
+					<icon class="icon add-cart" data-price="{{item.price}}" data-pro-id="{{item.id}}" catchtap="cartAdd"></icon>
+				</view>
+				<view class="count font-size-1 font-black" wx:if="{{showCount}}">x{{item.count}}</view>				
+			</view>
+		</view>
+	</view>
+</template>
+
+<!-- 块状商品表
+name: itemList-block
+data: 
+    DICT proData
+bindtap: toProduct, cartAdd
+ -->
+<template name="itemList-block">
+	<view class="itemList-block">
+		<block wx:for="{{proData}}" wx:key="id">
+			<view class="item-block" style="{{(index+1)%3!=0 ? 'border-right: solid 1rpx #eee;':''}}" bindtap="toProduct" data-pro-id="{{item.id}}">
+				<view class="pic">
+					<image aspectFit src="{{item.img}}"></image>
+				</view>
+				<view class="proName font-size-3 font-grey-deep">{{item.title}}</view>
+				<view class="buy">
+					<view class="price">
+						<view class="font-size-4 font-grey" style="text-decoration-line: line-through;">￥{{item.originPrice}}</view>
+						<view class="font-size-2 font-orange font-bold">￥{{item.price}}</view>
+					</view>
+					<view class="add base-style">
+						<icon class="icon add-cart" catchtap="cartAdd" data-pro-id="{{item.id}}" data-price="{{item.price}}"></icon>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+</template>
+
+<!-- 收获地址
+name: address
+data: 
+    DICT addr
+bindtap: editAddress
+ -->
+<template name="address">
+	<view class="deliver-address bg-white base-style" bindtap="editAddress">
+		<view class="icon location"></view>
+		<view>
+			<view class="font-size-0 font-bold">{{addr.name}} {{addr.phone}}</view>
+			<view class="font-size-3 font-grey-deep">送至：{{addr.province}}{{addr.city}}{{addr.local}}{{addr.address}}</view>
+		</view>
+	</view>
+	<view class="line"></view>
+</template>

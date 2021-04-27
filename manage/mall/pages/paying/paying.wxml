@@ -1,0 +1,37 @@
+<!--pages/paying/paying.wxml-->
+<view id="main" class="bg-grey .base-style">
+	<view class="info font-orange font-size-3">请在下单后15分钟内完成支付，否则订单将失效</view>
+	<view class="order bg-white font-size-1">
+		<view class="id">订单编号：{{orderData.id}}</view>
+		<view class="price">订单金额：{{orderData.sum}}</view>
+	</view>
+	<view class="payway bg-white font-size-1">
+		<view class="title">
+			<view>还需要支付：</view>
+			<view class="font-orange ">{{orderData.sum}}元</view>
+		</view>
+		<view class="item">
+			<view style="display: flex">
+				<view class="icon weixinpay"></view>
+				<view class="text">
+					<view class="name">微信支付</view>
+					<view class="font-size-3">推荐安装微信5.0及以上版本的用户使用！</view>
+				</view>
+			</view>
+			<view class="icon checkbox {{payway==1 ? 'checked':''}}" bindtap="payway" data-payway="1"></view>
+		</view>
+		<view class="item">
+			<view style="display: flex">
+				<view class="icon alipay"></view>
+				<view class="text">
+					<view class="name">支付宝</view>
+					<view class="font-size-3">推荐有支付宝账号的用户使用。</view>
+				</view>
+			</view>
+			<view class="icon checkbox {{payway==2 ? 'checked':''}}" bindtap="payway" data-payway="2"></view>
+		</view>
+	</view>
+	<view class="box">
+		<view class="button bg-orange font-white" bindtap="pay">确认支付</view>
+	</view>
+</view>

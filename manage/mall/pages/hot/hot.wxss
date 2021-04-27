@@ -1,0 +1,9 @@
+/* pages/hot/hot.wxss */
+@import "../../common/pub/pub.wxss";
+#main {    
+    overflow-x: hidden;
+}
+#main image.ad {
+    height: 230rpx;
+    width: 760rpx;
+}
