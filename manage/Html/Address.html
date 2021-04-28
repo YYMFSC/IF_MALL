@@ -226,35 +226,6 @@
         }
     }
 
-    //function editRow()
-    //{
-    //    var rows = grid.getSelecteds();       
-    //    if (rows.length > 0) {
-    //        var id = rows[0].t_id;
-    //        form.clear();
-    //        win.setTitle("编辑地址");
-    //        $.ajax({
-    //            url: "Controllers/TicketASHX.ashx?method=GetTicket",
-    //            type: "post",
-    //            data: { id: id },
-    //            success: function (text) {
-    //                var o = mini.decode(text);
-    //                istrue = 1;
-    //                form.setData(o);
-    //                form.setChanged(false);
-    //                win.show();
-    //            },
-    //            error: function (text) {
-    //                form.reset();
-    //                win.show();
-    //            }
-    //        });
-    //    }
-    //    else {
-    //        alert("请选中一条记录");
-    //    }
-    //}
-
     function editRow() {
         var rows = grid.getSelecteds();
         if (rows.length > 0 && rows.length <=1) {
@@ -273,8 +244,9 @@
     }
     function saveData() {
         form.validate();
+        tools.MaskBody("操作中，请稍候...");
         if (form.isValid() == false) {
-            alert("表单验证错误!");
+            mini.alert("表单验证错误!");
             return;
         }
         var url = "../Controllers/AdressHandler.ashx?method=";
@@ -288,12 +260,17 @@
             },
             type: "post",
             success: function (text) {
-                alert(text);
-                hide();
-                grid.reload();
+                tools.UnMaskBody();
+                var ret = mini.decode(text);
+                if (ret.return_code == "Success") {
+                    hide();
+                    grid.reload();
+                }            
+                mini.alert(ret.return_msg);
             },
-            error: function (text) {
-                alert(text);
+            error: function (jqXHR, textStatus, errorThrown) {
+                eflying.UnMaskBody();
+                mini.alert(jqXHR.responseText);
             }
         });
     }
