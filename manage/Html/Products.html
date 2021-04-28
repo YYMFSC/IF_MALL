@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Address</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link href="../Scripts/demo.css" rel="stylesheet" type="text/css" />
+
+    <script src="../Scripts/boot.js" type="text/javascript"></script>
+    <script src="../Scripts/ColumnsMenu.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            overflow: visible;
+        }
+
+        .title {
+            border: 1px solid #f6f6f6;
+            padding: 10px;
+            font-size: 16px;
+            margin: 0;
+            border-top: 3px solid #7dd3db;
+        }
+
+        .lgpart {
+            background-color: #ffffff;
+        }
+
+            .lgpart > div {
+                padding: 5px 15px;
+            }
+
+        .daliy {
+            font-size: 14px;
+        }
+
+            .daliy li {
+                font-size: 15px;
+                color: #4c4c4c;
+            }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .linelink {
+            text-decoration: none;
+            color: Blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="mini-toolbar" style="border-bottom: 0;">
+        <table style="width: 100%;" class="tooltable">
+            <tr>
+                <td style="width:100%;">
+                    <a class="mini-button" iconCls="icon-add" onclick="add()">增加</a>
+                    <a class="mini-button" iconCls="icon-edit" onclick="editRow()">编辑</a>
+                    <a class="mini-button" iconCls="icon-remove" onclick="remove()">删除</a>
+                </td>
+
+                <td style="white-space:nowrap;">
+                    <input id="key" class="mini-textbox" emptyText="请输入商品名" style="width:150px;" onenter="onKeyEnter" />
+                    <a class="mini-button" onclick="search()">查询</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="mini-fit">
+        <div id="grid" class="mini-datagrid" allowcellwrap="false" style="width: 100%; height: 100%;" url="../Controllers/ProductsHandler.ashx?method=GetList"
+             pagesize="20" fitcolumns="true" multiselect="false">
+            <div property="columns">
+                <div type="indexcolumn" width="20">序号</div>
+                <div field="id" width="30" id="Aid" name="Aid" headeralign="center" align="center" allowsort="true">
+                    ID
+                </div>
+                <div field="uid" width="30" id="Auid" name="Auid" headeralign="center" align="center" allowsort="true">
+                    UID
+                </div>
+                <div field="img" width="30" headeralign="center" align="center" allowsort="true">
+                    商品图片
+                </div>
+                <div field="title" width="100" headeralign="center" align="center" allowsort="true">
+                    商品名
+                </div>
+                <div field="originPrice" width="100" headeralign="center" align="center" allowsort="true">
+                    商品原价
+                </div>
+                <div field="price" width="100" headeralign="center" align="center" allowsort="true">
+                    商品现价
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <div id="editWindow" class="mini-window" title="商品上架" style="width:1000px;" showmodal="true" allowresize="false" allowdrag="true" showfooter="true">
+        <div id="editForm" class="form">
+            <input class="mini-hidden" name="id" />
+            <table style="width:100%;height:100%" class="formtable">
+                <tr>
+                    <th>
+                        商品图片：
+                    </th>
+                    <td class="td">
+                        <input name="img" class="mini-textbox" required="true" style="width: 150px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        商品名：
+                    </th>
+                    <td class="td">
+                        <input name="title" class="mini-textbox" required="true" style="width: 300px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        商品原价：
+                    </th>
+                    <td class="td">
+                        <input name="originPrice" class="mini-textbox" required="true" style="width: 300px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        商品现价：
+                    </th>
+                    <td class="td">
+                        <input name="price" class="mini-textbox" required="true" style="width: 300px;" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div property="footer" style="text-align: center; padding: 5px;">
+            <a class="mini-button" iconcls="icon-save" style="width: 100px;" onclick="saveData()">保存</a>
+            <span style="display: inline-block; width: 25px;"></span>
+            <a class="mini-button" iconcls="icon-close" style="width: 100px;" onclick="hide()">关闭</a>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    mini.parse();
+    var grid = mini.get("grid");
+    var win = mini.get("editWindow");
+    var form = new mini.Form("#editForm");
+    var istrue = "Add";
+    search();
+    function search() {
+        var key = mini.get("key").getValue();
+        grid.hideColumn("Aid");
+        grid.hideColumn("Auid");
+        grid.load({ key: key });
+        grid.sortBy("id", "asc");
+    }
+
+    function remove() {
+        var rows = grid.getSelecteds();
+        if (rows.length > 0) {           
+            grid.loading("操作中，请稍后......");
+            var data = rows[0].id;
+                $.ajax({
+                    url: "../Controllers/ProductsHandler.ashx?method=Remove",
+                    type: "post",
+                    data: { data: data},
+                    success: function (text) {
+                        grid.reload();
+                    },
+                    error: function (text) {
+                        alert(text);
+                    }
+                });
+        } else {
+            alert("请选中一条记录");
+        }
+    }
+
+    function add()
+    {
+        form.reset();
+        win.setTitle("添加商品信息");
+        if (!win.visible) {
+            istrue = "Add";
+            win.show();
+        }
+    }
+
+    //function editRow()
+    //{
+    //    var rows = grid.getSelecteds();       
+    //    if (rows.length > 0) {
+    //        var id = rows[0].t_id;
+    //        form.clear();
+    //        win.setTitle("编辑地址");
+    //        $.ajax({
+    //            url: "Controllers/TicketASHX.ashx?method=GetTicket",
+    //            type: "post",
+    //            data: { id: id },
+    //            success: function (text) {
+    //                var o = mini.decode(text);
+    //                istrue = 1;
+    //                form.setData(o);
+    //                form.setChanged(false);
+    //                win.show();
+    //            },
+    //            error: function (text) {
+    //                form.reset();
+    //                win.show();
+    //            }
+    //        });
+    //    }
+    //    else {
+    //        alert("请选中一条记录");
+    //    }
+    //}
+
+    function editRow() {
+        var rows = grid.getSelecteds();
+        if (rows.length > 0 && rows.length <=1) {
+            form.clear();
+            win.setTitle("编辑商品信息");
+            form.setData(rows[0]);       
+            istrue = "Edit";
+            win.show();
+        }
+        else if (rows.length>1) {
+            alert("只能选中一条记录");
+        }
+        else {
+            alert("请选中一条记录");
+        }
+    }
+    function saveData() {
+        form.validate();
+        if (form.isValid() == false) {
+            alert("表单验证错误!");
+            return;
+        }
+        var url = "../Controllers/ProductsHandler.ashx?method=";
+        var formData = tools.getControlText(form);
+        var data=JSON.stringify(formData);
+        url = url + istrue;
+        $.ajax({
+            url: url,
+            data: {
+                data: data
+            },
+            type: "post",
+            success: function (text) {
+                alert(text);
+                hide();
+                grid.reload();
+            },
+            error: function (text) {
+                alert(text);
+            }
+        });
+    }
+
+    function hide() {
+        win.hide();
+    }
+</script>

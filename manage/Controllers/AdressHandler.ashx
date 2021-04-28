@@ -22,8 +22,8 @@ public class AdressHandler : BaseHandler
     {
         //前台放在body里把json格式的文件传过来
         string data = context.Request.Form["data"];
-        var session = new IF_Session();
-        var userid = session.UserKey;
+        //var session = new IF_Session();
+        //var userid = session.UserKey;
         IF_EntityTools tools = new IF_EntityTools();
         List<DataField> ldf = tools.getDataFieldFromJson(data);
 
@@ -81,7 +81,7 @@ public class AdressHandler : BaseHandler
             foreach (var item in ds)
             {
                 mall.Address.Remove(mall.Address.Find(int.Parse(item)));//删除
-                    mall.SaveChanges();
+                mall.SaveChanges();
             }
             WriteSuccess(context);
         }
@@ -99,10 +99,10 @@ public class AdressHandler : BaseHandler
         string unitkey = context.Request["key"];
 
         //这是存在session里的用户id
-        var session = new IF_Session();
-        var userid = session.UserKey;
+        //var session = new IF_Session();
+        //var userid = session.UserKey;
         //用户的单位id
-        var unit = session.UnitKey;
+        //var unit = session.UnitKey;
         //这里可以做权限筛选  未做
 
         //接受一下筛选字段
