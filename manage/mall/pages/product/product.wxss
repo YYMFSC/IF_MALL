@@ -1,0 +1,79 @@
+/* pages/product/product.wxss */
+@import "../../common/pub/pub.wxss";
+#main {
+    padding-bottom: 105rpx;
+}
+#main .proInfo {
+    padding: 20rpx;
+    border-top: solid 1rpx #eee;
+}
+
+#main .proInfo .proName {
+    height: 100rpx;
+}
+#main .proInfo .span {
+    padding: 15rpx 0;
+    height: 40rpx;
+}
+#main .proInfo .price {
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.proSize {
+    margin-top: 20rpx;
+}
+.proSize .title {
+    border-left: solid 3rpx #f5692e;
+    border-bottom: solid 1rpx #eee;
+    padding-left: 20rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+.proSize .item {
+    border-bottom: solid 1rpx #eee;
+    display: flex;
+}
+.proSize .item .col {
+    width: 50%;
+    padding-left: 20rpx;
+    text-align: left;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+.buyBar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    height: 99rpx;
+    width: 100%;
+    border-top: solid 1rpx #eee;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buyBar .cartIcon {
+    margin-left: 10rpx;
+    width: 60rpx;
+    padding: 20rpx;
+    position: relative;
+}
+
+.buyBar .cartIcon .num {
+    background-color: red;
+    color: white;
+    width: 33rpx;
+    height: 33rpx;
+    text-align: center;
+    border-radius: 50%;
+    padding: 5rpx;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+}
+
+.buyBar .add {
+    width: 190rpx;
+    text-align: center;
+    line-height: 99rpx;
+}

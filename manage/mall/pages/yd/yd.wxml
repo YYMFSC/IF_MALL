@@ -1,0 +1,32 @@
+<!--pages/yd/yd.wxml-->
+<text>
+1.肩宽
+肩点经颈间的弓形测量。
+</text>
+<image src='../../images/jk.jpeg'></image>
+<text>
+2.胸围
+在胸部BP点(BP点是随着各个年龄时期的身体变化和生育的情况而改变的，但也会随着个人带文胸而不同。穿着旗袍量体最好选择你喜欢的文胸来测量，从肩颈处到胸高点。)一圈，注意垫一个手指的松量。
+</text>
+<image src='../../images/xw.jpeg'></image>
+<text>
+3.腰围 
+腰围是腰节点最细的部位，亚洲女人的腰节比欧洲人的长2公分，如何定位腰节点，我们通常会选最细的部位。特殊体型的也要根据款式修体的要求进行调整，这个因人而异。量体时，最好记一根细线标识一下。
+</text>
+<image src='../../images/yw.jpeg'></image>
+<text>
+4.臀围
+</text>
+<image src='../../images/tw.jpeg'></image>
+<text>
+5.袖长
+旗袍的长袖最长也就9分袖，通常长袖分为9分、8分、7分长度，短袖有标准短袖、瓦片袖、连肩袖等，可以根据自己的喜好、臂围、及出席场合、款式要求等设计。
+</text>
+<image src='../../images/xc.jpeg'></image>
+<text>
+6.裙长
+旗袍的长度不能按照自己的好恶来定，旗袍的长度是根据年龄、体型、穿着场合等综合因素来决定的。端庄是旗袍的首要审美情趣之一，穿出风尘味的大多是那些超短或超高开叉造成的。
+</text>
+<navigator url="/pages/clothes dz/clothes dz" redirect>
+  <button class="loginButton"   form-type='submit'>返回</button>
+</navigator>

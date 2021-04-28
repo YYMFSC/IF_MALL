@@ -1,0 +1,44 @@
+<!--pages/product/product.wxml-->
+<import src="../../common/pub/pub.wxml" />
+
+<view id="main" class="bg-grey">
+    <view style="height: 750rpx;">
+        <template is="slider" data="{{swiperData, dotColor}}"></template>
+    </view>
+    <view class="proInfo bg-white">
+        <view class="proName font-size-1 font-black font-bold">{{proData.title}}</view>
+        <view class="span font-size-4 font-grey">价格已含进口税及邮费</view>
+        <view class="price font-size-0 font-orange font-bold">￥{{proData.price}}</view>
+    </view>
+    <view class="proSize bg-white">
+    <view class="title font-size-0 font-orange">参数规格</view>
+        <view class="item">
+            <view class="col border-right font-size-1">商家</view>
+            <view class="col font-size-1">{{proData.shopName}}</view>
+        </view>
+        <view class="item">
+            <view class="col border-right font-size-1">类别</view>
+            <view class="col font-size-1">{{proData.tName}}</view>
+        </view>
+        <view class="item">
+            <view class="col border-right font-size-1">产地</view>
+            <view class="col font-size-1">{{proData.from}}</view>
+        </view>
+        <view class="item">
+            <view class="col border-right font-size-1">品种</view>
+            <view class="col font-size-1">{{proData.variety}}</view>
+        </view>
+    </view>
+
+
+
+    <view class="buyBar base-style bg-white">
+        <view class="cartIcon">
+            <navigator url="/pages/cart/cart" redirect>
+                <view class="icon cart"></view>
+                <view class="num font-size-4">{{cartcount}}</view>
+            </navigator>
+        </view>
+        <view class="add bg-orange font-white font-size-3" bindtap="cartAdd" data-pro-id="{{proData.id}}" data-price="{{proData.price}}">加入购物车</view>
+    </view>
+</view>

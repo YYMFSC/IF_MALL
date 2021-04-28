@@ -1,0 +1,23 @@
+/* pages/home/home.wxss */
+@import "../../common/pub/pub.wxss";
+
+/* 热点入口 */
+
+.entry {
+    display: flex;
+    margin-top: 20rpx;
+    margin-bottom: 10rpx;
+}
+
+.entry .item {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.entry .item image {
+    width: 120rpx;
+    height: 80rpx;
+}
+.proList {    
+    padding-bottom: 105rpx;
+}

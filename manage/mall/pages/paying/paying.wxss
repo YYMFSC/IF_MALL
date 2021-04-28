@@ -1,0 +1,49 @@
+/* pages/paying/paying.wxss */
+@import "../../common/pub/pub.wxss";
+.info {
+    height: 70rpx;
+    line-height: 70rpx;
+    margin-left: 20rpx;
+}
+.order {
+    border-top: solid 1rpx #eee;
+    border-bottom: solid 1rpx #eee;
+    padding: 30rpx 20rpx;
+}
+
+.payway {
+    padding: 10rpx;
+    margin-top: 20rpx;
+    border-top: solid 1rpx #eee;
+    border-bottom: solid 1rpx #eee;
+}
+.payway .title {
+    display: flex;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+.payway .item {
+    display: flex;
+    padding: 10rpx;
+    justify-content: space-between;
+}
+.payway .item .icon {
+    margin: 0 10rpx;
+    align-self: center;
+}
+.payway .item .text .name {
+    height: 60rpx;
+    line-height: 60rpx;
+}
+.box {
+    position: fixed;
+    bottom: 30rpx;
+    left: 25rpx;
+}
+.box .button {
+    text-align: center;
+    width: 700rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-radius: 10rpx;
+}

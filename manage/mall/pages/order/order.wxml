@@ -1,0 +1,23 @@
+<!--pages/order/order.wxml-->
+<import src="../../common/pub/pub.wxml" />
+<view id="main" class="bg-grey">
+	<view class="classify bg-grey">
+		<view class="item {{item.value==currentTab ? 'current font-orange':'font-black'}}" wx:for="{{navbar}}" wx:key="value" bindtap="tapTab" data-val="{{item.value}}">{{item.text}}</view>
+	</view>
+	<view class="order" style="padding-top: 90rpx;">
+		<view class="item bg-white" wx:for="{{cartList}}" wx:key="id" wx:for-item="cartitem">
+        <view class="tag font-size-1 font-orange">{{cartitem.isPay==1 ? '待发货':'待付款'}}</view>
+			<view class="shop">
+				<image src="{{cartitem.shopIcon}}" aspectFit widthFix="60rpx" class="shopIcon"></image>
+				<view class="shopName font-size-1 font-grey-deep">{{cartitem.shopName}}</view>
+			</view>
+			<view class="proList">
+				<template is="itemList-line" data="{{proData: cartitem.CartData, showCount}}"></template>
+                <view class="summary font-size-4">总价：￥{{cartitem.originPrice}}，优惠：￥{{cartitem.discount}}，实付款(含运费)：￥{{cartitem.sum}}</view>
+			</view>
+			<view class="btn-area">
+                <view class="btn font-size-2 font-orange" bindtap="orderDetail">详细订单</view>
+            </view>
+		</view>
+	</view>
+</view>

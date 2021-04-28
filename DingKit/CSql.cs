@@ -30,8 +30,17 @@ namespace DingKit
         /// </summary>
         public void DBOpen()
         {
-            Connection = new SqlConnection(ConnString);
-            Connection.Open();
+            try
+            {
+                Connection = new SqlConnection(ConnString);
+                Connection.Open();
+            }
+            catch (Exception x)
+            {
+                var aa = x.Message;
+                throw;
+            }
+            
 
         }
 

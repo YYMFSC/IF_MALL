@@ -1,0 +1,135 @@
+<!--pages/scheduling/scheduling.wxml-->
+<view class="all">
+<!--线下上门测量服务-->
+<view class="comeHeight">
+<view class="come">
+<view class="comeText">线下上门测量服务</view>
+<view class="comeSetting" bindtap="comeSetting"  wx:if="{{isSetting1}}">+ 添加明细</view>
+</view>
+
+<view class="isSetting" wx:if="{{isSetting1}}">
+尚未登记,如有需要线下上门测量服务，请赶紧登记。
+</view>
+<view class="isSetting1" wx:if="{{!isSetting1}}">
+<view class="text1">需要定做的旗袍数：</view>
+<view class="text">{{comeNumber}}</view>
+<view class="text1">要求工作人员的年龄段：</view>
+<view class="text">{{comeMethod}}</view>
+<view class="text1">到达地点：</view>
+<view class="text">{{comePlace}}</view>
+<view class="text1">预计到达时间：</view>
+<view class="text">{{comeDate}}</view>
+<view class="ydj">已登记</view>
+<view class="modify" ></view>
+<view class="image" bindtap="modifycome"><image style="width:45rpx;height:45rpx;" src="../../images/xg1.png"></image></view>
+</view>
+</view>
+
+
+<view class="greyline"></view>
+
+<!--线上定制-->
+<view class="returnHeight">
+<view class="return">
+<view class="comeText">线上定制</view>
+<navigator url="/pages/clothes dz/clothes dz" redirect>
+<view class="comeSetting" >数据明细</view>
+</navigator>
+</view>
+
+<view class="isSetting" wx:if="{{isSetting3}}">
+尚未登记,如有需要线上定制服务，请赶紧下单。
+</view>
+<view class="isSetting1" wx:if="{{!isSetting3}}">
+<view class="text1">需要定做的旗袍数：</view>
+<view class="text">{{returnNumber}}</view>
+<view class="text1">要求工作人员的年龄段：</view>
+<view class="text">{{returnPlace}}</view>
+<view class="text1">预计到达时间：</view>
+<view class="text">{{returnDate}}</view>
+<view class="ydj1">已登记</view>
+<view class="modify1" ></view>
+<view class="image1" bindtap="modifygo"><image style="width:45rpx;height:45rpx;" src="../../images/xg1.png"></image></view>
+</view>
+</view>
+
+</view>
+
+<view class="isSetting2" wx:if="{{isSetting2}}">
+<view class="isSetting3"></view>
+<!--线上定制-->
+<view class="settingBox">
+<view class="return1">
+<view class="comeText1" wx:if="{{state==1}}">线下上门测量服务</view>
+<view class="comeText1" wx:if="{{state==2}}">线上定制</view>
+<view class="close" bindtap="close">x</view>
+</view>
+<!--旗袍数-->
+<view class="setting">
+<view class = "item">
+<view class="number">需要定做的旗袍数：</view>
+<view class="triangle-up"><image style="width:40rpx;height:30rpx;" src="../../images/down.png"></image></view>
+
+<view class="numberPicker">
+<picker value="{{picker1Value}}" range="{{picker1Range}}" bindchange="normalPickerBindchange">
+ {{picker1Range[picker1Value]}}</picker>
+</view>
+</view>
+</view>
+<view class="grayLine"></view>
+<!--要求工作人员的年龄段：-->
+<view class="setting" wx:if="{{state==1}}">
+<view class = "item">
+<view class="number">要求工作人员的年龄段：</view>
+<view class="triangle-up"><image style="width:40rpx;height:30rpx;" src="../../images/down.png"></image></view>
+<view class="numberPicker">
+<picker value="{{picker2Value}}" range="{{picker2Range}}" bindchange="normalPickerBindchange2">
+ {{picker2Range[picker2Value]}}</picker>
+</view>
+
+</view>
+</view>
+<view class="grayLine" wx:if="{{state==1}}"></view>
+<!--到达地点-->
+<view class="setting">
+<view class = "item">
+<view class="number" wx:if="{{state==1}}">到达地点</view>
+<view class="number" wx:if="{{state==2}}">送达地点</view>
+<view class="triangle-up"><image style="width:40rpx;height:30rpx;" src="../../images/down.png"></image></view>
+<view class="numberPicker">
+<picker value="{{picker3Value}}" range="{{picker3Range}}" bindchange="normalPickerBindchange3">
+ {{picker3Range[picker3Value]}}</picker>
+</view>
+
+</view>
+</view>
+<view class="grayLine"></view>
+<!--预计到达日期-->
+<view class="setting">
+<view class = "item">
+<view class="number">预计到达日期</view>
+<view class="triangle-up"><image style="width:40rpx;height:30rpx;" src="../../images/down.png"></image></view>
+<view class="numberPicker">
+<picker mode="date" value="{{dateValue}}" start="1999-01-01" end="2999-12-12" bindchange="datePickerBindchange">
+{{dateValue}}
+</picker>
+</view>
+</view>
+</view>
+<view class="grayLine"></view>
+<!--预计到达时间-->
+<view class="setting">
+<view class = "item">
+<view class="number">预计到达日期</view>
+<view class="triangle-up"><image style="width:40rpx;height:30rpx;" src="../../images/down.png"></image></view>
+<view class="numberPicker">
+<picker mode="time" value="{{timeValue}}" start="00:00" end="24:00" bindchange="timePickerBindchange">
+  {{timeValue}}
+</picker>
+</view>
+</view>
+</view>
+<view class="grayLine"></view>
+<button class="loginButton" bindtap="register">登记</button>
+</view>
+</view>
