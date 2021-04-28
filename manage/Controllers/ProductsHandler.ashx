@@ -1,4 +1,4 @@
-﻿<%@ WebHandler Language="C#" Class="customHandler" %>
+﻿<%@ WebHandler Language="C#" Class="AdressHandler" %>
 
 using System;
 using System.Web;
@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 using System.Collections.Generic;
 using System.Data.Entity;
 
-public class customHandler : BaseHandler
+public class ProductsHandler : BaseHandler
 {
     public void GetById(HttpContext context)
     {
@@ -21,7 +21,7 @@ public class customHandler : BaseHandler
     public void Add(HttpContext context)
     {
         //前台放在body里把json格式的文件传过来
-        string data = context.Request["data"];
+        string data = context.Request.Form["data"];
         //var session = new IF_Session();
         //var userid = session.UserKey;
         IF_EntityTools tools = new IF_EntityTools();
@@ -29,22 +29,23 @@ public class customHandler : BaseHandler
 
         try
         {
-            customMade new1 = new customMade();
-            new1 = (customMade)new ConvertUtil().SetValueFromDataField(new1, ldf);
-            new1.cTime = DateTime.Now;
+            Products new1 = new Products();
+            new1 = (Products)new ConvertUtil().SetValueFromDataField(new1, ldf);
+
             //使用add方法把模型加进去
-            mall.customMade.Add(new1);
+            mall.Products.Add(new1);
             //加完一定要保存
             mall.SaveChanges();
             WriteSuccess(context, new1);
         }
         catch (Exception ex)
         {
-            WriteFailure(context,ex.Message);
+            WriteFailure(context, ex.Message);
             return;
 
         }
     }
+
     public void Edit(HttpContext context)
     {
         //前台放在body里把json格式的文件传过来
@@ -55,11 +56,10 @@ public class customHandler : BaseHandler
 
         try
         {
-            customMade new1 = mall.customMade.Find(int.Parse(iddf.Value.ToString()));
-            new1 = (customMade)new ConvertUtil().SetValueFromDataField(new1, ldf);
-            new1.cTime = DateTime.Now;
+            Products new1 = mall.Products.Find(int.Parse(iddf.Value.ToString()));
+            new1 = (Products)new ConvertUtil().SetValueFromDataField(new1, ldf);
             //使用add方法把模型加进去
-            mall.customMade.Attach(new1);
+            mall.Products.Attach(new1);
             mall.Entry(new1).State = EntityState.Modified;
             //加完一定要保存
             mall.SaveChanges();
@@ -67,7 +67,7 @@ public class customHandler : BaseHandler
         }
         catch (Exception ex)
         {
-            WriteFailure(context,ex.Message);
+            WriteFailure(context, ex.Message);
             return;
 
         }
@@ -80,7 +80,7 @@ public class customHandler : BaseHandler
         {
             foreach (var item in ds)
             {
-                mall.customMade.Remove(mall.customMade.Find(int.Parse(item)));//删除
+                mall.Products.Remove(mall.Products.Find(int.Parse(item)));//删除
                 mall.SaveChanges();
             }
             WriteSuccess(context);
@@ -110,10 +110,10 @@ public class customHandler : BaseHandler
         //新建一个分页对象
         IF_SQLPager pager = new MSSQL_help().setPager(sl, context.Request);
         //在查询筛选中加条件
-        Expression<Func<customMade, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable ;
-        //seleWhere = seleWhere.And(o => o.jk.Contains(unitkey));
+        Expression<Func<Products, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable ;
+        seleWhere = seleWhere.And(o => o.title.Contains(unitkey));
 
-        var linq = from v in mall.Set<customMade>()
+        var linq = from v in mall.Set<Products>()
                    select v;
 
         linq = linq.Where(seleWhere);
