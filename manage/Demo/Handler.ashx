@@ -7,9 +7,17 @@ using IF_Model;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
+using System.Data.Entity;
 
 public class Handler : BaseHandler
 {
+    public void GetById(HttpContext context)
+    {
+        string id = context.Request["id"];
+        var r = mall.Address.Find(id);
+        WriteSuccess(context, r);
+    }
+
     public void Add(HttpContext context)
     {
         //前台放在body里把json格式的文件传过来
@@ -33,8 +41,7 @@ public class Handler : BaseHandler
         }
         catch (Exception ex)
         {
-            context.Response.ContentType = "text/plain";
-            context.Response.Write(ex);
+            WriteFailure(context,ex.Message);
             return;
 
         }
@@ -49,7 +56,10 @@ public class Handler : BaseHandler
         Address address = mall.Address.Find(iddf.Value.ToString());
         address = (Address)new ConvertUtil().SetValueFromDataField(address, ldf);
         //address.address1 =。。。
+        mall.Address.Attach(address);
+        mall.Entry(address).State = EntityState.Modified;
         mall.SaveChanges();
+
     }
     public void GetList(HttpContext context)
     {
