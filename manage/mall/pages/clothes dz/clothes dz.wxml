@@ -1,0 +1,66 @@
+<!--pages/Clothing Reservation/Clothing Reservation.wxml-->
+<!--图标未找-->
+<view class="all">
+
+<!--form-->
+<form bindsubmit='loginClick'>
+ <image style="height:1400rpx;width:820rpx;"  src='../../images/clyd.jpg'></image>
+ <view class="td">
+<text>请在下方输入您测到的数据</text>
+</view>
+<!--肩宽-->
+  <view class="phone">
+    <view class="phone-text">肩宽（cm）</view>
+    <view class="add" bindtap="add"><image src="../../images/add.png" style="height:55rpx;width:55rpx;border-radius: 5rpx;"></image></view>
+    <view class="subtract" bindtap="subtract"><image src="../../images/subtract.png" style="height:55rpx;width:55rpx;"></image></view>
+    <view class="phone-input"><input type="number"  bindinput='getJK' value="{{JK}}"/></view>
+  </view>
+<!--胸围-->
+  <view class="phone">
+    <view class="phone-text">胸围（cm）</view>
+    <view class="add" bindtap="add1"><image src="../../images/add.png" style="height:55rpx;width:55rpx;border-radius: 5rpx;"></image></view>
+    <view class="subtract" bindtap="subtract1"><image src="../../images/subtract.png" style="height:55rpx;width:55rpx;"></image></view>
+    <view class="phone-input"><input type="number"  bindinput='getXW' value="{{XW}}"/></view>
+  </view>
+  
+<!--腰围-->
+  <view class="phone">
+    <view class="phone-text">腰围（cm）</view>
+    <view class="add" bindtap="add2"><image src="../../images/add.png" style="height:55rpx;width:55rpx;border-radius: 5rpx;"></image></view>
+    <view class="subtract" bindtap="subtract2"><image src="../../images/subtract.png" style="height:55rpx;width:55rpx;"></image></view>
+    <view class="phone-input"><input type="number"  bindinput='getYW' value="{{YW}}"/></view>
+   </view>
+<!--臀围-->
+<view class="phone">
+    <view class="phone-text">臀围（cm）</view>
+    <view class="add" bindtap="add3"><image src="../../images/add.png" style="height:55rpx;width:55rpx;border-radius: 5rpx;"></image></view>
+    <view class="subtract" bindtap="subtract3"><image src="../../images/subtract.png" style="height:55rpx;width:55rpx;"></image></view>
+    <view class="phone-input"><input type="number"  bindinput='getTW' value="{{TW}}"/></view>
+  </view>
+<!--袖长-->
+  <view class="phone">
+    <view class="phone-text">袖长（cm）</view>
+    <view class="add" bindtap="add4"><image src="../../images/add.png" style="height:55rpx;width:55rpx;border-radius: 5rpx;"></image></view>
+    <view class="subtract" bindtap="subtract4"><image src="../../images/subtract.png" style="height:55rpx;width:55rpx;"></image></view>
+    <view class="phone-input"><input type="number"  bindinput='getXC' value="{{XC}}"/></view>
+  </view>
+<!--裙长-->
+  <view class="phone">
+    <view class="phone-text">裙长（cm）</view>
+    <view class="add" bindtap="add5"><image src="../../images/add.png" style="height:55rpx;width:55rpx;border-radius: 5rpx;"></image></view>
+    <view class="subtract" bindtap="subtract5"><image src="../../images/subtract.png" style="height:55rpx;width:55rpx;"></image></view>
+    <view class="phone-input"><input type="number"  bindinput='getQC' value="{{QC}}"/></view>
+   </view>
+  <navigator url="/pages/yd/yd" redirect>
+  <button class="loginButton"   form-type='submit'>测量引导</button>
+</navigator>
+ <button class="loginButton"   form-type='submit'>保存数据</button>
+</form>
+<navigator url="/pages/xxdz/xxdz" redirect>
+  <button class="loginButton"   form-type='submit'>返回</button>
+</navigator>
+<view class="isBooking" wx:if="{{!isBooking}}">当前未定制!</view>
+<view class="isBooking" wx:if="{{isBooking}}">您已预定，身高：{{height}}厘米，体重：{{weight}}千克，脚码：{{jm}}码，可重新修改</view>
+
+</view>
+

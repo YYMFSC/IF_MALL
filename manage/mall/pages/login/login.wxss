@@ -1,0 +1,61 @@
+page{
+  height: 100%;
+}
+.page{
+  height: 100%;
+  width:750rpx;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: -50;
+
+}
+
+.text1{
+  color:#fff ;
+}
+
+.input-studentId-password{
+  height: 44rpx;
+  width: 626rpx;
+  background-color: #ffffff;
+  margin: 40rpx;
+  padding: 20rpx;
+  border: solid 2rpx #a5a5a5;
+  border-radius: 10rpx;
+}
+
+.passwordText{
+  margin-left:40rpx;
+  color:#ffffff ;
+}
+
+
+
+.input-yzm{
+  height: 44rpx;
+  width: 450rpx;
+  background-color: #ffffff;
+  margin: 40rpx;
+  padding: 20rpx;
+  border: solid 2rpx #a5a5a5;
+  border-radius: 10rpx;
+}
+
+.loginButton{
+  margin-top: 80rpx;
+  width: 80%;
+  /*margin-left: 100rpx;
+  width: 550rpx;*/
+  background-color: #2e8539;
+  color: #fff;
+  margin-bottom: 30rpx;
+}
+
+.seePass{
+  position: fixed;
+  top:310rpx;
+  right:60rpx;
+  padding:20rpx;
+  z-index:50;
+}

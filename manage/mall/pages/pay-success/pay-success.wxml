@@ -1,0 +1,12 @@
+<!--pages/pay-success/pay-success.wxml-->
+<view id="main">
+    <view class="success bg-grey">
+        <image src="http://static.dmall.com/kayak-project/cashier/dist/cashier/common/image/icon-weixinpay-sucess.png"></image>
+        <view class="font-size-0 font-grey-deep" style="margin: 30rpx 0 20rpx; 0">支付成功</view>
+        <view class="font-size-4 font-grey-deep">多点君会尽快安排发货，请耐心等待哟</view>
+    </view>
+    <view class="btn">
+        <view class="toHome font-size-2" bindtap="backHome">回到首页</view>
+        <view class="order font-size-2" bindtap="toOrderList">查看订单</view>
+    </view>
+</view>

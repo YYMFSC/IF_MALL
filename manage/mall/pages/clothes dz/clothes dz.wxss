@@ -1,0 +1,124 @@
+/* pages/Clothing Reservation/Clothing Reservation.wxss */
+
+.phone{
+  margin-top:30rpx;
+  margin-bottom: 30rpx;
+  width:750rpx;
+  height:80rpx;
+}
+.phone-text{
+  float:left;
+  margin-left:30rpx;
+
+}
+.phone-input{
+  border:1rpx solid rgba(0, 0, 0, 0.637);
+  width:300rpx;
+  
+  border-radius: 5rpx;
+  padding-left:10rpx;
+  padding-top:5rpx;
+  float:right;
+}
+
+
+.loginButton{
+  margin-top: 50rpx;
+  /*width: 550rpx;*/
+  background-color: #2e8539;
+  color: #fff;
+  margin-bottom: 30rpx;
+  
+}
+
+.isBooking{
+  margin-left:60rpx;
+  margin-top:60rpx;
+  text-align: center;
+  width:570rpx;
+  padding:30rpx;
+  box-shadow: 0px 2px 3px 3px rgb(233, 231, 231);
+  color:red;
+}
+
+.subtract{
+float:right;
+
+}
+
+.add{
+float:right;
+margin-right:50rpx;
+}
+
+/* 顶部 */
+.top{
+  width: 100vw;
+  height: 80rpx;
+  padding: 0 20rpx;
+  line-height: 80rpx;
+  font-size: 34rpx;
+  border-bottom: 1px solid #000;
+ }
+ .top-text{
+  float: left
+ }
+ /* 下拉框 */
+ .top-selected{
+   width: 50%;
+   display: flex;
+   float: right;
+   align-items: center;
+   justify-content: space-between;
+   border: 1px solid #ccc;
+   padding: 0 10rpx;
+   font-size: 30rpx;
+ }
+ /* 下拉内容 */
+ .select_box {
+   background-color: #fff;
+   padding: 0 20rpx;
+   width: 50%;
+   float: right;
+   position: relative;
+   right: 0;
+   z-index: 1;
+   overflow: hidden;
+   text-align: left;
+   animation: myfirst 0.5s;
+   font-size: 30rpx;
+ }
+ .select_one {
+   padding-left: 20rpx;
+   width: 100%;
+   height: 60rpx;
+   position: relative;
+   line-height: 60rpx;
+   border-bottom: 1px solid #ccc;
+ }
+.td
+{
+  text-align:center;
+}
+ /* 下拉过度效果 */
+ @keyframes myfirst {
+   from {
+     height: 0rpx;
+   }
+   
+   to {
+     height: 210rpx;
+   }
+ }
+ /* 下拉图标 */
+ .top-selected image{
+  height:50rpx;
+  width:50rpx;
+  position: absolute;
+  right: 0rpx;
+  top: 20rpx;
+ }
+ .setting{
+  width:100%;
+  height:55rpx;
+}

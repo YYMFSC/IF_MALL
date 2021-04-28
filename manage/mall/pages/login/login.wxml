@@ -1,0 +1,81 @@
+<view class="page"><image style="height:100%;width:750rpx;"  src='../../images/fm.jpg'></image></view>
+<!--登录-->
+<view class='all'>
+<!--标志-->
+<image class='zjsr' style='float:left;margin-left:200rpx;margin-right:20rpx;margin-top:50rpx;width:80rpx;height:80rpx;margin-bottom:70rpx;' src='../../images/qplogo.jpg'></image>
+<view class="text1" style="font-size:40rpx;padding-top:60rpx;margin-bottom:70rpx;color:white;">旗袍定制销售</view>
+<!--form-->
+<form bindsubmit='loginClick'>
+
+<!--学号/工号-->
+  <view class="input-studentId-password">
+    <input type="number" placeholder="请输入账号" bindinput='getStudentId' maxlength="14"/>
+  </view>
+
+<!--密码-->
+<view class="input-studentId-password">
+    <input type="text"  type="{{typeName}}" placeholder="请输入密码" bindinput='getPassword'/>
+    <view class='seePass'  bindtap='showPass'>
+    <image class='image1' style='width:50rpx;height:50rpx;' src='../../images/xs.png'wx:if="{{passFlag == 1}}"></image>
+    <image class='image1' style='width:50rpx;height:50rpx;' src='../../images/xs2.png' wx:else></image>
+         </view>
+  </view>
+
+<view class='passwordText'><text ></text></view>
+
+
+<!--验证码-->
+    <view class="input-yzm">
+      <input type="text" id="code" name="codeImg" placeholder-class="C3" bindinput="codeImg" placeholder="请输入验证码" maxlength="4" value="{{imgCode}}" />
+      </view>
+     <view style="position:relative;" bindtap="onTap">
+<canvas style="width:160rpx;height:70rpx;position:absolute;right:40rpx;bottom:45rpx;text-align: center;z-index:9999;" canvas-id="canvas"></canvas>
+</view>  
+
+  <!--<input type="text" id="code" name="codeImg" placeholder-class="C3" bindinput="codeImg" placeholder="请输入图形验证码" maxlength="4" value="{{imgCode}}"/>
+<view style="position:relative;" bindtap="onTap">
+<canvas style="width:160rpx;height:70rpx;position:absolute;right:0rpx;bottom:10rpx;text-align: center;z-index:9999;" canvas-id="canvas"></canvas>
+</view>
+-->
+<navigator url="/pages/home/home" redirect>
+  <button class="loginButton"  form-type='submit'>登录</button>
+</navigator>
+</form>
+
+</view>
+
+
+
+<!-- <view>
+    <image class='pl-title' style='width:430rpx;height:120rpx;' src='../../Common/imgs/phoneLogin/loginText.png'></image>
+  </view>
+
+  <view class='pl-title-text'>欢迎加入！</view>
+<form bindsubmit='LoginClick'>
+  <view class="pl-inp-sjh">
+    <input type="number" placeholder="请输入手机号" bindinput='getPhoneNum'/>
+  </view>
+
+  <view class='pl-yzm'>
+    <view class="pl-inp-yzm">
+      <input type="number" placeholder="请输入验证码" bindinput='code' />
+    </view>
+    <button class='pl-btn-yzm' bindtap='gain'  disabled='{{gainFlag}}'>{{key}}</button>
+  </view>
+  <view class='main1'>
+  <checkbox-group bindchange="checkboxChange">
+    <label class="checkbox">
+    <checkbox class='pl-agree' value="{{name}}" checked="{{checked}}" />
+    {{value}}
+      <text class='pl-op'>《上门收用户注册协议》</text>
+  </label>
+    
+
+  </checkbox-group>
+  </view>
+  <button class="pl-btn-zc" type="{{btnstate}}" form-type='submit'>{{operation}}</button>
+</form>
+  <view>
+  </view>-->
+
+

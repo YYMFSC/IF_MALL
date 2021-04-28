@@ -1,0 +1,41 @@
+<!--pages/cart/cart.wxml-->
+<import src="../../common/pub/pub.wxml" />
+<view id="main" class="bg-grey">
+    <template is="address" data="{{addr}}"></template>
+
+    <view class="cart base-style">
+        <view class="item bg-white" wx:for="{{shops}}" wx:key="shopID" wx:for-item="shopitem">
+            <view class="shop">
+                    <icon class="icon checkbox {{shopitem.checked ? 'checked':''}}" bindtap="shopCheckboxTap" data-shopid="{{shopitem.shopID}}"></icon>
+                    <image src="{{shopitem.shopIcon}}" aspectFit widthFix="60rpx" class="shopIcon"></image>
+                    <view class="shopName font-size-1 font-grey-deep">{{shopitem.shopName}}</view>
+            </view>
+            <view class="cartList">
+                <view class="pro" wx:for="{{shopitem.CartData}}" wx:key="id">
+                    <icon class="icon checkbox {{item.checked ? 'checked':''}}" bindtap="itemCheckboxTap" data-shopid="{{shopitem.shopID}}" data-cid="{{item.id}}"></icon>
+                    <view class="proInfo {{index==0 ? '':'border-top'}}">
+                        <view class="proName font-size-1">{{item.title}}</view>
+                        <view class="price font-size-1 font-bold">￥{{item.price}}</view>
+                    </view>
+                    <view class="count {{index==0 ? '':'border-top'}}">
+                        <icon class="icon minus" bindtap="minus" data-pid="{{item.proId}}" data-count="{{item.count}}"></icon>
+                        <view class="num font-size-2">{{item.count}}</view>
+                        <icon class="icon plus" bindtap="plus" data-pid="{{item.proId}}" data-count="{{item.count}}"></icon>
+                    </view>
+                </view>
+            </view>
+            <view class="summary">
+                <view class="paymentInfo">
+                    <view class="all font-size-1 font-orange font-bold">合计：￥{{shopitem.all}}（不含运费）</view>
+                    <view class="discount  font-size-4 font-grey">促销已抵扣金额：￥{{shopitem.discount}}</view>
+                </view>
+                <view class="confirm bg-orange font-size-3 font-white" bindtap="buy" data-shopid="{{shopitem.shopID}}">选好了</view>
+            </view>
+        </view>
+
+    </view>
+
+
+
+    <template is="navbar" data="{{tabs, currentPage}}"></template>
+</view>

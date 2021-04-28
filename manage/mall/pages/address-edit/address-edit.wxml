@@ -1,0 +1,28 @@
+<!--pages/address-edit/address-edit.wxml-->
+<view id="address">
+    <view class="item">
+        <view>收 件 人：</view>
+        <input placeholder="请输入收件人姓名"></input>
+    </view>
+    <view class="item">
+        <view>电    话：</view>
+        <input placeholder="请输入收件人电话"></input>
+    </view>
+    <view class="item">
+        <view>省    份：</view>
+        <input placeholder="请输入省"></input>
+    </view>
+    <view class="item">
+        <view>城    市：</view>
+        <input placeholder="请输入市"></input>
+    </view>
+    <view class="item">
+        <view>区    县：</view>
+        <input placeholder="请输入区"></input>
+    </view>
+    <view class="item">
+        <view>具体地址：</view>
+        <input placeholder="请输入具体地址"></input>
+    </view>
+    <button class="loginButton"   form-type='submit'>保存数据</button>
+</view>

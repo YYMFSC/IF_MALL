@@ -1,0 +1,175 @@
+@import "../basestyle/basestyle.wxss";
+/* 轮播图 */
+.slider { height : 100%; position: relative; background-color: #efefef; }
+.slider swiper { height : 100%; }
+.slider swiper navigator,
+.slider swiper image { width : 100%; height : 100%; }
+.slider .pagination { position: absolute; bottom : 10rpx; width : 100%; height : 20rpx; display: flex; align-content : center; justify-content:center; }
+.slider .pagination view { width: 14rpx; height : 14rpx; border-radius: 7rpx; background-color: #ccc; margin : 0 10rpx; }
+.slider .pagination view.current { background-color: #f5692e; }
+
+.flex-col { display: flex; }
+.flex-col .col { flex-grow : 1;  }
+
+.navigator-hover { background-color: transparent; }
+/* toorBar */
+#toolBar {
+    display: flex;
+    border-top: solid 1rpx #eee;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    background-color: white;
+    padding-top: 10rpx;
+}
+#toolBar .item {
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
+}
+#toolBar .item .title {
+    text-align: center;
+    margin-top: -8rpx;
+}
+#toolBar .item .num {
+    background-color: red;
+    color: white;
+    width: 33rpx;
+    height: 33rpx;
+    border-radius: 50%;
+    padding: 5rpx;
+    position: absolute;
+    top: 0;
+    right: 25%;
+}
+/* searchBox */
+.searchBox {
+    background-color: #fff;
+    height: 65rpx;
+    position: fixed;
+    top: 0;
+    border-bottom: solid 1rpx #eee;
+    padding: 20rpx;
+}
+.searchBox .Box {
+    border-radius: 30rpx;
+    width: 710rpx;
+    height: 100%;
+}
+.searchBox input {
+    height: 100%;
+    line-height: 100%;
+    padding-left: 5rpx;
+}
+.searchBox icon.search {
+    float: left;
+    margin-left: 8rpx;
+}
+.searchBox icon.close-small {
+    float: right;
+    margin-right: 20rpx;
+    margin-top: 12rpx;
+}
+/* itemList-line */
+.item-line {
+    padding: 10rpx;
+    height: 175rpx;
+    display: flex;
+    border-bottom: solid 1rpx #eee;
+}
+.item-line .pic image {
+    width: 150rpx;
+    height: 175rpx;
+}
+.item-line .proInfo {
+    padding: 10rpx;
+    flex-grow: 1;
+}
+.item-line .proInfo .proName{
+    height: 80rpx;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.item-line .proInfo .buy {
+    padding-top: 10rpx;
+    height: 85rpx;
+    display: flex;
+}
+.item-line .proInfo .buy .price {
+    flex-grow: 4;
+}
+.item-line .proInfo .buy .add {
+    flex-grow: 1;
+    text-align: right;
+    align-self: flex-end;
+}
+.item-line .proInfo .buy .count {    
+    flex-grow: 1;
+    text-align: right;
+    align-self: center;
+}
+
+/* itemList-block */
+.itemList-block {
+    display: flex;
+    flex-wrap: wrap;
+}
+/* .proList .item {
+    float: left;
+    width: 229rpx;
+    height: 379rpx;
+    border-top: solid 1rpx #eee;
+    padding: 10rpx;
+} */
+.item-block {
+    width: 229rpx;
+    height: 379rpx;
+    border-top: solid 1rpx #eee;
+    padding: 10rpx;
+}
+.item-block .proName {
+    height: 70rpx;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.item-block .pic image {
+    width: 220rpx;
+    height: 220rpx;
+}
+
+.item-block .buy {
+    display: flex;
+    margin-top: 15rpx;
+}
+
+.item-block .buy .price {
+    flex-grow: 4;
+}
+
+.item-block .buy .add {
+    flex-grow: 1;
+    padding-top: 8rpx;
+    width: 50rpx;
+}
+/* address */
+.deliver-address {
+    height: 90rpx;
+    padding: 15rpx 20rpx;
+    line-height: 50rpx;
+    display: flex;
+}
+.deliver-address .location {
+    align-self: center;
+    margin: 0 15rpx;
+}
+.line {
+    height: 4rpx;
+    background: url('http://static.dmall.com/kayak-project/cart/dist/cart/common/image/shoppingline.png') repeat-x 0 0;
+    background-size: auto 4rpx;
+}

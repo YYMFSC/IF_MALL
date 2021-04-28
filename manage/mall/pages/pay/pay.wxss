@@ -1,0 +1,115 @@
+/* pages/pay/pay.wxss */
+@import "../../common/pub/pub.wxss";
+#main {
+    padding-bottom: 105rpx;
+    min-height: 1000rpx;
+}
+.delivery {
+    margin-top: 20rpx;
+    border-bottom: solid 1rpx #eee;
+}
+.delivery .item {
+    padding: 0 20rpx;
+    display: flex;
+    border-top: solid 1rpx #eee;
+    height: 75rpx;
+    line-height: 75rpx;
+    justify-content: space-between
+}
+
+.pay {
+    margin-top: 20rpx;
+    border-bottom: solid 1rpx #eee;
+}
+.pay .item {
+    padding: 0 20rpx;
+    display: flex;
+    border-top: solid 1rpx #eee;
+    justify-content: space-between;
+}
+.pay .item .head {
+    display: flex;
+    height: 60rpx;
+    padding: 7.5rpx 0;
+    line-height: 60rpx;
+}
+.pay .item .head .text {
+    margin-left: 10rpx;
+}
+.comment {
+    margin-top: 20rpx;
+    border-top: solid 1rpx #eee;
+    border-bottom: solid 1rpx #eee;
+    height: 75rpx;
+    display: flex;
+    padding: 0rpx 20rpx;
+}
+.comment .text {
+    line-height: 75rpx;
+    width: 80rpx;
+}
+.comment input {
+    align-self: center;
+    width: 100%;
+    margin-left: 20rpx;
+}
+.priceInfo {
+    margin-top: 20rpx;
+    border-bottom: solid 1rpx #eee;
+}
+.priceInfo .head {
+    border-top: solid 1rpx #eee;
+    padding: 0 20rpx;
+    height: 75rpx;
+    line-height: 75rpx;
+}
+.priceInfo .detail {
+    border-top: solid 1rpx #eee;
+    padding: 0 20rpx;
+}
+.priceInfo .detail .item {
+    height: 55rpx;
+    line-height: 55rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.priceInfo .sum {
+    border-top: solid 1rpx #eee;
+    padding: 0 20rpx;
+    height: 75rpx;
+    line-height: 75rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.proList {
+    margin-top: 20rpx;
+    border-bottom: solid 1rpx #eee;
+}
+.proList .head {
+    border-top: solid 1rpx #eee;
+    border-bottom: solid 1rpx #eee;
+    height: 75rpx;
+    line-height: 75rpx;
+    padding: 0 20rpx; 
+}
+
+.foot {    
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    height: 99rpx;
+    width: 100%;
+    border-top: solid 1rpx #eee;
+    justify-content: space-between;
+    align-items: center;
+}
+.foot .summary {
+    display: flex;
+    padding: 0 20rpx;
+}
+.foot .submit {
+    width: 190rpx;
+    text-align: center;
+    line-height: 99rpx;
+}

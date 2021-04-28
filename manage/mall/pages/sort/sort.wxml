@@ -1,0 +1,20 @@
+<!--pages/classify/classify.wxml-->
+<import src="../../common/pub/pub.wxml" />
+<view id="main">
+    <template is="searchBox" data="{{searchBox}}"></template>
+    <view class="proList" wx:if="{{searchBox}}" style="padding-top: 105rpx;">
+        <template is="itemList-line" data="{{proData}}"></template>
+    </view>
+    <view class="classify" wx:if="{{!searchBox}}">
+        <view class="navbar-left bg-grey">
+            <block wx:for="{{sortTabs}}">
+                <view class="item font-size-1 {{item.tID==currentSort ? 'current-sort font-orange':'font-black'}}" bindtap="sortTap" data-val="{{item.tID}}">{{item.tName}}</view>
+            </block>
+        </view>
+        <view class="proList">
+            <template is="itemList-line" data="{{proData, showAdd}}"></template>
+        </view>
+        <template is="navbar" data="{{tabs, currentPage}}"></template>
+    </view>
+
+</view>

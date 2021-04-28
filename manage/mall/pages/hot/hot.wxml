@@ -1,0 +1,6 @@
+<!--pages/hot/hot.wxml-->
+<import src="../../common/pub/pub.wxml" />
+<view id="main">
+    <image class="ad" src="../images/dmqc.jpg" asprctFit></image>
+    <template is="itemList-block" data="{{proData}}"></template>
+</view>

@@ -9,14 +9,14 @@ namespace DingKit
     /// <summary>
     /// 对称加密算法类,用于各类信息的加密解密
     /// </summary>
-    public class CDataCrypt
+    public  class CDataCrypt
     {
         /// <summary>
         /// 字符串加密
         /// </summary>
         /// <param name="str">待加密字符串</param>
         /// <returns>加密后的字符串</returns>
-        public string Encrypto(string str)
+        public static string Encrypto(string str)
         {
             char[] Base64Code = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '|', '/', '-' };
             byte empty = (byte)0;
@@ -119,7 +119,7 @@ namespace DingKit
         /// <returns></returns>
 		public static string EncryptDing(string Text) 
 		{
-			return Encrypt(Text,"DingJianLong");
+			return Encrypt(Text, "ShenChao");
 		}
 		/// <summary> 
 		/// 加密数据 
@@ -158,7 +158,7 @@ namespace DingKit
         /// <returns></returns>
 		public static string DecryptDing(string Text) 
 		{
-            return Decrypt(Text, "DingJianLong");
+            return Decrypt(Text, "ShenChao");
 		}
 		/// <summary> 
 		/// 解密数据 
