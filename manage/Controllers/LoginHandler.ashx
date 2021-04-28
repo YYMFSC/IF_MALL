@@ -35,11 +35,12 @@ public class LoginHandler : BaseHandler
     {
         var userName = context.Request["uid"];
         var passWord = context.Request["pwd"];
-        var kind = int.Parse(context.Request["kind"]);
+        var kind=context.Request["kind"];
+        var kinds = int.Parse(kind);
         string pas = CDataCrypt.EncryptDing(passWord);
         var linq = (from v in mall.Set<User>()
-                   where v.name == userName && v.password == pas&&v.kind==kind
-                   select v).ToList();
+                    where v.name == userName && v.password == pas&&v.kind==kinds
+                    select v).ToList();
         if(linq.Count()>0)
         {
             WriteSuccess(context, linq.FirstOrDefault());

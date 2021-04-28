@@ -74,7 +74,7 @@ Page({
       this.setData({ JK: parseInt(this.data.JK - 1) })
   },
   add1(e) {
-    this.setData({ XW: parseInt(this.data.XW + 1) })
+    this.setData({ XW: parseInt(this.data.XW + 2) })
   },
   subtract1(e) {
     if (this.data.XW > 1)

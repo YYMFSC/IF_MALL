@@ -9,12 +9,12 @@
 
 <!--学号/工号-->
   <view class="input-studentId-password">
-    <input type="number" placeholder="请输入账号" bindinput='getStudentId' maxlength="14"/>
+    <input type="number" data-name="uid" placeholder="请输入账号" bindinput='getFormval' maxlength="14"/>
   </view>
 
 <!--密码-->
 <view class="input-studentId-password">
-    <input type="text"  type="{{typeName}}" placeholder="请输入密码" bindinput='getPassword'/>
+    <input type="text"  type="{{typeName}}" data-name="pwd" placeholder="请输入密码"  bindinput='getFormval'/>
     <view class='seePass'  bindtap='showPass'>
     <image class='image1' style='width:50rpx;height:50rpx;' src='../../images/xs.png'wx:if="{{passFlag == 1}}"></image>
     <image class='image1' style='width:50rpx;height:50rpx;' src='../../images/xs2.png' wx:else></image>
@@ -25,21 +25,21 @@
 
 
 <!--验证码-->
-    <view class="input-yzm">
+    <!-- <view class="input-yzm">
       <input type="text" id="code" name="codeImg" placeholder-class="C3" bindinput="codeImg" placeholder="请输入验证码" maxlength="4" value="{{imgCode}}" />
       </view>
      <view style="position:relative;" bindtap="onTap">
 <canvas style="width:160rpx;height:70rpx;position:absolute;right:40rpx;bottom:45rpx;text-align: center;z-index:9999;" canvas-id="canvas"></canvas>
-</view>  
+</view>  --> 
 
   <!--<input type="text" id="code" name="codeImg" placeholder-class="C3" bindinput="codeImg" placeholder="请输入图形验证码" maxlength="4" value="{{imgCode}}"/>
 <view style="position:relative;" bindtap="onTap">
 <canvas style="width:160rpx;height:70rpx;position:absolute;right:0rpx;bottom:10rpx;text-align: center;z-index:9999;" canvas-id="canvas"></canvas>
 </view>
 -->
-<navigator url="/pages/home/home" redirect>
+
   <button class="loginButton"  form-type='submit'>登录</button>
-</navigator>
+
 </form>
 
 </view>
