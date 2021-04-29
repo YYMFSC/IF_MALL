@@ -1,28 +1,30 @@
 ﻿[
-	{ "id": "1", iconCls: "fa fa-send-o", text: "敏捷开发", children: [
-        { "id": "1_1", iconCls: "fa fa-desktop", text: "代码生成器", url: "pages/1.html" },
-        { "id": "1_2", iconCls: "fa fa-search", text: "单页管理", url: "pages/1.html"},
-         { "id": "1_3", iconCls: "fa fa-send-o", text: "插件演示", url: "pages/1.html" },
-         { "id": "1_4", iconCls: "fa fa-window-restore", text: "开发示例", children: [
-                    { "id": "1_4_1", iconCls: "fa fa-assistive-listening-systems", text: "商机管理" , url: "pages/1.html"},
-                    { "id": "khgl", iconCls: "fa fa-vcard", text: "客户管理", url: "pages/1.html" },
-                    { "id": "kpxx", iconCls: "fa fa-file-excel-o", text: "开票信息" , url: "pages/1.html"},
-                    { "id": "khdd", iconCls: "fa fa-modx", text: "客户订单" , url: "pages/1.html"}
+	{ "id": "1", iconCls: "fa fa-send-o", text: "旗袍管理", children: [
+        { "id": "1_1", iconCls: "fa fa-desktop", text: "旗袍上下架", url: "Products.html" },
+         { "id": "1_2", iconCls: "fa fa-search", text: "成品旗袍订单管理", url: "DoorToDoor.html"},
+         { "id": "1_3", iconCls: "fa fa-send-o", text: "线下测量定制订单", url: "DoorToDoor.html" },
+         { "id": "1_4", iconCls: "fa fa-window-restore", text: "线上数据定制订单", url: "customMade.html" }
             ]
-         }
-	    ]
 	},
-    { "id": "xtgl", iconCls: "fa fa-desktop", text: "系统管理", children: [
-        { "id": "xzgl", iconCls: "fa fa-leaf", text: "行政管理", url: "pages/1.html" },
-        { "id": "sjzd", iconCls: "fa fa-book", text: "数据字典", url: "pages/1.html" },
-        { "id": "djbm", iconCls: "fa fa-barcode", text: "单据编码", url: "pages/1.html" },
-        { "id": "xtgn", iconCls: "fa fa-navicon", text: "系统功能", url: "pages/1.html" },
-        { "id": "excel", iconCls: "fa fa-file-excel-o", text: "Excel配置", children: [
-                  { "id": "drpz", iconCls: "fa fa-sign-out", text: "导入配置", url: "pages/1.html" },
-                  { "id": "dcpz", iconCls: "fa fa-sign-out", text: "导出配置", url: "pages/1.html" }
+    { "id": "2", iconCls: "fa fa-desktop", text: "功能管理", children: [
+       { "id": "2_1", iconCls: "fa fa-leaf", text: "客户端账号密码", url: "pages/1.html" },
+        { "id": "2_2", iconCls: "fa fa-book", text: "收货地址", url: "Address.html" }
+        { "id": "2_3", iconCls: "fa fa-barcode", text: "系统消息", url: "pages/1.html" }
             ]
-        },
-        { "id": "sjgl", iconCls: "fa fa-database", text: "数据管理", children: [
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+        /*{ "id": "sjgl", iconCls: "fa fa-database", text: "数据管理", children: [
                 { "id": "sjklj", iconCls: "fa fa-plug", text: "数据库连接", url: "pages/1.html" },
                 { "id": "sjbgl", iconCls: "fa fa-table", text: "数据表管理", url: "pages/1.html" },
                 { "id": "sjygl", iconCls: "fa fa-bullseye", text: "数据源管理", url: "pages/1.html" }
@@ -93,5 +95,5 @@
             ]
         }
     ]
-}
+}*/
 ]

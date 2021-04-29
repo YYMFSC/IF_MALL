@@ -12,14 +12,13 @@ namespace IF_Model
     using System;
     using System.Collections.Generic;
     
-    public partial class DoorToDoor
+    public partial class mate
     {
         public int id { get; set; }
-        public string nub { get; set; }
-        public string age { get; set; }
-        public string adress { get; set; }
-        public System.DateTime time { get; set; }
-        public int uid { get; set; }
-        public System.DateTime cTime { get; set; }
+        public Nullable<int> uid { get; set; }
+        public string img { get; set; }
+        public string title { get; set; }
+        public string neirong { get; set; }
+        public string price { get; set; }
     }
 }

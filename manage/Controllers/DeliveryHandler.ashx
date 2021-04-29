@@ -1,4 +1,4 @@
-﻿<%@ WebHandler Language="C#" Class="ProductsHandler" %>
+﻿<%@ WebHandler Language="C#" Class="DeliveryHandler" %>
 
 using System;
 using System.Web;
@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 using System.Collections.Generic;
 using System.Data.Entity;
 
-public class ProductsHandler : BaseHandler
+public class DeliveryHandler : BaseHandler
 {
     public void GetById(HttpContext context)
     {
@@ -29,11 +29,11 @@ public class ProductsHandler : BaseHandler
 
         try
         {
-            Products new1 = new Products();
-            new1 = (Products)new ConvertUtil().SetValueFromDataField(new1, ldf);
+            Delivery new1 = new Delivery();
+            new1 = (Delivery)new ConvertUtil().SetValueFromDataField(new1, ldf);
 
             //使用add方法把模型加进去
-            mall.Products.Add(new1);
+            mall.Delivery.Add(new1);
             //加完一定要保存
             mall.SaveChanges();
             WriteSuccess(context, new1);
@@ -56,10 +56,10 @@ public class ProductsHandler : BaseHandler
 
         try
         {
-            Products new1 = mall.Products.Find(int.Parse(iddf.Value.ToString()));
-            new1 = (Products)new ConvertUtil().SetValueFromDataField(new1, ldf);
+            Delivery new1 = mall.Delivery.Find(int.Parse(iddf.Value.ToString()));
+            new1 = (Delivery)new ConvertUtil().SetValueFromDataField(new1, ldf);
             //使用add方法把模型加进去
-            mall.Products.Attach(new1);
+            mall.Delivery.Attach(new1);
             mall.Entry(new1).State = EntityState.Modified;
             //加完一定要保存
             mall.SaveChanges();
@@ -80,7 +80,7 @@ public class ProductsHandler : BaseHandler
         {
             foreach (var item in ds)
             {
-                mall.Products.Remove(mall.Products.Find(int.Parse(item)));//删除
+                mall.Delivery.Remove(mall.Delivery.Find(int.Parse(item)));//删除
                 mall.SaveChanges();
             }
             WriteSuccess(context);
@@ -110,10 +110,10 @@ public class ProductsHandler : BaseHandler
         //新建一个分页对象
         IF_SQLPager pager = new MSSQL_help().setPager(sl, context.Request);
         //在查询筛选中加条件
-        Expression<Func<Products, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable ;
-        seleWhere = seleWhere.And(o => o.title.Contains(unitkey));
+        Expression<Func<Delivery, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable ;
+        //seleWhere = seleWhere.And(o => o.originPrice.Contains(unitkey));
 
-        var linq = from v in mall.Set<Products>()
+        var linq = from v in mall.Set<Delivery>()
                    select v;
 
         linq = linq.Where(seleWhere);

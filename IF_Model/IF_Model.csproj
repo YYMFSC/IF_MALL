@@ -109,6 +109,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Mall.edmx</DependentUpon>
     </Compile>
+    <Compile Include="mate.cs">
+      <DependentUpon>Mall.tt</DependentUpon>
+    </Compile>
     <Compile Include="Navbar.cs">
       <DependentUpon>Mall.tt</DependentUpon>
     </Compile>

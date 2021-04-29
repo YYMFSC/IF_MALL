@@ -1,4 +1,4 @@
-﻿<%@ WebHandler Language="C#" Class="ProductsHandler" %>
+﻿<%@ WebHandler Language="C#" Class="mateHandler" %>
 
 using System;
 using System.Web;
@@ -7,9 +7,9 @@ using IF_Model;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
-using System.Data.Entity;
+using DingKit;
 
-public class ProductsHandler : BaseHandler
+public class mateHandler : BaseHandler
 {
     public void GetById(HttpContext context)
     {
@@ -21,53 +21,25 @@ public class ProductsHandler : BaseHandler
     public void Add(HttpContext context)
     {
         //前台放在body里把json格式的文件传过来
-        string data = context.Request.Form["data"];
-        //var session = new IF_Session();
-        //var userid = session.UserKey;
-        IF_EntityTools tools = new IF_EntityTools();
-        List<DataField> ldf = tools.getDataFieldFromJson(data);
-
-        try
-        {
-            Products new1 = new Products();
-            new1 = (Products)new ConvertUtil().SetValueFromDataField(new1, ldf);
-
-            //使用add方法把模型加进去
-            mall.Products.Add(new1);
-            //加完一定要保存
-            mall.SaveChanges();
-            WriteSuccess(context, new1);
-        }
-        catch (Exception ex)
-        {
-            WriteFailure(context, ex.Message);
-            return;
-
-        }
-    }
-
-    public void Edit(HttpContext context)
-    {
-        //前台放在body里把json格式的文件传过来
         string data = context.Request["data"];
+        var session = new IF_Session();
+        var userid = session.UserKey;
         IF_EntityTools tools = new IF_EntityTools();
         List<DataField> ldf = tools.getDataFieldFromJson(data);
-        DataField iddf = ldf.Where(n => n.Fieldname == "id").SingleOrDefault<DataField>();
 
         try
         {
-            Products new1 = mall.Products.Find(int.Parse(iddf.Value.ToString()));
-            new1 = (Products)new ConvertUtil().SetValueFromDataField(new1, ldf);
+            mate new1 = new mate();
+            new1 = (mate)new ConvertUtil().SetValueFromDataField(new1, ldf);
             //使用add方法把模型加进去
-            mall.Products.Attach(new1);
-            mall.Entry(new1).State = EntityState.Modified;
+            mall.mate.Add(new1);
             //加完一定要保存
             mall.SaveChanges();
             WriteSuccess(context, new1);
         }
         catch (Exception ex)
         {
-            WriteFailure(context, ex.Message);
+            WriteFailure(context,ex.Message);
             return;
 
         }
@@ -80,7 +52,7 @@ public class ProductsHandler : BaseHandler
         {
             foreach (var item in ds)
             {
-                mall.Products.Remove(mall.Products.Find(int.Parse(item)));//删除
+                mall.mate.Remove(mall.mate.Find(int.Parse(item)));//删除
                 mall.SaveChanges();
             }
             WriteSuccess(context);
@@ -110,10 +82,10 @@ public class ProductsHandler : BaseHandler
         //新建一个分页对象
         IF_SQLPager pager = new MSSQL_help().setPager(sl, context.Request);
         //在查询筛选中加条件
-        Expression<Func<Products, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable ;
+        Expression<Func<mate, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable ;
         seleWhere = seleWhere.And(o => o.title.Contains(unitkey));
 
-        var linq = from v in mall.Set<Products>()
+        var linq = from v in mall.Set<mate>()
                    select v;
 
         linq = linq.Where(seleWhere);

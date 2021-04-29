@@ -14,7 +14,7 @@ public class DoorHandler : BaseHandler
     public void GetById(HttpContext context)
     {
         string id = context.Request["id"];
-        var r = mall.DoorToDoor.Find(id);
+        var r = mall.customMade.Find(id);
         WriteSuccess(context, r);
     }
 

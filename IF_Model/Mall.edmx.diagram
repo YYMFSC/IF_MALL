@@ -15,10 +15,11 @@
         <EntityTypeShape EntityType="mallModel.shop" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="mallModel.User" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="mallModel.customMade" Width="1.5" PointX="5.375" PointY="7.75" />
-        <EntityTypeShape EntityType="mallModel.DoorToDoor" Width="1.5" PointX="7.375" PointY="7.75" />
         <EntityTypeShape EntityType="mallModel.V_Cart" Width="1.5" PointX="9.75" PointY="0.75" />
         <EntityTypeShape EntityType="mallModel.V_Order" Width="1.5" PointX="9.75" PointY="5.75" />
         <EntityTypeShape EntityType="mallModel.V_Products" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="mallModel.mate" Width="1.5" PointX="9.375" PointY="10.25" />
+        <EntityTypeShape EntityType="mallModel.DoorToDoor" Width="1.5" PointX="3.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
