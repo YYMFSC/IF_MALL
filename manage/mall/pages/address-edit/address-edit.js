@@ -1,4 +1,5 @@
 // pages/address-edit/address-edit.js
+var that;
 Page({
 
     /**
@@ -12,7 +13,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        that = this
     },
 
     /**
@@ -21,7 +22,32 @@ Page({
     onReady: function () {
 
     },
-
+    formInput: function (e) {
+        let name = e.currentTarget.dataset.name;
+        this.setData({
+            [`formData.${name}`]: e.detail.value
+        })
+    },
+    save: function () {
+        wx.request({
+            url: 'url',
+            method: 'POST',
+            data: that.data.formData,
+            dataType: 'json',
+            success(res) {
+                wx.showToast({
+                    title: '保存成功',
+                    icon: 'none'
+                })
+            },
+            fail() {
+                wx.showToast({
+                    title: '连接服务器失败',
+                    icon: 'none'
+                })
+            }
+        })
+    },
     /**
      * 生命周期函数--监听页面显示
      */

@@ -1,19 +1,19 @@
 ﻿[
 	{ "id": "1", iconCls: "fa fa-send-o", text: "旗袍管理", children: [
         { "id": "1_1", iconCls: "fa fa-desktop", text: "旗袍上下架", url: "Products.html" },
-         { "id": "1_2", iconCls: "fa fa-search", text: "成品旗袍订单管理", url: "DoorToDoor.html"},
+         { "id": "1_2", iconCls: "fa fa-search", text: "成品旗袍订单管理", url: "Delivery.html"},
          { "id": "1_3", iconCls: "fa fa-send-o", text: "线下测量定制订单", url: "DoorToDoor.html" },
          { "id": "1_4", iconCls: "fa fa-window-restore", text: "线上数据定制订单", url: "customMade.html" }
             ]
 	},
     { "id": "2", iconCls: "fa fa-desktop", text: "功能管理", children: [
-       { "id": "2_1", iconCls: "fa fa-leaf", text: "客户端账号密码", url: "pages/1.html" },
-        { "id": "2_2", iconCls: "fa fa-book", text: "收货地址", url: "Address.html" }
+       /*{ "id": "2_1", iconCls: "fa fa-leaf", text: "客户端账号密码", url: "pages/1.html" },*/
+        { "id": "2_2", iconCls: "fa fa-book", text: "收货地址", url: "Address.html" }，
         { "id": "2_3", iconCls: "fa fa-barcode", text: "系统消息", url: "pages/1.html" }
             ]
      }
 
-
+	 
 
 
 

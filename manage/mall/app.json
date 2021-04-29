@@ -1,11 +1,17 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/home/home",
-    "pages/address-edit/address-edit",
-    "pages/mine/mine",
     "pages/clothes dz/clothes dz",
     "pages/xxdz/xxdz",
+     
+   
+    "pages/address-edit/address-edit",
+    
+    "pages/home/home",
+    
+    "pages/mine/mine",
+    
+    
     "pages/sort/sort",
     "pages/yd/yd",
     "pages/product/product",

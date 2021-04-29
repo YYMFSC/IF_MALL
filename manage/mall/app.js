@@ -29,12 +29,12 @@ App({
     onShow(options) {
         this.getTabs((e) => {
             this.globalData.toolbar = e.data.Tabs;
-            //console.log(this.globalData.toolbar)
+          
         })
         this.getCartCount((e) => {
-            //console.log(e.data)
+          
             this.globalData.toolbar[2].tag = e.data;
-            //console.log(this.globalData.toolbar)
+         
         })
     },
     onLaunch: function () {
