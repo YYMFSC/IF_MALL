@@ -15,8 +15,8 @@ namespace IF_Model
     public partial class DoorToDoor
     {
         public int id { get; set; }
-        public int nub { get; set; }
-        public int age { get; set; }
+        public string nub { get; set; }
+        public string age { get; set; }
         public string adress { get; set; }
         public System.DateTime time { get; set; }
         public int uid { get; set; }

@@ -1,4 +1,4 @@
-﻿<%@ WebHandler Language="C#" Class="AdressHandler" %>
+﻿<%@ WebHandler Language="C#" Class="ProductsHandler" %>
 
 using System;
 using System.Web;

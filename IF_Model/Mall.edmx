@@ -76,8 +76,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nub" Type="int" Nullable="false" />
-          <Property Name="age" Type="int" Nullable="false" />
+          <Property Name="nub" Type="varchar" MaxLength="50" />
+          <Property Name="age" Type="varchar" MaxLength="50" />
           <Property Name="adress" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="time" Type="datetime" Nullable="false" />
           <Property Name="uid" Type="int" Nullable="false" />
@@ -366,10 +366,10 @@
           <EntitySet Name="shop" EntityType="Self.shop" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="customMade" EntityType="mallModel.customMade" />
-          <EntitySet Name="DoorToDoor" EntityType="mallModel.DoorToDoor" />
           <EntitySet Name="V_Cart" EntityType="mallModel.V_Cart" />
           <EntitySet Name="V_Order" EntityType="mallModel.V_Order" />
           <EntitySet Name="V_Products" EntityType="mallModel.V_Products" />
+          <EntitySet Name="DoorToDoor" EntityType="mallModel.DoorToDoor" />
         </EntityContainer>
         <EntityType Name="customMade">
           <Key>
@@ -384,18 +384,6 @@
           <Property Name="tw" Type="Int32" Nullable="false" />
           <Property Name="xc" Type="Int32" Nullable="false" />
           <Property Name="qc" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="DoorToDoor">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="nub" Type="Int32" Nullable="false" />
-          <Property Name="age" Type="Int32" Nullable="false" />
-          <Property Name="adress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="uid" Type="Int32" Nullable="false" />
-          <Property Name="cTime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="V_Cart">
           <Key>
@@ -449,6 +437,18 @@
           <Property Name="shopName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="shopIcon" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="tName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DoorToDoor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="uid" Type="Int32" Nullable="false" />
+          <Property Name="cTime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -579,19 +579,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DoorToDoor">
-            <EntityTypeMapping TypeName="mallModel.DoorToDoor">
-              <MappingFragment StoreEntitySet="DoorToDoor">
-                <ScalarProperty Name="cTime" ColumnName="cTime" />
-                <ScalarProperty Name="uid" ColumnName="uid" />
-                <ScalarProperty Name="time" ColumnName="time" />
-                <ScalarProperty Name="adress" ColumnName="adress" />
-                <ScalarProperty Name="age" ColumnName="age" />
-                <ScalarProperty Name="nub" ColumnName="nub" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="V_Cart">
             <EntityTypeMapping TypeName="mallModel.V_Cart">
               <MappingFragment StoreEntitySet="V_Cart">
@@ -644,6 +631,19 @@
                 <ScalarProperty Name="originPrice" ColumnName="originPrice" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoorToDoor">
+            <EntityTypeMapping TypeName="mallModel.DoorToDoor">
+              <MappingFragment StoreEntitySet="DoorToDoor">
+                <ScalarProperty Name="cTime" ColumnName="cTime" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="adress" ColumnName="adress" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="nub" ColumnName="nub" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

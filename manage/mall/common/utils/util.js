@@ -13,7 +13,19 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
-
+function formatterData(d){
+  let arr = [];
+    for (let k in d) {
+      let s = {
+        "Fieldname": k,
+        "Fieldtext": "",
+        "Value": d[k]
+      }
+      arr.push(s)
+    }
+    return JSON.stringify(arr)
+}
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatterData:formatterData
 }

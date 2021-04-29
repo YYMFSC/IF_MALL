@@ -1,6 +1,7 @@
 // pages/Clothing Reservation/Clothing Reservation.js
-var ajax = require('../../common/ajax/ajax.js'),
-  config = require('../../common/data/config.js');
+
+var that;
+var util=require('../../common/utils/util');
 Page({
 
 
@@ -9,14 +10,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    iscomeRegister:"1",
+    iscomeRegister: "1",
     isgoRegister: "1",
-    isSetting1:true,//来程是否登记，不登记为true
-    isSetting2:false,//是否要进行来程设定，点击为true
-    isSetting3:true,//去程是否登记，不登记为true
-    state:1,//点击来程为1，点击去程为2
+    isSetting1: true, //来程是否登记，不登记为true
+    isSetting2: false, //是否要进行来程设定，点击为true
+    isSetting3: true, //去程是否登记，不登记为true
+    state: 1, //点击来程为1，点击去程为2
     picker1Value: 0,
-    picker1Name:0,
+    picker1Name: 0,
     picker1Range: ['请选择', '1件', '2件', '3件', '3件以上'],
     picker2Value: 0,
     picker2Name: 0,
@@ -26,17 +27,17 @@ Page({
     picker3Range: ['请选择', '水晶城', '运河上街', '乐堤港'],
     dateValue: '请选择日期',
     timeValue: '请选择时间',
-    comeNumber:0,
-    comeMethod:0,
-    comePlace:0,
-    comeDate:0,
-    returnNumber:0,
-    returnPlace:0,
-    returnDate:0,
+    comeNumber: 0,
+    comeMethod: 0,
+    comePlace: 0,
+    comeDate: 0,
+    returnNumber: 0,
+    returnPlace: 0,
+    returnDate: 0,
 
 
-    select:false,
-    grade_name:'--请选择--',
+    select: false,
+    grade_name: '--请选择--',
     grades: [
       '真丝',
       '织锦缎',
@@ -46,70 +47,95 @@ Page({
       '欧根纱',
       '镂空绣花',
       '毛呢面料',
-     ]
-   },/**
+    ]
+  },
+  /**
    * 点击下拉框
    */
-   bindShowMsg() {
+  bindShowMsg() {
     this.setData({
-     select: !this.data.select
+      select: !this.data.select
     })
-   },
+  },
   /**
    * 已选下拉框
    */
-   mySelect(e) {
+  mySelect(e) {
     console.log(e)
     var name = e.currentTarget.dataset.name
     this.setData({
-     grade_name: name,
-     select: false
+      grade_name: name,
+      select: false
     })
   },
   add(e) {
-    this.setData({ JK: parseInt(this.data.JK + 1) })
+    this.setData({
+      JK: parseInt(this.data.JK + 1)
+    })
   },
   subtract(e) {
-    if (this.data.JK> 1)
-      this.setData({ JK: parseInt(this.data.JK - 1) })
+    if (this.data.JK > 1)
+      this.setData({
+        JK: parseInt(this.data.JK - 1)
+      })
   },
   add1(e) {
-    this.setData({ XW: parseInt(this.data.XW + 2) })
+    this.setData({
+      XW: parseInt(this.data.XW + 1)
+    })
   },
   subtract1(e) {
     if (this.data.XW > 1)
-    this.setData({ XW: parseInt(this.data.XW - 1) })
+      this.setData({
+        XW: parseInt(this.data.XW - 1)
+      })
   },
   add2(e) {
-     this.setData({ YW: parseInt(this.data.YW + 1) })
+    this.setData({
+      YW: parseInt(this.data.YW + 1)
+    })
   },
   subtract2(e) {
     if (this.data.YW > 1)
-      this.setData({ YW: parseInt(this.data.YW - 1) })
+      this.setData({
+        YW: parseInt(this.data.YW - 1)
+      })
   },
   add3(e) {
-    
-    this.setData({ TW: parseInt(this.data.TW + 1) })
+
+    this.setData({
+      TW: parseInt(this.data.TW + 1)
+    })
   },
   subtract3(e) {
-    if (this.data.TW> 1)
-      this.setData({ TW: parseInt(this.data.TW - 1) })
+    if (this.data.TW > 1)
+      this.setData({
+        TW: parseInt(this.data.TW - 1)
+      })
   },
   add4(e) {
-    
-    this.setData({ XC: parseInt(this.data.XC + 1) })
+
+    this.setData({
+      XC: parseInt(this.data.XC + 1)
+    })
   },
   subtract4(e) {
-    if (this.data.XC> 1)
-      this.setData({ XC: parseInt(this.data.XC - 1) })
+    if (this.data.XC > 1)
+      this.setData({
+        XC: parseInt(this.data.XC - 1)
+      })
   },
   add5(e) {
-    
-    this.setData({ QC: parseInt(this.data.QC + 1) })
+
+    this.setData({
+      QC: parseInt(this.data.QC + 1)
+    })
   },
   subtract5(e) {
-    if (this.data.QC> 1)
-      this.setData({ QC: parseInt(this.data.QC - 1) })
+    if (this.data.QC > 1)
+      this.setData({
+        QC: parseInt(this.data.QC - 1)
+      })
   },
 
   getJK: function (e) {
@@ -148,13 +174,49 @@ Page({
     })
     console.log(this.data.QC)
   },
- 
- 
+  loginClick: function () {
+    console.log(that.data.xw);
+    let d = {}
+    d.jk = that.data.JK;
+    d.xw = that.data.xw;
+    d.yw = that.data.YW;
+    d.tw = that.data.TW;
+    d.xc = that.data.XC;
+    d.qc = that.data.QC;
+    d.uid = 1;
+    d.ctime=new Date().toLocaleDateString()
+    wx.request({
+      url: 'http://localhost:58843/Controllers/customHandler.ashx?method=Add',
+      method: 'get',
+      dataType: 'json',
+      data:  {data: util.formatterData(d)},
+      success: function (res) {
+        if(res.data.return_code=='Success') {        
+          wx.showToast({
+            title: '登记成功！',
+            icon: 'none'
+          })
+        } else {
+          wx.showToast({
+            title: '登记失败，数据不正确',
+            icon: 'none'
+          })
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '登记失败,网络原因',
+          icon: 'none'
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    that = this;
   },
 
   /**
@@ -172,16 +234,24 @@ Page({
     var sfzh = wx.getStorageSync("id")
     ajax.query({
       url: config.IF_Url,
-      param: { method: "GetjxMessage", sfzh:sfzh },
+      param: {
+        method: "GetjxMessage",
+        sfzh: sfzh
+      },
       callback: function (res) {
         console.log(res)
         if (res.Table[0].sg != null) {
-          that.setData({ height: res.Table[0].sg, weight: res.Table[0].jm, isRegister: 2 ,isBooking:true})
-          }
+          that.setData({
+            height: res.Table[0].sg,
+            weight: res.Table[0].jm,
+            isRegister: 2,
+            isBooking: true
+          })
+        }
       }
     })
   },
-    
+
 
   /**
    * 生命周期函数--监听页面隐藏

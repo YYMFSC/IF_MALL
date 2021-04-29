@@ -15,10 +15,10 @@
 <!--密码-->
 <view class="input-studentId-password">
     <input type="text"  type="{{typeName}}" data-name="pwd" placeholder="请输入密码"  bindinput='getFormval'/>
-    <view class='seePass'  bindtap='showPass'>
+   <!--  <view class='seePass'  bindtap='showPass'>
     <image class='image1' style='width:50rpx;height:50rpx;' src='../../images/xs.png'wx:if="{{passFlag == 1}}"></image>
     <image class='image1' style='width:50rpx;height:50rpx;' src='../../images/xs2.png' wx:else></image>
-         </view>
+         </view> -->
   </view>
 
 <view class='passwordText'><text ></text></view>

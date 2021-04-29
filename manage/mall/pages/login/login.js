@@ -17,7 +17,7 @@ Page({
     openid: '',
     name: '',
     imgCode: '',
-    typeName: 'name', // 密码框的类型,用于显示密码时更改类型可看见输入的密码而非*号
+    typeName: 'password', // 密码框的类型,用于显示密码时更改类型可看见输入的密码而非*号
     passFlag: 1, // 密码第几次点击代表,用于显示不同的图标
     storePass: '', // 暂存密码,用于显示密码
   },
@@ -85,12 +85,20 @@ Page({
         kind: '1'
       },
       method:'get',
-      dataType:'text',
+      dataType:'json',
       success(res) {
-        console.log(res.data);
-        wx.navigateTo({
-          url: '../../pages/home/home',
-        })
+        if(res.data.return_code=='Success')
+        {
+          wx.navigateTo({
+            url: '../../pages/home/home',
+          })
+        }else 
+        {
+          wx.showToast({
+            title: '密码或账号错误！',
+            icon: 'none'
+          })
+        }   
       },
       fail: function () {
         console.log('x')

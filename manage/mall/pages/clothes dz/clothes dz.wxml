@@ -13,7 +13,7 @@
     <view class="phone-text">肩宽（cm）</view>
     <view class="add" bindtap="add"><image src="../../images/add.png" style="height:55rpx;width:55rpx;border-radius: 5rpx;"></image></view>
     <view class="subtract" bindtap="subtract"><image src="../../images/subtract.png" style="height:55rpx;width:55rpx;"></image></view>
-    <view class="phone-input"><input type="number"  bindinput='getJK' value="{{JK}}"/></view>
+    <view class="phone-input"><input type="number" bindinput='getJK' value="{{JK}}"/></view>
   </view>
 <!--胸围-->
   <view class="phone">
@@ -52,9 +52,9 @@
     <view class="phone-input"><input type="number"  bindinput='getQC' value="{{QC}}"/></view>
    </view>
   <navigator url="/pages/yd/yd" redirect>
-  <button class="loginButton"   form-type='submit'>测量引导</button>
+  <button class="loginButton">测量引导</button>
 </navigator>
- <button class="loginButton"   form-type='submit'>保存数据</button>
+ <button class="loginButton"    form-type='submit'>保存数据</button>
 </form>
 <navigator url="/pages/xxdz/xxdz" redirect>
   <button class="loginButton"   form-type='submit'>返回</button>
