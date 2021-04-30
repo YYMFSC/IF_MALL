@@ -33,34 +33,14 @@
 		</navigator>
 		<view class="item">
 			<icon class="icon group-buying"></icon>
-			<text>订单物流</text>
+			<navigator url="../order/order">
+			<text>我的消息</text>
+		</navigator>
 		</view>
 		<view class="item">
 			<icon class="icon scan"></icon>
-			<text>个人信息</text>
+			<text>收货地址</text>
 		</view>
 	</view>
-	<view class="rows base-style font-size-1 font-grey-deep">
-		<view class="item">
-			<icon class="icon member"></icon>
-			<text>会员中心</text>
-		</view>
-		<navigator url="../address-edit/address-edit">
-		<view class="item">
-			<icon class="icon address"></icon>
-			<text>收获地址</text>
-		</view>
-		</navigator>
-		<view class="item">
-			<icon class="icon help"></icon>
-			<text>帮助中心</text>
-		</view>
 	</view>
-	<view class="rows base-style font-size-1 font-grey-deep">
-		<view class="item">
-			<icon class="icon service"></icon>
-			<text>客服电话40088208820</text>
-		</view>
-	</view>
-</view>
 <template is="navbar" data="{{tabs, currentPage}}"></template>
