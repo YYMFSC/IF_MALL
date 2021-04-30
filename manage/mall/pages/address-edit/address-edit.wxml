@@ -2,27 +2,27 @@
 <view id="address">
     <view class="item">
         <view>收 件 人：</view>
-        <input placeholder="请输入收件人姓名" data-name="name" bindinput="formInput"></input>
+        <input placeholder="请输入收件人姓名" data-name="name" bindinput="formInput" bindchange="sjr"></input>
     </view>
     <view class="item">
         <view>电    话：</view>
-        <input placeholder="请输入收件人电话" data-name="phone" bindinput="formInput"></input>
+        <input placeholder="请输入收件人电话" data-name="phone" bindinput="formInput"bindchange="dh"></input>
     </view>
     <view class="item">
         <view>省    份：</view>
-        <input placeholder="请输入省" data-name="province" bindinput="formInput"></input>
+        <input placeholder="请输入省" data-name="province" bindinput="formInput"bindchange="sf"></input>
     </view>
     <view class="item">
         <view>城    市：</view>
-        <input placeholder="请输入市" data-name="city" bindinput="formInput"></input>
+        <input placeholder="请输入市" data-name="city" bindinput="formInput"bindchange="cs"></input>
     </view>
     <view class="item">
         <view>区    县：</view>
-        <input placeholder="请输入区" data-name="local" bindinput="formInput"></input>
+        <input placeholder="请输入区" data-name="local" bindinput="formInput"bindchange="xq"></input>
     </view>
     <view class="item">
         <view>具体地址：</view>
-        <input placeholder="请输入具体地址" data-name="address1" bindinput="formInput"></input>
+        <input placeholder="请输入具体地址" data-name="address1" bindinput="formInput"bindchange="jtdz"></input>
     </view>
     <button class="loginButton" type="button" bindtap="save">保存数据</button>
 </view>
