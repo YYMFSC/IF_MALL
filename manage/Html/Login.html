@@ -265,8 +265,8 @@
   //              mini.loading("登录成功，马上转到系统...", "登录成功");
   //          },
   //          error: function (XMLHttpRequest, textStatus, errorThrown) { //#3这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
-  //              //eflying.UnMaskBody();
-  //              //eflying.showMessage(XMLHttpRequest.responseText, "系统提示", "e");
+  //              //tools.UnMaskBody();
+  //              //tools.showMessage(XMLHttpRequest.responseText, "系统提示", "e");
   //              alert("发生错误!");
   //          }
 		//});
@@ -282,21 +282,21 @@
 				kind:2
                 //unid: mini.get("unit").getValue()
             },
-            success: function (res) {    
+            success: function (text) {   
+                var res = mini.decode(text);
 				unMaskBody();          
                 if (res.return_code == "Success") {
-                    //SetCookie("username", $("#username").val());
                     mini.loading("登录成功，马上转到系统...", "登录成功");
                     window.location = "Home.html";
                 } else {
-                    eflying.showMessage("密码错误！", "系统提示", "w");
+                    tools.showMessage("密码错误！", "系统提示", "w");
                     $("#login").attr("disabled", false);
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) { //#3这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
-                //eflying.UnMaskBody();
-                //eflying.showMessage(XMLHttpRequest.responseText, "系统提示", "e");
-                eflying.showMessage("未知错误请联系管理员！", "系统提示", "w");
+                //tools.UnMaskBody();
+                //tools.showMessage(XMLHttpRequest.responseText, "系统提示", "e");
+                tools.showMessage("未知错误请联系管理员！", "系统提示", "w");
             }
         });
     }
