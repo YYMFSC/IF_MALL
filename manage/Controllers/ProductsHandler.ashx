@@ -21,7 +21,7 @@ public class ProductsHandler : BaseHandler
     public void Add(HttpContext context)
     {
         //前台放在body里把json格式的文件传过来
-        string data = context.Request.Form["data"];
+        string data = context.Request["data"];
         //var session = new IF_Session();
         //var userid = session.UserKey;
         IF_EntityTools tools = new IF_EntityTools();
