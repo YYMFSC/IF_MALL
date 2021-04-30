@@ -1,0 +1,4 @@
+<!--pages/NoticeRead/NoticeRead.wxml-->
+<view class="time">发布时间：{{time}}</view>
+<view class="image" bindtap="read"><image  style='width:40rpx;height:40rpx;' src='../../images/yl.png'></image></view>
+<view class="content">{{content}}</view>

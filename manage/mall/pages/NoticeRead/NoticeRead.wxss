@@ -1,0 +1,20 @@
+/* pages/NoticeRead/NoticeRead.wxss */
+
+.content{
+  text-indent: 60rpx;
+  text-align: left;
+  margin:30rpx 60rpx;
+  padding:20rpx;
+  border:1rpx rgb(233, 231, 231) solid;
+}
+
+.time{
+  width:750rpx;
+  text-align: center;
+}
+
+.image{
+  position: fixed;
+  top:0;
+  right:100rpx;
+}
