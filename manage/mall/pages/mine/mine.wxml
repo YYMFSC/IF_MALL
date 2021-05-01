@@ -33,13 +33,15 @@
 		</navigator>
 		<view class="item">
 			<icon class="icon group-buying"></icon>
-			<navigator url="../order/order">
+			<navigator url="../Notice/Notice">
 			<text>我的消息</text>
 		</navigator>
 		</view>
 		<view class="item">
 			<icon class="icon scan"></icon>
+			<navigator url="../address-edit/address-edit">
 			<text>收货地址</text>
+		</navigator>
 		</view>
 	</view>
 	</view>

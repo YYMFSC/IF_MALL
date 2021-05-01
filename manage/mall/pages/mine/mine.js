@@ -13,7 +13,7 @@ Page({
         tabs: null,
         user: {
             userInfo: {
-                name: '林丹',
+                name: '沈超',
                 degree: 8
             },
             account: [{

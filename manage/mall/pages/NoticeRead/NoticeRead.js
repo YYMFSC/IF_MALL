@@ -1,6 +1,6 @@
 // pages/NoticeRead/NoticeRead.js
 var ajax = require('../../common/ajax/ajax.js'),
-common = require('../../common/data/common.js'),
+//common = require('../../common/data/common.js'),
   config = require('../../common/data/config.js');
 var sfzh = wx.getStorageSync("id")
 Page({

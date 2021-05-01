@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/mate/mate",
-    "pages/NoticeRead/NoticeRead",
     "pages/home/home",
+    "pages/Notice/Notice",
+    "pages/NoticeRead/NoticeRead",
     "pages/cart/cart",
     "pages/address-edit/address-edit",
     "pages/login/login",
