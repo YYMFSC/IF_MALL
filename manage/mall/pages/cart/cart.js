@@ -215,7 +215,7 @@ Page({
     getAddress: function (e) {
         user.getAddress({
             data: {
-                uid: 'ding'
+                uid: '1'
             },
             success: (e) => {
                 this.setData({

@@ -40,5 +40,6 @@ namespace IF_Model
         public virtual DbSet<V_Products> V_Products { get; set; }
         public virtual DbSet<mate> mate { get; set; }
         public virtual DbSet<DoorToDoor> DoorToDoor { get; set; }
+        public virtual DbSet<xiaoxi> xiaoxi { get; set; }
     }
 }

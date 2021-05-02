@@ -1,86 +1,45 @@
-// pages/NoticeRead/NoticeRead.js
-var ajax = require('../../common/ajax/ajax.js'),
-//common = require('../../common/data/common.js'),
-  config = require('../../common/data/config.js');
-var sfzh = wx.getStorageSync("id")
 Page({
-
+ 
   /**
    * 页面的初始数据
    */
   data: {
-  time:"",
-  content:""
+    title: '',
+    loading: true,
+    movie: {}
   },
-
+ 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: options.title
-    })
-    this.setData({time:options.time,content:options.content }) 
-
-    ajax.query({
-      url: config.IF_Url,
-      param: { method: "AddggReadMessage", sfzh: sfzh, noticeId:options.id },
-      callback: function (res) {
-        console.log(res)
+    const _this = this;
+    // 拼接请求url
+    const url = 'https://api.douban.com/v2/movie/subject/' + options.id;
+    // 请求数据
+    wx.request({
+      url: url,
+      data: {},
+      header: {
+        'content-type': 'json' // 默认值
+      },
+      success:function(res) {
+        // 赋值
+        _this.setData({
+          movie: res.data,
+          loading: false // 隐藏等待框
+        })
       }
     })
-    
-    
   },
-  read(){
-    common.AudioContext(this.data.content)
-  },
+ 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    // 修改导航栏标题
+    wx.setNavigationBarTitle({
+      title: this.data.title + '<<电影<<豆瓣'
+    })
   }
 })

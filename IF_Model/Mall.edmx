@@ -141,6 +141,14 @@
           <Property Name="passWord" Type="varchar" MaxLength="100" />
           <Property Name="kind" Type="int" />
         </EntityType>
+        <EntityType Name="xiaoxi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" Nullable="false" />
+          <Property Name="xiaoxi" Type="varchar" MaxLength="100" />
+        </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“mall.dbo.V_Cart”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="V_Cart">
@@ -213,6 +221,7 @@
           <EntitySet Name="productType" EntityType="Self.productType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="shop" EntityType="Self.shop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="xiaoxi" EntityType="Self.xiaoxi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="V_Cart" EntityType="Self.V_Cart" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_Cart].[id] AS [id], 
@@ -383,6 +392,7 @@
           <EntitySet Name="V_Products" EntityType="mallModel.V_Products" />
           <EntitySet Name="mate" EntityType="mallModel.mate" />
           <EntitySet Name="DoorToDoor" EntityType="mallModel.DoorToDoor" />
+          <EntitySet Name="xiaoxi" EntityType="mallModel.xiaoxi" />
         </EntityContainer>
         <EntityType Name="customMade">
           <Key>
@@ -473,6 +483,14 @@
           <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="uid" Type="Int32" Nullable="false" />
           <Property Name="cTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="xiaoxi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" Nullable="false" />
+          <Property Name="xiaoxi1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -680,6 +698,15 @@
                 <ScalarProperty Name="adress" ColumnName="adress" />
                 <ScalarProperty Name="age" ColumnName="age" />
                 <ScalarProperty Name="nub" ColumnName="nub" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="xiaoxi">
+            <EntityTypeMapping TypeName="mallModel.xiaoxi">
+              <MappingFragment StoreEntitySet="xiaoxi">
+                <ScalarProperty Name="xiaoxi1" ColumnName="xiaoxi" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

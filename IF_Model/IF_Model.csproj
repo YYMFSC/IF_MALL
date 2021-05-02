@@ -150,6 +150,9 @@
     <Compile Include="V_Products.cs">
       <DependentUpon>Mall.tt</DependentUpon>
     </Compile>
+    <Compile Include="xiaoxi.cs">
+      <DependentUpon>Mall.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

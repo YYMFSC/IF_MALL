@@ -1,4 +1,4 @@
-﻿<%@ WebHandler Language="C#" Class="AdressHandler" %>
+﻿<%@ WebHandler Language="C#" Class="xiaoxiHandler" %>
 
 using System;
 using System.Web;
@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 using System.Collections.Generic;
 using System.Data.Entity;
 
-public class AdressHandler : BaseHandler
+public class xiaoxiHandler : BaseHandler
 {
     public void GetById(HttpContext context)
     {
@@ -29,11 +29,11 @@ public class AdressHandler : BaseHandler
 
         try
         {
-            Address new1 = new Address();
-            new1 = (Address)new ConvertUtil().SetValueFromDataField(new1, ldf);
+            xiaoxi new1 = new xiaoxi();
+            new1 = (xiaoxi)new ConvertUtil().SetValueFromDataField(new1, ldf);
 
             //使用add方法把模型加进去
-            mall.Address.Add(new1);
+            mall.xiaoxi.Add(new1);
             //加完一定要保存
             mall.SaveChanges();
             WriteSuccess(context, new1);
@@ -56,10 +56,10 @@ public class AdressHandler : BaseHandler
 
         try
         {
-            Address new1 = mall.Address.Find(int.Parse(iddf.Value.ToString()));
-            new1 = (Address)new ConvertUtil().SetValueFromDataField(new1, ldf);
+            xiaoxi new1 = mall.xiaoxi.Find(int.Parse(iddf.Value.ToString()));
+            new1 = (xiaoxi)new ConvertUtil().SetValueFromDataField(new1, ldf);
             //使用add方法把模型加进去
-            mall.Address.Attach(new1);
+            mall.xiaoxi.Attach(new1);
             mall.Entry(new1).State = EntityState.Modified;
             //加完一定要保存
             mall.SaveChanges();
@@ -80,7 +80,7 @@ public class AdressHandler : BaseHandler
         {
             foreach (var item in ds)
             {
-                mall.Address.Remove(mall.Address.Find(int.Parse(item)));//删除
+                mall.xiaoxi.Remove(mall.xiaoxi.Find(int.Parse(item)));//删除
                 mall.SaveChanges();
             }
             WriteSuccess(context);
@@ -110,10 +110,10 @@ public class AdressHandler : BaseHandler
         //新建一个分页对象
         IF_SQLPager pager = new MSSQL_help().setPager(sl, context.Request);
         //在查询筛选中加条件
-        Expression<Func<Address, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable ;
-        seleWhere = seleWhere.And(o => o.address1.Contains(unitkey));
+        Expression<Func<xiaoxi, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable ;
+        seleWhere = seleWhere.And(o => o.xiaoxi1.Contains(unitkey));
 
-        var linq = from v in mall.Set<Address>()
+        var linq = from v in mall.Set<xiaoxi>()
                    select v;
 
         linq = linq.Where(seleWhere);
