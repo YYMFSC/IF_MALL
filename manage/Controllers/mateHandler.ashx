@@ -45,51 +45,24 @@ public class mateHandler : BaseHandler
 
         }
     }
-    public void Edit(HttpContext context)
+    public void Remove(HttpContext context)
     {
-        //前台放在body里把json格式的文件传过来
         string data = context.Request["data"];
-        IF_EntityTools tools = new IF_EntityTools();
-        List<DataField> ldf = tools.getDataFieldFromJson(data);
-        DataField iddf = ldf.Where(n => n.Fieldname == "id").SingleOrDefault<DataField>();
-
+        var ds = data.Split(',');
         try
-       {
-        mate new1 = mall.mate.Find(int.Parse(iddf.Value.ToString()));
-        new1 = (mate)new ConvertUtil().SetValueFromDataField(new1, ldf);
-        //使用add方法把模型加进去
-        mall.mate.Attach(new1);
-        mall.Entry(new1).State = EntityState.Modified;
-        //加完一定要保存
-        mall.SaveChanges();
-        WriteSuccess(context, new1);
-    }
-    catch (Exception ex)
-    {
-        WriteFailure(context, ex.Message);
-        return;
-
-    }
-}
-
-public void Remove(HttpContext context)
-{
-    string data = context.Request["data"];
-    var ds = data.Split(',');
-    try
-    {
-        foreach (var item in ds)
         {
-            mall.mate.Remove(mall.mate.Find(int.Parse(item)));//删除
-            mall.SaveChanges();
+            foreach (var item in ds)
+            {
+                mall.mate.Remove(mall.mate.Find(int.Parse(item)));//删除
+                mall.SaveChanges();
+            }
+            WriteSuccess(context);
         }
-        WriteSuccess(context);
-    }
-    catch (Exception ex)
-    {
-        WriteFailure(context, ex.Message);
-        return;
-    }
+        catch (Exception ex)
+        {
+            WriteFailure(context, ex.Message);
+            return;
+        }
 
 }
 
