@@ -1,22 +1,25 @@
 {
   "pages": [
-    "pages/address-edit/address-edit",
-   
-    "pages/home/home",
     "pages/cart/cart",
+    "pages/home/home",
     
+    
+    "pages/Notice/Notice",
+    
+    "pages/yd/yd",
+    "pages/address-edit/address-edit",
     "pages/login/login",
     "pages/clothes dz/clothes dz",
     "pages/xxdz/xxdz",
     "pages/mine/mine",
     "pages/sort/sort",
-    "pages/yd/yd",
     "pages/product/product",
     "pages/hot/hot",
     "pages/order/order",
     "pages/paying/paying",
     "pages/pay-success/pay-success",
-    "pages/pay/pay"
+    "pages/pay/pay",
+    "pages/NoticeRead/NoticeRead"
   ],
   "window": {
     "backgroundTextStyle": "light",

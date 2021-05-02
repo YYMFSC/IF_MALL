@@ -85,6 +85,23 @@ Page({
         }
         this.getSummary();
     },
+    itemCheckboxTap2: function (e) {
+        let index=e.target.dataset.index;
+        let add=this.data.addr;
+        let ch=add[index].checked;
+        if(ch)
+        {         
+            add[index].checked=false;
+            this.setData({
+                addr:add
+            })
+        }else{   
+            add[index].checked=true;
+            this.setData({
+                addr:add 
+            })          
+        }
+    },
     plus: function (e) {
         if (e.target.dataset.count < 99) {
             pro.plus({
@@ -218,8 +235,13 @@ Page({
                 uid: 'ding'
             },
             success: (e) => {
+                let dd=e.data.AddressData;
+                for (let index = 0; index < dd.length; index++) {
+                    const element = dd[index];
+                    element.checked=false;
+                }
                 this.setData({
-                    addr: e.data.AddressData[0]
+                    addr: dd
                 })
                 //console.log(this.data.addr)
             }

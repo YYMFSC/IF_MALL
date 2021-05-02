@@ -115,7 +115,7 @@ data:
 bindtap: editAddress
  -->
 <template name="address">
-	<view class="deliver-address bg-white base-style" bindtap="editAddress">
+	<view class="deliver-address bg-white base-style" wx:for="{{addr}}" bindtap="editAddress">
 		<view class="icon location"></view>
 		<view>
 			<view class="font-size-0 font-bold">{{addr.name}} {{addr.phone}}</view>
