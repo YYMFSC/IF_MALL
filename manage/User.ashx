@@ -54,7 +54,7 @@ public class address : IHttpHandler {
     public void GetAddress(HttpContext context)
     {
         string uid = CFun.GetParam("uid");
-        string sql = "SELECT uid, name, phone, province, city, local, address FROM Address WHERE uid='" + uid + "'";
+        string sql = "SELECT uid, name, phone, province, city, local, address FROM Address ";//WHERE uid='" + uid + "'
 
         DataSet ds = CSql.CreateDataSet(sql, "AddressData");
         context.Response.ContentType = "text/plain";

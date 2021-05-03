@@ -85,6 +85,14 @@ Page({
         }
         this.getSummary();
     },
+    itemCheckboxTap2: function (e) {
+        console.log(e.target);
+        this.checked = true;
+        var adrid = e.target.dataset.id;
+        this.setData({
+            adrid: adrid
+        })
+    },
     plus: function (e) {
         if (e.target.dataset.count < 99) {
             pro.plus({
@@ -215,11 +223,11 @@ Page({
     getAddress: function (e) {
         user.getAddress({
             data: {
-                uid: '1'
+                uid: 'ding'
             },
             success: (e) => {
                 this.setData({
-                    addr: e.data.AddressData[0]
+                    addr: e.data.AddressData
                 })
                 //console.log(this.data.addr)
             }

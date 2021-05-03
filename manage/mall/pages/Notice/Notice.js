@@ -4,7 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: '加载中...', // 状态
+    title: '消息列表', // 状态
     list: [], // 数据列表
     type: '', // 数据类型
     loading: true // 显示等待框
@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) { // options 为 board页传来的参数
     const _this = this;
     // 拼接请求url
-    const url = 'https://api.douban.com/v2/movie/' + options.type;
+    const url = 'http://localhost:58843/Html/mate.html' + options.type;
     // 请求数据
     wx.request({
       url: url,
@@ -27,7 +27,7 @@ Page({
       success: function(res) {
         console.log(res.data);
         // 赋值
-        _this.setData({
+          _this.setData({
           title: res.data.title,
           list: res.data.subjects,
           type: options.type,
