@@ -104,7 +104,7 @@ Page({
     getAddress: function (e) {
         user.getAddress({
             data: {
-                uid: 'ding'
+                id: this.data.addrsid
             },
             success: (e) => {
                 this.setData({
@@ -114,6 +114,19 @@ Page({
             }
         })
     },
+    getAddressOne: function (e) {
+        user.getAddressOne({
+            data: {
+                id: this.data.addrsid
+            },
+            success: (e) => {
+                this.setData({
+                    addr: e.data.AddressData[0]
+                })
+                //console.log(this.data.addr)
+            }
+        })
+    }
     /**
      * 生命周期函数--监听页面加载
      */
@@ -121,7 +134,8 @@ Page({
         //console.log(options)
         this.setData({
             cartlist: options.cartid,
-            shopid: options.sid
+            shopid: options.sid,
+            addrsid:options.addrsid,
         })
         this.getPayData()
         this.getAddress()

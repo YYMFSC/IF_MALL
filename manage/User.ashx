@@ -18,6 +18,10 @@ public class address : IHttpHandler {
         {
             GetAddress(context);
         }
+         if (fun == "GetAddressOne")
+        {
+            GetAddressOne(context);
+        }
         if (fun == "EditAddress")
         {
             EditAddress(context);
@@ -53,8 +57,17 @@ public class address : IHttpHandler {
 
     public void GetAddress(HttpContext context)
     {
-        string uid = CFun.GetParam("uid");
-        string sql = "SELECT uid, name, phone, province, city, local, address FROM Address ";//WHERE uid='" + uid + "'
+        string uid = CFun.GetParam("id");
+        string sql = "SELECT id,uid, name, phone, province, city, local, address FROM Address ";//WHERE uid='" + uid + "'
+
+        DataSet ds = CSql.CreateDataSet(sql, "AddressData");
+        context.Response.ContentType = "text/plain";
+        context.Response.Write(JsonHelper.Convert2Json(ds.Tables[0]));
+    }
+        public void GetAddressOne(HttpContext context)
+    {
+        string id = CFun.GetParam("id");
+        string sql = "SELECT id,uid, name, phone, province, city, local, address FROM Address WHERE id='" + id + "'";//
 
         DataSet ds = CSql.CreateDataSet(sql, "AddressData");
         context.Response.ContentType = "text/plain";
