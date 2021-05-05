@@ -101,20 +101,21 @@ Page({
         })
         //console.log(this.data)
     },
-    getAddress: function (e) {
-        user.getAddress({
-            data: {
-                id: this.data.addrsid
-            },
-            success: (e) => {
-                this.setData({
-                    addr: e.data.AddressData[0]
-                })
-                //console.log(this.data.addr)
-            }
-        })
-    },
+    // getAddress: function (e) {
+    //     user.getAddress({
+    //         data: {
+    //             id: this.data.addrsid
+    //         },
+    //         success: (e) => {
+    //             this.setData({
+    //                 addr: e.data.AddressData[0]
+    //             })
+    //             //console.log(this.data.addr)
+    //         }
+    //     })
+    // },
     getAddressOne: function (e) {
+        console.log(this.data.addrsid);
         user.getAddressOne({
             data: {
                 id: this.data.addrsid
@@ -123,10 +124,10 @@ Page({
                 this.setData({
                     addr: e.data.AddressData[0]
                 })
-                //console.log(this.data.addr)
+                console.log(this.data.addr)
             }
         })
-    }
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -135,10 +136,10 @@ Page({
         this.setData({
             cartlist: options.cartid,
             shopid: options.sid,
-            addrsid:options.addrsid,
+            addrsid:options.addrid,
         })
         this.getPayData()
-        this.getAddress()
+        this.getAddressOne()
     },
 
     /**

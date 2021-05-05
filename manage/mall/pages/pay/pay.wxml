@@ -2,12 +2,12 @@
 <import src="../../common/pub/pub.wxml" />
 <view id="main" class="bg-grey">
     <!-- <template is="address" data="{{addr}}"></template> -->
-    <view class="deliver-address bg-white base-style" wx:for="{{addr}}" wx:for-item="addritem" ><!--bindtap="editAddress" -->
-        <icon class="icon checkbox {{addritem.checked ? 'checked':''}}" bindtap="itemCheckboxTap2" data-index='{{index}}' data-addrid="{{addritem.id}}" data-cid="{{addritem.id}}"></icon>
+    <view class="deliver-address bg-white base-style" ><!--wx:for="{{addr}}" wx:for-item="addritem"  bindtap="editAddress" -->
+        <!-- <icon class="icon checkbox {{addritem.checked ? 'checked':''}}" bindtap="itemCheckboxTap2" data-index='{{index}}' data-addrid="{{addritem.id}}" data-cid="{{addritem.id}}"></icon> -->
         <view class="icon location"></view>
 		<view>
-			<view class="font-size-0 font-bold">{{addritem.name}} {{addritem.phone}}</view>
-			<view class="font-size-3 font-grey-deep">送至：{{addritem.province}}{{addritem.city}}{{addritem.local}}{{addritem.address}}</view>
+			<view class="font-size-0 font-bold">{{addr.name}} {{addr.phone}}</view>
+			<view class="font-size-3 font-grey-deep">送至：{{addr.province}}{{addr.city}}{{addr.local}}{{addr.address}}</view>
         </view>
 	</view>
     <view class="delivery bg-white">

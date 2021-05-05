@@ -63,8 +63,8 @@ public class address : IHttpHandler {
         DataSet ds = CSql.CreateDataSet(sql, "AddressData");
         context.Response.ContentType = "text/plain";
         context.Response.Write(JsonHelper.Convert2Json(ds.Tables[0]));
-    }
-        public void GetAddressOne(HttpContext context)
+    }   
+    public void GetAddressOne(HttpContext context)
     {
         string id = CFun.GetParam("id");
         string sql = "SELECT id,uid, name, phone, province, city, local, address FROM Address WHERE id='" + id + "'";//

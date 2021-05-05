@@ -194,7 +194,6 @@ Page({
             }
         }
         if (list != "") {
-            //console.log(list)
             var url = '../pay/pay?sid=' + sid + '&cartid=' + list+ '&addrid=' + addrsid
             wx.redirectTo({
                 url: url
