@@ -47,7 +47,7 @@ bindinput: inputKey
 		<view class="Box bg-grey">
 			<icon class='icon search' bindtap="search"></icon>
 			<icon class='icon close-small' bindtap="close" wx:if="{{searchBox}}"></icon>
-			<input class="font-size-2" placeholder='搜索商品' bindinput="inputKey" />
+			<input class="font-size-2" placeholder='搜索您想要的旗袍的关键字' bindinput="inputKey" />
 		</view>
 	</view>
 </template>

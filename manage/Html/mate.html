@@ -92,6 +92,7 @@
                 <div field="img" width="30" headeralign="center" align="center" allowsort="true">
                     图片
                 </div>
+
                 <div field="title" width="100" headeralign="center" align="center" allowsort="true">
                     题目
                 </div>
@@ -109,12 +110,31 @@
         <div id="editForm" class="form">
             <input class="mini-hidden" name="id" />
             <table style="width:100%;height:100%" class="formtable">
+                <!--<tr>
+        <th>
+            图片:
+        </th>
+        <td class="td">
+            <input name="img" class="mini-textbox" required="true" style="width: 250px;" />
+        </td>
+    </tr><td>
+            <input type="button" value="上传" onclick="ajaxFileUpload()" />
+        </td>-->
                 <tr>
-                    <th>
-                        图片:
+                    <!--<th>
+        图片:
+    </th>
+    <td class="td">
+        <input name="img" class="mini-htmlfile" id="file1" style="width:300px;" />
+    </td>-->
+                    <th rowspan="5" style="width: 100px">
+                        照片：
                     </th>
+                    <td class="td" rowspan="4">
+                        <img name="img" id="img1" src="" style="width: 100px; height:auto;" />
+                    </td>
                     <td class="td">
-                        <input name="img" class="mini-textbox" required="true" style="width: 250px;" />
+                        <a id="upload" class="mini-button" iconcls="icon-upload">上传照片</a>
                     </td>
                 </tr>
                 <tr>
@@ -186,24 +206,23 @@
         if (rows.length > 0) {
             grid.loading("操作中，请稍后......");
             var data = rows[0].id;
-                $.ajax({
-                    url: "../Controllers/mateHandler.ashx?method=Remove",
-                    type: "post",
-                    data: { data: data},
-                    success: function (text) {
-                        grid.reload();
-                    },
-                    error: function (text) {
-                        alert(text);
-                    }
-                });
+            $.ajax({
+                url: "../Controllers/mateHandler.ashx?method=Remove",
+                type: "post",
+                data: { data: data },
+                success: function (text) {
+                    grid.reload();
+                },
+                error: function (text) {
+                    alert(text);
+                }
+            });
         } else {
             alert("请选中一条记录");
         }
     }
 
-    function add()
-    {
+    function add() {
         form.reset();
         win.setTitle("添加消息");
         if (!win.visible) {
@@ -214,7 +233,7 @@
 
     function editRow() {
         var rows = grid.getSelecteds();
-        if (rows.length > 0 && rows.length <=1) {
+        if (rows.length > 0 && rows.length <= 1) {
             form.clear();
             win.setTitle("编辑消息");
             form.setData(rows[0]);
@@ -222,7 +241,7 @@
             istrue = "Edit";
             win.show();
         }
-        else if (rows.length>1) {
+        else if (rows.length > 1) {
             alert("只能选中一条记录");
         }
         else {
@@ -238,7 +257,7 @@
         }
         var content = editor.html();
         var url = "../Controllers/mateHandler.ashx?method=";
-        var formData = tools.getControlText(form);   
+        var formData = tools.getControlText(form);
         var controldata = new dataField("neirong", "", content);
         formData.push(controldata);
         var data = JSON.stringify(formData);
@@ -268,4 +287,52 @@
     function hide() {
         win.hide();
     }
+
+    $(function () {
+        uploader.init();
+    });
+    var uploadUrl = "../Controllers/mateHandler.ashx?method=Upload&type=mate";
+    var uploader = new plupload.Uploader({
+        runtimes: 'html5,flash,silverlight,html4',
+        browse_button: 'upload',
+        url: uploadUrl,
+        flash_swf_url: '../plupload/Moxie.swf',
+        silverlight_xap_url: '../plupload/Moxie.xap',
+        multi_selection: false,
+        filters: {
+            max_file_size: '5mb',
+            mime_types: [{ title: "图片(*.gif;*.jpg;*.png;*.bmp)", extensions: "gif,jpg,png,bmp" }]
+        },
+        init: {
+            PostInit: function () {
+            },
+            BeforeUpload: function (up, file) {
+                uploader.settings.url = uploadUrl;
+                uploader.settings.multipart_params = null;
+            },
+            FilesAdded: function (up, file) {
+                up.start();
+            },
+            UploadProgress: function (up, file) {
+                mini.mask({ el: document.body, cls: 'mini-mask-loading', html: '数据加载中，请稍后...' });
+            },
+            UploadComplete: function (up, file) {
+                mini.unmask(document.body);
+            },
+            FileUploaded: function (up, file, res) {
+                var ret = mini.decode(res.response);
+                if (ret.code == "ok") {
+                    debugger
+                    mini.getbyName("img").setValue(ret.src);
+                    document.getElementById("img1").src = ret.src;
+                }
+                else {
+                    eflying.showMessage(ret.msg, "系统提示", "e");
+                }
+            },
+            Error: function (up, err) {
+                eflying.showMessage("文件上传失败！", "系统提示", "e");
+            }
+        }
+    });
 </script>
