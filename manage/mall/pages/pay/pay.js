@@ -101,16 +101,30 @@ Page({
         })
         //console.log(this.data)
     },
-    getAddress: function (e) {
-        user.getAddress({
+    // getAddress: function (e) {
+    //     user.getAddress({
+    //         data: {
+    //             id: this.data.addrsid
+    //         },
+    //         success: (e) => {
+    //             this.setData({
+    //                 addr: e.data.AddressData[0]
+    //             })
+    //             //console.log(this.data.addr)
+    //         }
+    //     })
+    // },
+    getAddressOne: function (e) {
+        console.log(this.data.addrsid);
+        user.getAddressOne({
             data: {
-                uid: 'ding'
+                id: this.data.addrsid
             },
             success: (e) => {
                 this.setData({
                     addr: e.data.AddressData[0]
                 })
-                //console.log(this.data.addr)
+                console.log(this.data.addr)
             }
         })
     },
@@ -121,10 +135,11 @@ Page({
         //console.log(options)
         this.setData({
             cartlist: options.cartid,
-            shopid: options.sid
+            shopid: options.sid,
+            addrsid:options.addrid,
         })
         this.getPayData()
-        this.getAddress()
+        this.getAddressOne()
     },
 
     /**

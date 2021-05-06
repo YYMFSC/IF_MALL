@@ -17,7 +17,7 @@ Page({
     data: {
         tabs: null,
         currentPage: 'cart'
-    },    
+    },
     shopCheckboxTap: function (e) {
         var sid = e.target.dataset.shopid;
         var i, l = this.data.shops.length;
@@ -86,12 +86,30 @@ Page({
         this.getSummary();
     },
     itemCheckboxTap2: function (e) {
-        console.log(e.target);
-        this.checked = true;
-        var adrid = e.target.dataset.id;
-        this.setData({
-            adrid: adrid
-        })
+        let index = e.target.dataset.index;
+        let add = this.data.addr;
+        let ch = add[index].checked;
+        for (let i = 0; i < add.length; i++) {
+            if (i != index) {
+                add[i].checked = false;
+                this.setData({
+                    addr: add
+                })
+            }
+        }
+        if (ch) {
+            add[index].checked = false;
+            this.setData({
+                addr: add,
+                addrsid:add[index].id
+            })
+        } else {
+            add[index].checked = true;
+            this.setData({
+                addr: add,
+                addrsid:add[index].id
+            })
+        }
     },
     plus: function (e) {
         if (e.target.dataset.count < 99) {
@@ -127,7 +145,7 @@ Page({
                             },
                             success: (e) => {
                                 //console.log(e)
-                                app.getCartCount((e)=> {
+                                app.getCartCount((e) => {
                                     app.globalData.toolbar[2].tag = e.data;
                                     this.setData({
                                         tabs: app.globalData.toolbar
@@ -140,7 +158,7 @@ Page({
                     }
                 }
             })
-        } 
+        }
         else {
             pro.minus({
                 data: {
@@ -157,6 +175,7 @@ Page({
         var list = ""
         var sid = e.target.dataset.shopid;
         var i, l = this.data.shops.length;
+        var addrsid=this.data.addrsid;
         //console.log(this.data.shops)
         for (i = 0; i < l; i++) {
             if (this.data.shops[i].shopID == sid) {
@@ -175,8 +194,7 @@ Page({
             }
         }
         if (list != "") {
-            //console.log(list)
-            var url = '../pay/pay?sid=' + sid + '&cartid=' + list
+            var url = '../pay/pay?sid=' + sid + '&cartid=' + list+ '&addrid=' + addrsid
             wx.redirectTo({
                 url: url
             })
@@ -226,8 +244,13 @@ Page({
                 uid: 'ding'
             },
             success: (e) => {
+                let dd = e.data.AddressData;
+                for (let index = 0; index < dd.length; index++) {
+                    const element = dd[index];
+                    element.checked = false;
+                }
                 this.setData({
-                    addr: e.data.AddressData
+                    addr: dd
                 })
                 //console.log(this.data.addr)
             }

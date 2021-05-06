@@ -81,7 +81,7 @@ public class IF_Pro : IHttpHandler
             sql += " and minPrice>=" + minPrice + "";
         }
         if (!string.IsNullOrEmpty(maxPrice))
-        {
+        { 
             sql += " and maxPrice>=" + maxPrice + "";
         }
         DataSet ds = CSql.CreateDataSet(sql, "ProData");

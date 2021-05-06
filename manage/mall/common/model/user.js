@@ -29,6 +29,16 @@ class User extends HTTP {
             success: params.success
         })
     }
+    getAddressOne(params) {
+        this.request({
+            url: this.url,
+            data: {
+                do: 'GetAddressOne',
+                id: params.data.id
+            },
+            success: params.success
+        })
+    }
 }
 export {
     User

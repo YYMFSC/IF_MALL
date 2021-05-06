@@ -2,8 +2,8 @@
 <import src="../../common/pub/pub.wxml" />
 <view id="main" class="bg-grey">
     <!-- <template is="address" data="{{addr}}"></template> -->
-    <view class="deliver-address bg-white base-style" wx:for="{{addr}}" wx:for-item="addritem" bindtap="editAddress">
-        <icon class="icon checkbox {{item.checked ? 'checked':''}}" bindtap="itemCheckboxTap2" data-shopid="{{addritem.adrid}}" data-cid="{{item.id}}"></icon>
+     <view class="deliver-address bg-white base-style" wx:for="{{addr}}" wx:for-item="addritem" ><!--bindtap="editAddress" -->
+        <icon class="icon checkbox {{addritem.checked ? 'checked':''}}" bindtap="itemCheckboxTap2" data-index='{{index}}' data-addrid="{{addritem.id}}" data-cid="{{addritem.id}}"></icon>
         <view class="icon location"></view>
 		<view>
 			<view class="font-size-0 font-bold">{{addritem.name}} {{addritem.phone}}</view>
