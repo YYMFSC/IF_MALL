@@ -1,11 +1,12 @@
 {
   "pages": [
-    "pages/cart/cart",
     "pages/home/home",
-    
-    
     "pages/Notice/Notice",
+    "pages/NoticeRead/NoticeRead",
+  
+    "pages/cart/cart",
     
+        
     "pages/yd/yd",
     "pages/address-edit/address-edit",
     "pages/login/login",
@@ -18,8 +19,7 @@
     "pages/order/order",
     "pages/paying/paying",
     "pages/pay-success/pay-success",
-    "pages/pay/pay",
-    "pages/NoticeRead/NoticeRead"
+    "pages/pay/pay"
   ],
   "window": {
     "backgroundTextStyle": "light",

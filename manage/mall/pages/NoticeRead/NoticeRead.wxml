@@ -1,0 +1,12 @@
+<!--详情页-->
+<!--等待框-->
+<loading hidden="{{!loading}}">加载中...</loading>
+<!--滚动列表-->
+<scroll-view scroll-y="true" wx:if="{{movie.title}}">
+  <view class='meta'>
+    <image class='poster' src='{{movie.img}}' background-size="cover"></image>
+    <text class='title'>{{movie.title}}</text>
+    <rich-text nodes="{{movie.neirong}}"></rich-text>
+  </view>
+
+</scroll-view>
