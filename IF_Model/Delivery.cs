@@ -26,5 +26,6 @@ namespace IF_Model
         public string addressDm { get; set; }
         public string remark { get; set; }
         public Nullable<System.DateTime> submitTime { get; set; }
+        public Nullable<int> kind { get; set; }
     }
 }

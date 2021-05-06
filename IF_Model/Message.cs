@@ -12,10 +12,13 @@ namespace IF_Model
     using System;
     using System.Collections.Generic;
     
-    public partial class xiaoxi
+    public partial class Message
     {
         public int id { get; set; }
-        public int uid { get; set; }
-        public string xiaoxi1 { get; set; }
+        public Nullable<int> uid { get; set; }
+        public string img { get; set; }
+        public string title { get; set; }
+        public string neirong { get; set; }
+        public Nullable<int> kind { get; set; }
     }
 }

@@ -112,6 +112,9 @@
     <Compile Include="mate.cs">
       <DependentUpon>Mall.tt</DependentUpon>
     </Compile>
+    <Compile Include="Message.cs">
+      <DependentUpon>Mall.tt</DependentUpon>
+    </Compile>
     <Compile Include="Navbar.cs">
       <DependentUpon>Mall.tt</DependentUpon>
     </Compile>
@@ -148,9 +151,6 @@
       <DependentUpon>Mall.tt</DependentUpon>
     </Compile>
     <Compile Include="V_Products.cs">
-      <DependentUpon>Mall.tt</DependentUpon>
-    </Compile>
-    <Compile Include="xiaoxi.cs">
       <DependentUpon>Mall.tt</DependentUpon>
     </Compile>
   </ItemGroup>

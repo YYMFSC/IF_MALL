@@ -1,4 +1,5 @@
 ﻿
+
 function tonodata() {
     window.location = bootPATH + "/nodata.htm";
 }
