@@ -9,16 +9,16 @@
   <!--列表-->
   <view class='page-body' wx:for="{{list}}" wx:key="id">
     <!--类型判断,显示不同的数据-->
-    <block wx:if="{{type === 'us_box'}}">
-      <navigator url='../item/item?id={{item.subject.id}}'>
+   
+      <navigator url='../NoticeRead/NoticeRead?id={{item.id}}'>
         <view class='item'>
-          <image class='poster' src='{{item.subject.images.small}}'></image>
+          <image class='poster' src='{{item.img}}'></image>
           <view class='meta'>
-            <text class='title'>{{item.subject.title}}</text>
-              <text wx:for="{{item.subject.directors}}" wx:key="id">{{item.name}}</text>
+            <text class='title'>{{item.title}}</text>
+             <text class="price">￥{{item.price}}</text>
             </view>
           </view>
       </navigator>
-    </block>
+   
   </view>
 </view>

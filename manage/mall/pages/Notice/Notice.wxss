@@ -63,3 +63,6 @@
 .tips image,.tips text {
   vertical-align: middle;
 }
+.price{
+  color: #ff6700;
+}
