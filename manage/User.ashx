@@ -55,7 +55,6 @@ public class address : IHttpHandler {
     {
         string uid = CFun.GetParam("uid");
         string sql = "SELECT uid, name, phone, province, city, local, address FROM Address ";//WHERE uid='" + uid + "'
-
         DataSet ds = CSql.CreateDataSet(sql, "AddressData");
         context.Response.ContentType = "text/plain";
         context.Response.Write(JsonHelper.Convert2Json(ds.Tables[0]));
