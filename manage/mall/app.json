@@ -1,8 +1,10 @@
 {
   "pages": [
-    "pages/message/message",
     "pages/home/home",
     "pages/login/login",
+    "pages/message/message",
+    
+    
     "pages/Notice/Notice",
     "pages/cart/cart",
     "pages/yd/yd",

@@ -113,6 +113,7 @@ public class customHandler : BaseHandler
         Expression<Func<customMade, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable ;
        // seleWhere = seleWhere.jk;
 
+
         var linq = from v in mall.Set<customMade>()
                    select v;
 

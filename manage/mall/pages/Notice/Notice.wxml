@@ -12,7 +12,7 @@
    
       <navigator url='../NoticeRead/NoticeRead?id={{item.id}}'>
         <view class='item'>
-          <image class='poster' src='{{item.img}}'></image>
+          <image class='poster'  src='http://localhost:58843{{item.img}}'></image>
           <view class='meta'>
             <text class='title'>{{item.title}}</text>
              <text class="price">￥{{item.price}}</text>
