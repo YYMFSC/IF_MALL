@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/message/message",
     "pages/home/home",
     "pages/login/login",
     "pages/Notice/Notice",
@@ -16,8 +17,8 @@
     "pages/paying/paying",
     "pages/pay-success/pay-success",
     "pages/pay/pay",
-    "pages/NoticeRead/NoticeRead",
-    "pages/message/message"
+    "pages/NoticeRead/NoticeRead"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
