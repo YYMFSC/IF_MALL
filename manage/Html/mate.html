@@ -109,29 +109,14 @@
     <div id="editWindow" class="mini-window" title="添加消息" style="width:1000px;" showmodal="true" allowresize="false" allowdrag="true" showfooter="true">
         <div id="editForm" class="form">
             <input class="mini-hidden" name="id" />
+            <input class="mini-hidden" name="img" id="pic" />
             <table style="width:100%;height:100%" class="formtable">
-                <!--<tr>
-        <th>
-            图片:
-        </th>
-        <td class="td">
-            <input name="img" class="mini-textbox" required="true" style="width: 250px;" />
-        </td>
-    </tr><td>
-            <input type="button" value="上传" onclick="ajaxFileUpload()" />
-        </td>-->
                 <tr>
-                    <!--<th>
-        图片:
-    </th>
-    <td class="td">
-        <input name="img" class="mini-htmlfile" id="file1" style="width:300px;" />
-    </td>-->
                     <th rowspan="5" style="width: 100px">
                         照片：
                     </th>
                     <td class="td" rowspan="4">
-                        <img name="img" id="img1" src="" style="width: 100px; height:auto;" />
+                        <img id="img1" src="" style="width: 100px; height:auto;" />
                     </td>
                     <td class="td">
                         <a id="upload" class="mini-button" iconcls="icon-upload">上传照片</a>
@@ -237,7 +222,7 @@
             form.clear();
             win.setTitle("编辑消息");
             form.setData(rows[0]);
-            editor.html(rows[0]);
+            editor.html(rows[0].neirong);
             istrue = "Edit";
             win.show();
         }
@@ -322,8 +307,7 @@
             FileUploaded: function (up, file, res) {
                 var ret = mini.decode(res.response);
                 if (ret.code == "ok") {
-                    debugger
-                    mini.getbyName("img").setValue(ret.src);
+                    mini.get("pic").setValue(ret.src);
                     document.getElementById("img1").src = ret.src;
                 }
                 else {
