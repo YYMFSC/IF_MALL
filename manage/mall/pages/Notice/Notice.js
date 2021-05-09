@@ -4,7 +4,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        title: '消息列表', // 状态
+        title: '旗袍最新资讯', // 状态
         list: [], // 数据列表
         type: '', // 数据类型
         loading: true // 显示等待框

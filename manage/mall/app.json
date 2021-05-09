@@ -16,7 +16,8 @@
     "pages/paying/paying",
     "pages/pay-success/pay-success",
     "pages/pay/pay",
-    "pages/NoticeRead/NoticeRead"
+    "pages/NoticeRead/NoticeRead",
+    "pages/message/message"
   ],
   "window": {
     "backgroundTextStyle": "light",

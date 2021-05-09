@@ -1,24 +1,18 @@
 <!--pages/home/home.wxml-->
 <import src="../../common/pub/pub.wxml" />
+<navigator url="/pages/xxdz/xxdz" redirect>
 <view id="main ">
 	<view style="height: 300rpx">
 		<template is="slider" data="{{swiperData}}"></template>
 	</view>
+</view>
 	<view class="entry">
 		<view class="item" wx:for="{{entryData}}">
-				<navigator url="/pages/xxdz/xxdz" redirect>
-				<view>
-					<image src="{{item.img}}"></image>
-				</view>
-				<view class="text font-size-3 font-grey">{{item.text}}</view>
-			</navigator>
 		</view>
 	</view>
-	<navigator>
 		<image src="{{modules3.img}}" style="width: {{modules3.width}}rpx; height: {{modules3.height}}rpx;"></image>
 	</navigator>
 	<view class="proList">
 		<template is="itemList-block" data="{{proData}}"></template>
 	</view>
-</view>
 <template is="navbar" data="{{tabs, currentPage}}"></template>
