@@ -28,7 +28,6 @@ namespace IF_Model
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<Cart> Cart { get; set; }
         public virtual DbSet<CommonData> CommonData { get; set; }
-        public virtual DbSet<Delivery> Delivery { get; set; }
         public virtual DbSet<Navbar> Navbar { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<productType> productType { get; set; }
@@ -40,6 +39,7 @@ namespace IF_Model
         public virtual DbSet<V_Products> V_Products { get; set; }
         public virtual DbSet<mate> mate { get; set; }
         public virtual DbSet<DoorToDoor> DoorToDoor { get; set; }
-        public virtual DbSet<xiaoxi> xiaoxi { get; set; }
+        public virtual DbSet<Delivery> Delivery { get; set; }
+        public virtual DbSet<Message> Message { get; set; }
     }
 }

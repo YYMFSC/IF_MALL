@@ -179,7 +179,7 @@ namespace IF_Model
     /// </summary>
     public enum Enum_IsExamine : int
     {
-        [EnumAttribute(true,"未审核")]
+        [EnumAttribute(true, "未审核")]
         un = 0,
 
         [EnumAttribute(true, "审核通过")]
@@ -511,7 +511,7 @@ namespace IF_Model
 
     #endregion
 
-#region 工作流枚举
+    #region 工作流枚举
 
     /// <summary>
     /// 流程一般情况状态
@@ -545,6 +545,26 @@ namespace IF_Model
         Complated = 99
     }
 
-#endregion
+    #endregion
 
+    public enum Enum_MessageKind : int
+    {
+        /// <summary>
+        /// 已下单
+        /// </summary>
+        YIXIADAN=0,
+        /// <summary>
+        /// 已加工
+        /// </summary>
+        YIJIAGON=1,
+        /// <summary>
+        /// 已发货
+        /// </summary>
+        YIFAHUO=2,
+        /// <summary>
+        /// 已收货
+        /// </summary>
+        YISHOUHUO=3,
+
+    }
 }
