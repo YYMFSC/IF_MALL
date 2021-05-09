@@ -33,13 +33,13 @@ namespace IF_Model
         public virtual DbSet<productType> productType { get; set; }
         public virtual DbSet<shop> shop { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<customMade> customMade { get; set; }
         public virtual DbSet<V_Cart> V_Cart { get; set; }
         public virtual DbSet<V_Order> V_Order { get; set; }
         public virtual DbSet<V_Products> V_Products { get; set; }
         public virtual DbSet<mate> mate { get; set; }
-        public virtual DbSet<DoorToDoor> DoorToDoor { get; set; }
         public virtual DbSet<Delivery> Delivery { get; set; }
         public virtual DbSet<Message> Message { get; set; }
+        public virtual DbSet<customMade> customMade { get; set; }
+        public virtual DbSet<DoorToDoor> DoorToDoor { get; set; }
     }
 }

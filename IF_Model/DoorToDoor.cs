@@ -21,5 +21,6 @@ namespace IF_Model
         public System.DateTime time { get; set; }
         public int uid { get; set; }
         public System.DateTime cTime { get; set; }
+        public Nullable<int> kind { get; set; }
     }
 }
