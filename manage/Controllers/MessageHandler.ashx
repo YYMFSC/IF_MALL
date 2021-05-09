@@ -111,15 +111,12 @@ public class MessageHandler : BaseHandler
         IF_SQLPager pager = new MSSQL_help().setPager(sl, context.Request);
         //在查询筛选中加条件
         Expression<Func<Message, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable ;
-        seleWhere = seleWhere.And(o => o.title.Contains(unitkey));
+        //seleWhere = seleWhere.And(o => o.title.Contains(unitkey));
 
         var linq = from v in mall.Set<Message>()
                    select v;
 
         linq = linq.Where(seleWhere);
-        base.GetPagination(pager, linq);
-
-        Hashtable result = new MSSQL_help().setDataHashtable(pager);
-        WriteInfo(context, result);
+        WriteInfo(context, linq.ToList());
     }
 }

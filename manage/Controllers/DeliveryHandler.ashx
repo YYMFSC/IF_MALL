@@ -96,25 +96,25 @@ public class DeliveryHandler : BaseHandler
             if(new1.kind ==(int)Enum_MessageKind.YIXIADAN)//下单
             {
                 message.img = "/uploadfile/XIADAN.jpg";
-                message.title = "亲，您定制的旗袍已下单!";
+                message.title = "您的订单号为"+new1.sid+"的订单状态已改变";
                 message.neirong="亲，您定制的旗袍已下单!";
             }
             if(new1.kind ==(int)Enum_MessageKind.YIJIAGON)//加工
             {
                  message.img =  "/uploadfile/JIAGON.png";
-                message.title = "亲，您定制的旗袍已在加工!";
+                 message.title = "您的订单号为"+new1.sid+"的订单状态已改变";
                 message.neirong="亲，您定制的旗袍已在加工!";
             }
             if(new1.kind ==(int)Enum_MessageKind.YIFAHUO)//发货
             {
                  message.img = "/uploadfile/FAHUO.png";
-                message.title = "亲，您定制的旗袍已发货!";
+                message.title = "您的订单号为"+new1.sid+"的订单状态已改变";
                 message.neirong="亲，您定制的旗袍已发货!";
             }
             if(new1.kind ==(int)Enum_MessageKind.YISHOUHUO)//收货
             {
                 message.img = "/uploadfile/SHOUHUO.png";
-                message.title = "亲，您定制的旗袍已收货!感谢您对本店的支持！";
+                message.title = "您的订单号为"+new1.sid+"的订单状态已改变";
                 message.neirong="亲，您定制的旗袍已收货!感谢您对本店的支持！";
             }
             mall.Message.Add(message);

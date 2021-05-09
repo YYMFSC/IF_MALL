@@ -10,10 +10,10 @@
   <view class='page-body' wx:for="{{list}}" wx:key="id">
     <!--类型判断,显示不同的数据-->
         <view class='item'>
-          <image class='poster' src='{{item.img}}'></image>
+          <image class='poster' src='http://localhost:58843{{item.img}}'></image>
           <view class='meta'>
             <text class='title'>{{item.title}}</text>
-            <text class="kind">{{item.kind}}</text>
+            <text class="neirong">{{item.neirong}}</text>
             </view>
           </view>
   </view>

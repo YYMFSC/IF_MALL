@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) { // options 为 board页传来的参数
       const _this = this;
       // 拼接请求url
-      const url = 'http://localhost:58843/Controllers/MessageHandler.ashx?method=GetMSGList';
+      const url = 'http://localhost:58843/Controllers/MessageHandler.ashx?method=GetList';
       // this.setData({
       //   list: [{
       //     id: 1,
