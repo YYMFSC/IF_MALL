@@ -38,6 +38,9 @@ Page({
             success: function (res) {
                 console.log(res.data);
                 let data = res.data;
+                for (let index = 0; index < data.length; index++) {
+                    data[index].img=data[index].img.substring(2,data[index].img.length);        
+                }
                 _this.setData({
                     list: data,
                     loading: false

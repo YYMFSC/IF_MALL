@@ -113,6 +113,7 @@ public class customHandler : BaseHandler
         //在查询筛选中加条件
         Expression<Func<customMade, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable
 
+
         var linq = from v in mall.Set<customMade>()
                    select v;
 
