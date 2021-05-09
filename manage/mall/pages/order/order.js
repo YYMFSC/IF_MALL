@@ -37,8 +37,24 @@ Page({
             },
             success: (e) => {
                 //console.log(e.data)
-                e.data = app.getRealJsonData(e.data)
-                this.setData({ cartList: e.data.OrderList})
+                e.data = app.getRealJsonData(e.data);
+                var sda=e.data.OrderList
+                for (let index = 0; index < sda.length; index++) {
+                    if(sda[index].isPay==0)
+                    {
+                        sda[index].isPay='待付款';
+                    }
+                    if(sda[index].isPay==1)
+                    {
+                        sda[index].isPay='待发货';
+                    }
+                    if(sda[index].isPay==2)
+                    {
+                        sda[index].isPay='待收货';
+                    }
+                    
+                }
+                this.setData({ cartList: sda})
             }
         })
     },

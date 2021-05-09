@@ -60,14 +60,13 @@
         <table style="width: 100%;" class="tooltable">
             <tr>
                 <td style="width:100%;">
-                    <a class="mini-button" iconCls="icon-add" onclick="add()">增加</a>
-                    <a class="mini-button" iconCls="icon-edit" onclick="editRow()">编辑</a>
-                    <a class="mini-button" iconCls="icon-remove" onclick="remove()">删除</a>
+                    <a class="mini-button" iconCls="icon-edit" onclick="editRow()">编辑成品订单信息</a>
+                    <a class="mini-button" iconCls="icon-remove" onclick="remove()">删除成品购买订单</a>
                 </td>
 
                 <td style="white-space:nowrap;">
                     <input id="key" class="mini-textbox" emptyText="请输入商品价格" style="width:150px;" onenter="onKeyEnter" />
-                    <a class="mini-button" onclick="search()">查询</a>
+                    <a class="mini-button" onclick="search()">查询商品原价格</a>
                 </td>
             </tr>
         </table>
@@ -88,45 +87,45 @@
                 <!--<div field="sid" width="30" headeralign="center" align="center" allowsort="true">
         SID
     </div>-->
-                <div field="payway" width="100" headeralign="center" align="center" allowsort="true">
+                <div field="payway" width="50" headeralign="center" align="center" allowsort="true">
                     支付方式
                 </div>
-                <div field="isPay" width="100" headeralign="center" align="center" allowsort="true">
+                <div field="isPay" width="50" headeralign="center" align="center" allowsort="true">
                     支付状态
                 </div>
-                <div field="kind" width="80" headeralign="center" align="center" allowsort="true" renderer=getEnumMessageKind>
+                <div field="kind" width="100" headeralign="center" align="center" allowsort="true" renderer=getEnumMessageKind>
                     订单状态
                 </div>
-                <div field="cartIdList" width="100" headeralign="center" align="center" allowsort="true">
-                    CARTIDLIST
+                <div field="cartIdList" width="50" headeralign="center" align="center" allowsort="true">
+                    购物车单编号
                 </div>
-                <div field="originPrice" width="100" headeralign="center" align="center" allowsort="true">
-                    ORIGINPRICE
+                <div field="originPrice" width="50" headeralign="center" align="center" allowsort="true">
+                    商品原价
                 </div>
-                <div field="discount" width="60" headerAlign="center" align="center" allowSort="true">
-                    DISCOUNT
+                <div field="discount" width="50" headerAlign="center" align="center" allowSort="true">
+                    优惠价格
                 </div>
-                <div field="deliveryFee" width="220" headerAlign="center" align="center" allowSort="true">
-                    DELIVERYFEE
+                <div field="deliveryFee" width="50" headerAlign="center" align="center" allowSort="true">
+                    运费
                 </div>
-                <div field="addressDm" width="60" headerAlign="center" align="center" allowSort="true">
-                    ADDRESSDM
+                <div field="addressDm" width="50" headerAlign="center" align="center" allowSort="true">
+                    地址
                 </div>
-                <div field="remark" width="60" headerAlign="center" align="center" allowSort="true">
-                    REMARK
+                <div field="remark" width="100" headerAlign="center" align="center" allowSort="true">
+                    备注
                 </div>
-                <div field="submitTime" width="60" headerAlign="center" align="center" allowSort="true">
-                    SUBMITTIME
+                <div field="submitTime" width="250" headerAlign="center" align="center" allowSort="true">
+                    下单时间
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="editWindow" class="mini-window" title="添加成品订单" style="width:1000px;" showmodal="true" allowresize="false" allowdrag="true" showfooter="true">
+    <div id="editWindow" class="mini-window" title="编辑成品订单信息" style="width:1000px;" showmodal="true" allowresize="false" allowdrag="true" showfooter="true">
         <div id="editForm" class="form">
             <input class="mini-hidden" name="id" />
             <table style="width:100%;height:100%" class="formtable">
-                <tr>
+                <!--<tr>
                     <th>
                         SID：
                     </th>
@@ -144,7 +143,7 @@
                 </tr>
                 <tr>
                     <th>
-                        ISPAY：
+                        支付状态：
                     </th>
                     <td class="td">
                         <input name="isPay" class="mini-textbox" required="true" style="width: 300px;" />
@@ -152,7 +151,7 @@
                 </tr>
                 <tr>
                     <th>
-                        CARTIDLIST：
+                        购物车单编号：
                     </th>
                     <td class="td">
                         <input name="cartIdList" class="mini-textbox" required="true" style="width: 300px;" />
@@ -160,7 +159,7 @@
                 </tr>
                 <tr>
                     <th>
-                        ORIGINPRICE：
+                        商品原价：
                     </th>
                     <td class="td">
                         <input name="originPrice" class="mini-textbox" required="true" style="width: 300px;" />
@@ -168,15 +167,15 @@
                 </tr>
                 <tr>
                     <th>
-                        DISCOUNT：
+                        优惠价格：
                     </th>
                     <td class="td">
                         <input name="discount" class="mini-textbox" required="true" style="width: 300px;" />
                     </td>
-                </tr>
+                </tr>-->
                 <tr>
                     <th>
-                        DELIVERYFEE：
+                        运费：
                     </th>
                     <td class="td" colspan="3">
                         <input name="discount" class="mini-textbox" required="true" style="width: 300px;" />
@@ -185,7 +184,7 @@
                 </tr>
                 <tr>
                     <th>
-                        ADDRESSDM：
+                        地址：
                     </th>
                     <td class="td" colspan="3">
                         <input name="addressDm" class="mini-textbox" required="true" style="width: 300px;" />
@@ -194,31 +193,31 @@
                 </tr>
                 <tr>
                     <th>
-                        REMARK：
+                        备注：
                     </th>
                     <td class="td" colspan="3">
                         <input name="remark" class="mini-textbox" required="true" style="width: 300px;" />
                     </td>
                 </tr>
                 </tr>
-                <tr>
+                <!--<tr>
                     <th>
-                        SUBMITTIME：
+                        下单时间：
                     </th>
                     <td class="td" colspan="3">
                         <input name="submitTime" class="mini-textbox" required="true" style="width: 300px;" />
                     </td>
-                </tr>
+                </tr>-->
             </table>
         </div>
         <div property="footer" style="text-align: center; padding: 5px;">
-            <a class="mini-button" iconcls="icon-save" style="width: 100px;" onclick="saveData()">保存</a>
+            <a class="mini-button" iconcls="icon-save" style="width: 100px;" onclick="saveData()">保存数据</a>
             <span style="display: inline-block; width: 25px;"></span>
             <a class="mini-button" iconcls="icon-close" style="width: 100px;" onclick="hide()">关闭</a>
         </div>
     </div>
 
-    <div id="kindWin" class="mini-window" title="修改订单状态" style="width:200px;" showmodal="true" allowresize="false" allowdrag="true" showfooter="true">
+    <div id="kindWin" class="mini-window" title="修改订单状态" style="width:300px;" showmodal="true" allowresize="false" allowdrag="true" showfooter="true">
         <div id="kindForm" class="form">
             <input class="mini-hidden" name="id" />
             <table style="width:100%;height:100%" class="formtable">
@@ -242,14 +241,12 @@
 </html>
 
 <script type="text/javascript">
-    var enumMessageKind = [{ id: 0, text: '已下单' }, { id: 1, text: '已加工' }, { id: 2, text: '已发货' }, { id: 3, text: '已收货' }];
+    var enumMessageKind = [{ id: 1, text: '已下单' },  { id: 2, text: '已发货' }, { id: 3, text: '已收货' }];
     function getEnumMessageKind(e) {
         var record = e.record;
         var kind = record.kind;
-        if (kind == 0)
+        if (kind == 1)
             return '已下单';
-        if (kind ==1)
-            return '已加工';
         if (kind ==2)
             return '已发货';
         if (kind ==3)
@@ -258,8 +255,9 @@
     mini.parse();
     var grid = mini.get("grid");
     var win = mini.get("editWindow");
-    var kindWin = mini.get("kindWin");
+    
     var form = new mini.Form("#editForm");
+    var kindWin = mini.get("kindWin");
     var kindForm = new mini.Form("#kindForm");
     var istrue = "Add";
     search();

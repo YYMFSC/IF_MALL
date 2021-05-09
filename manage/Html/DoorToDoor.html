@@ -83,8 +83,12 @@
                 <div field="uid" width="30" id="Auid" name="Auid" headeralign="center" align="center" allowsort="true">
                     UID
                 </div>
+                <div cellcls="actionIcons" name="action" width="60" headeralign="center" align="center" renderer="onActionRenderer">修改订单状态</div>
                 <div field="nub" width="50" headeralign="center" align="center" allowsort="true">
                     旗袍数
+                </div>
+                <div field="kind" width="100" headeralign="center" align="center" allowsort="true" renderer=getEnumMessageKind>
+                    订单状态
                 </div>
                 <div field="age" width="50" headeralign="center" align="center" allowsort="true">
                     年龄段
@@ -195,6 +199,8 @@
     var grid = mini.get("grid");
     var win = mini.get("editWindow");
     var form = new mini.Form("#editForm");
+    var kindWin = mini.get("kindWin");
+    var kindForm = new mini.Form("#kindForm");
     var istrue = "Add";
     search();
     function search() {
@@ -204,7 +210,26 @@
         grid.load({ key: key });
         grid.sortBy("id", "asc");
     }
-
+    function editKind() {
+        var rows = grid.getSelecteds();
+        if (rows.length > 0 && rows.length <= 1) {
+            kindForm.clear();
+            kindForm.setData(rows[0]);
+            kindWin.show();
+        }
+        else if (rows.length > 1) {
+            alert("只能选中一条记录");
+        }
+        else {
+            alert("请选中一条记录");
+        }
+    }
+    function onActionRenderer(e) {
+        var record = e.record;
+        var id = record.id;
+        var html = '<a class="Edit_Button" style=" text-decoration:none;color:blue; " href="#" onclick="editKind()" >修改状态</a>';//AddTab(\'' + id + '\',\'固定资产详情-' + name + '\',\'../FixedAssets/asset.html?aiid=' + id + '&name=' + escape(name) + '\');return false;
+        return html;
+    };
     function remove() {
         var rows = grid.getSelecteds();
         if (rows.length > 0) {
@@ -236,34 +261,7 @@
         }
     }
 
-    //function editRow()
-    //{
-    //    var rows = grid.getSelecteds();
-    //    if (rows.length > 0) {
-    //        var id = rows[0].t_id;
-    //        form.clear();
-    //        win.setTitle("编辑地址");
-    //        $.ajax({
-    //            url: "Controllers/TicketASHX.ashx?method=GetTicket",
-    //            type: "post",
-    //            data: { id: id },
-    //            success: function (text) {
-    //                var o = mini.decode(text);
-    //                istrue = 1;
-    //                form.setData(o);
-    //                form.setChanged(false);
-    //                win.show();
-    //            },
-    //            error: function (text) {
-    //                form.reset();
-    //                win.show();
-    //            }
-    //        });
-    //    }
-    //    else {
-    //        alert("请选中一条记录");
-    //    }
-    //}
+
 
     function editRow() {
         var rows = grid.getSelecteds();
@@ -304,6 +302,38 @@
             },
             error: function (text) {
                 alert(text);
+            }
+        });
+    }
+
+    function saveKind() {
+        kindForm.validate();
+        tools.MaskBody("操作中，请稍候...");
+        if (kindForm.isValid() == false) {
+            mini.alert("表单验证错误!");
+            return;
+        }
+        var url = "../Controllers/DoorHandler.ashx?method=EditKind";
+        var formData = tools.getControlText(kindForm);
+        var data = JSON.stringify(formData);
+        $.ajax({
+            url: url,
+            data: {
+                data: data
+            },
+            type: "post",
+            success: function (text) {
+                tools.UnMaskBody();
+                var ret = mini.decode(text);
+                if (ret.return_code == "Success") {
+                    kindWin.hide();
+                    grid.reload();
+                }
+                mini.alert(ret.return_msg);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                eflying.UnMaskBody();
+                mini.alert(jqXHR.responseText);
             }
         });
     }

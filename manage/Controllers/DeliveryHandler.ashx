@@ -84,39 +84,41 @@ public class DeliveryHandler : BaseHandler
         {
             Delivery new1 = mall.Delivery.Find(int.Parse(iddf.Value.ToString()));
             new1.kind =int.Parse(kind.Value.ToString());
-            //使用add方法把模型加进去
-            mall.Delivery.Attach(new1);
-            mall.Entry(new1).State = EntityState.Modified;
-            //加完一定要保存
-            mall.SaveChanges();
-
+            //使用add方法把模型加进去           
             Message message = new Message();
             message.uid = 1111;
             message.kind = new1.kind;
             if(new1.kind ==(int)Enum_MessageKind.YIXIADAN)//下单
             {
                 message.img = "/uploadfile/XIADAN.jpg";
-                message.title = "您的订单号为"+new1.sid+"的订单状态已改变";
+                message.title = "您的订单号为"+new1.cartIdList+"的订单状态已改变";
                 message.neirong="亲，您定制的旗袍已下单!";
             }
             if(new1.kind ==(int)Enum_MessageKind.YIJIAGON)//加工
             {
-                 message.img =  "/uploadfile/JIAGON.png";
-                 message.title = "您的订单号为"+new1.sid+"的订单状态已改变";
+                message.img =  "/uploadfile/JIAGON.png";
+                message.title = "您的订单号为"+new1.cartIdList+"的订单状态已改变";
                 message.neirong="亲，您定制的旗袍已在加工!";
             }
             if(new1.kind ==(int)Enum_MessageKind.YIFAHUO)//发货
             {
-                 message.img = "/uploadfile/FAHUO.png";
-                message.title = "您的订单号为"+new1.sid+"的订单状态已改变";
+                //修改状态
+                new1.isPay = 2;
+
+                message.img = "/uploadfile/FAHUO.png";
+                message.title = "您的订单号为"+new1.cartIdList+"的订单状态已改变";
                 message.neirong="亲，您定制的旗袍已发货!";
             }
             if(new1.kind ==(int)Enum_MessageKind.YISHOUHUO)//收货
             {
                 message.img = "/uploadfile/SHOUHUO.png";
-                message.title = "您的订单号为"+new1.sid+"的订单状态已改变";
+                message.title = "您的订单号为"+new1.cartIdList+"的订单状态已改变";
                 message.neirong="亲，您定制的旗袍已收货!感谢您对本店的支持！";
             }
+            mall.Delivery.Attach(new1);
+            mall.Entry(new1).State = EntityState.Modified;
+            //加完一定要保存
+            mall.SaveChanges();
             mall.Message.Add(message);
             //加完一定要保存
             mall.SaveChanges();

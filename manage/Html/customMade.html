@@ -65,7 +65,7 @@
                 </td>
 
                 <td style="white-space:nowrap;">
-                    <input id="key" class="mini-textbox" emptyText="请输入肩宽数据" style="width:150px;" onenter="onKeyEnter" />
+                    <input id="key" class="mini-textbox" emptytext="请输入肩宽数据" style="width:150px;" onenter="onkeyenter" />
                     <a class="mini-button" onclick="search()">查询</a>
                 </td>
             </tr>
@@ -77,14 +77,9 @@
              pagesize="20" fitcolumns="true" multiselect="false">
             <div property="columns">
                 <div type="indexcolumn" width="20">序号</div>
-                <div field="id" width="30" id="Aid" name="Aid" headeralign="center" align="center" allowsort="true">
-                    ID
-                </div>
-                <div field="uid" width="30" id="Auid" name="Auid" headeralign="center" align="center" allowsort="true">
-                    UID
-                </div>
-                <div field="cTime" width="150" headeralign="center" align="center" allowsort="true">
-                    订单创建时间
+                <div cellcls="actionIcons" name="action" width="60" headeralign="center" align="center" renderer="onActionRenderer">修改订单状态</div>
+                <div field="kind" width="100" headeralign="center" align="center" allowsort="true" renderer=getEnumMessageKind>
+                    订单状态
                 </div>
                 <div field="jk" width="30" headeralign="center" align="center" allowsort="true">
                     肩宽
@@ -176,15 +171,52 @@
             <a class="mini-button" iconcls="icon-close" style="width: 100px;" onclick="hide()">关闭</a>
         </div>
     </div>
+
+    <div id="kindWin" class="mini-window" title="修改订单状态" style="width:300px;" showmodal="true" allowresize="false" allowdrag="true" showfooter="true">
+        <div id="kindForm" class="form">
+            <input class="mini-hidden" name="id" />
+            <table style="width:100%;height:100%" class="formtable">
+                <tr>
+                    <th>
+                        状态：
+                    </th>
+                    <td class="td">
+                        <input name="kind" class="mini-combobox" required="true" data="mini.clone(enumMessageKind)" style="width: 150px;" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div property="footer" style="text-align: center; padding: 5px;">
+            <a class="mini-button" iconcls="icon-save" style="width: 100px;" onclick="saveKind()">保存</a>
+            <span style="display: inline-block; width: 25px;"></span>
+            <a class="mini-button" iconcls="icon-close" style="width: 100px;" onclick="hide()">关闭</a>
+        </div>
+    </div>
 </body>
 </html>
 
 <script type="text/javascript">
+    var enumMessageKind = [{ id: 0, text: '已下单' }, { id: 1, text: '已加工' }, { id: 2, text: '已发货' }, { id: 3, text: '已收货' }];
+    function getEnumMessageKind(e) {
+        var record = e.record;
+        var kind = record.kind;
+        if (kind == 0)
+            return '已下单';
+        if (kind == 1)
+            return '已加工';
+        if (kind == 2)
+            return '已发货';
+        if (kind == 3)
+            return '已收货';
+    }
+
     mini.parse();
     var grid = mini.get("grid");
     var win = mini.get("editWindow");
     var form = new mini.Form("#editForm");
     var istrue = "Add";
+    var kindWin = mini.get("kindWin");
+    var kindForm = new mini.Form("#kindForm");
     search();
     function search() {
         var key = mini.get("key").getValue();
@@ -199,24 +231,28 @@
         if (rows.length > 0) {
             grid.loading("操作中，请稍后......");
             var data = rows[0].id;
-                $.ajax({
-                    url: "../Controllers/customHandler.ashx?method=Remove",
-                    type: "post",
-                    data: { data: data},
-                    success: function (text) {
-                        grid.reload();
-                    },
-                    error: function (text) {
-                        alert(text);
-                    }
-                });
+            $.ajax({
+                url: "../Controllers/customHandler.ashx?method=Remove",
+                type: "post",
+                data: { data: data },
+                success: function (text) {
+                    grid.reload();
+                },
+                error: function (text) {
+                    alert(text);
+                }
+            });
         } else {
             alert("请选中一条记录");
         }
     }
-
-    function add()
-    {
+    function onActionRenderer(e) {
+        var record = e.record;
+        var id = record.id;
+        var html = '<a class="Edit_Button" style=" text-decoration:none;color:blue; " href="#" onclick="editKind()" >修改状态</a>';//AddTab(\'' + id + '\',\'固定资产详情-' + name + '\',\'../FixedAssets/asset.html?aiid=' + id + '&name=' + escape(name) + '\');return false;
+        return html;
+    };
+    function add() {
         form.reset();
         win.setTitle("添加在线数据订单信息");
         if (!win.visible) {
@@ -224,17 +260,30 @@
             win.show();
         }
     }
-  
+    function editKind() {
+        var rows = grid.getSelecteds();
+        if (rows.length > 0 && rows.length <= 1) {
+            kindForm.clear();
+            kindForm.setData(rows[0]);
+            kindWin.show();
+        }
+        else if (rows.length > 1) {
+            alert("只能选中一条记录");
+        }
+        else {
+            alert("请选中一条记录");
+        }
+    }
     function editRow() {
         var rows = grid.getSelecteds();
-        if (rows.length > 0 && rows.length <=1) {
+        if (rows.length > 0 && rows.length <= 1) {
             form.clear();
             win.setTitle("编辑在线数据订单信息");
             form.setData(rows[0]);
             istrue = "Edit";
             win.show();
         }
-        else if (rows.length>1) {
+        else if (rows.length > 1) {
             alert("只能选中一条记录");
         }
         else {
@@ -250,7 +299,7 @@
         }
         var url = "../Controllers/customHandler.ashx?method=";
         var formData = tools.getControlText(form);
-        var data=JSON.stringify(formData);
+        var data = JSON.stringify(formData);
         url = url + istrue;
         $.ajax({
             url: url,
@@ -268,7 +317,37 @@
             }
         });
     }
-
+    function saveKind() {
+        kindForm.validate();
+        tools.MaskBody("操作中，请稍候...");
+        if (kindForm.isValid() == false) {
+            mini.alert("表单验证错误!");
+            return;
+        }
+        var url = "../Controllers/customHandler.ashx?method=EditKind";
+        var formData = tools.getControlText(kindForm);
+        var data = JSON.stringify(formData);
+        $.ajax({
+            url: url,
+            data: {
+                data: data
+            },
+            type: "post",
+            success: function (text) {
+                tools.UnMaskBody();
+                var ret = mini.decode(text);
+                if (ret.return_code == "Success") {
+                    kindWin.hide();
+                    grid.reload();
+                }
+                mini.alert(ret.return_msg);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                eflying.UnMaskBody();
+                mini.alert(jqXHR.responseText);
+            }
+        });
+    }
     function hide() {
         win.hide();
     }
