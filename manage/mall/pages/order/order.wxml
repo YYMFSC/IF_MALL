@@ -6,7 +6,7 @@
 	</view>
 	<view class="order" style="padding-top: 90rpx;">
 		<view class="item bg-white" wx:for="{{cartList}}" wx:key="id" wx:for-item="cartitem">
-        <view class="tag font-size-1 font-orange">{{cartitem.isPay==1 ? '待发货':'待付款'}}</view>
+        <view class="tag font-size-1 font-orange">{{cartitem.isPay}}</view>
 			<view class="shop">
 				<image src="{{cartitem.shopIcon}}" aspectFit widthFix="60rpx" class="shopIcon"></image>
 				<view class="shopName font-size-1 font-grey-deep">{{cartitem.shopName}}</view>

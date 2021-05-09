@@ -23,5 +23,6 @@ namespace IF_Model
         public int tw { get; set; }
         public int xc { get; set; }
         public int qc { get; set; }
+        public Nullable<int> kind { get; set; }
     }
 }
