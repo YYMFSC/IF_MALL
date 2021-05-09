@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) { // options 为 board页传来的参数
       const _this = this;
       // 拼接请求url
-      const url = 'http://localhost:58843/Controllers/mateHandler.ashx?method=GetMSGList';
+      const url = 'http://localhost:58843/Controllers/MessageHandler.ashx?method=GetMSGList';
       // this.setData({
       //   list: [{
       //     id: 1,
@@ -31,9 +31,9 @@ Page({
       // 请求数据
       wx.request({
           url: url,
-          data: { uid: "111" },
+          data: { uid: "1111" },
           header: {
-              'content-type': 'json'
+            'content-type': 'json'
           },
           success: function (res) {
               console.log(res.data);

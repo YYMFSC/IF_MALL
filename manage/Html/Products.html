@@ -60,13 +60,13 @@
         <table style="width: 100%;" class="tooltable">
             <tr>
                 <td style="width:100%;">
-                    <a class="mini-button" iconCls="icon-add" onclick="add()">增加</a>
-                    <a class="mini-button" iconCls="icon-edit" onclick="editRow()">编辑</a>
-                    <a class="mini-button" iconCls="icon-remove" onclick="remove()">删除</a>
+                    <a class="mini-button" iconCls="icon-add" onclick="add()">旗袍上架</a>
+                    <a class="mini-button" iconCls="icon-edit" onclick="editRow()">编辑旗袍信息</a>
+                    <a class="mini-button" iconCls="icon-remove" onclick="remove()">旗袍下架</a>
                 </td>
 
                 <td style="white-space:nowrap;">
-                    <input id="key" class="mini-textbox" emptyText="请输入商品名" style="width:150px;" onenter="onKeyEnter" />
+                    <input id="key" class="mini-textbox" emptyText="请输入商品名关键字" style="width:150px;" onenter="onKeyEnter" />
                     <a class="mini-button" onclick="search()">查询</a>
                 </td>
             </tr>
@@ -84,16 +84,16 @@
                 <div field="uid" width="30" id="Auid" name="Auid" headeralign="center" align="center" allowsort="true">
                     UID
                 </div>
-                <div field="img" width="30" headeralign="center" align="center" allowsort="true">
+                <div field="img" width="100" headeralign="center" align="center" allowsort="true">
                     商品图片
                 </div>
                 <div field="title" width="100" headeralign="center" align="center" allowsort="true">
-                    商品名
+                    商品名称
                 </div>
-                <div field="originPrice" width="100" headeralign="center" align="center" allowsort="true">
+                <div field="originPrice" width="30" headeralign="center" align="center" allowsort="true">
                     商品原价
                 </div>
-                <div field="price" width="100" headeralign="center" align="center" allowsort="true">
+                <div field="price" width="30" headeralign="center" align="center" allowsort="true">
                     商品现价
                 </div> 
             </div>
@@ -109,12 +109,12 @@
                         商品图片：
                     </th>
                     <td class="td">
-                        <input name="img" class="mini-textbox" required="true" style="width: 150px;" />
+                        <input name="img" class="mini-textbox" required="true" style="width: 300px;" />
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        商品名：
+                        商品名称：
                     </th>
                     <td class="td">
                         <input name="title" class="mini-textbox" required="true" style="width: 300px;" />
@@ -125,7 +125,7 @@
                         商品原价：
                     </th>
                     <td class="td">
-                        <input name="originPrice" class="mini-spinner"  minValue="200" maxValue="250" required="true" style="width: 300px;" />
+                        <input name="originPrice" class="mini-textbox" required="true" style="width: 150px;" />
                     </td>
                 </tr>
                 <tr>
@@ -133,13 +133,13 @@
                         商品现价：
                     </th>
                     <td class="td">
-                        <input name="price" class="mini-textbox" required="true" style="width: 300px;" />
+                        <input name="price" class="mini-textbox" required="true" style="width: 150px;" />
                     </td>
                 </tr>
             </table>
         </div>
         <div property="footer" style="text-align: center; padding: 5px;">
-            <a class="mini-button" iconcls="icon-save" style="width: 100px;" onclick="saveData()">保存</a>
+            <a class="mini-button" iconcls="icon-save" style="width: 100px;" onclick="saveData()">保存记录</a>
             <span style="display: inline-block; width: 25px;"></span>
             <a class="mini-button" iconcls="icon-close" style="width: 100px;" onclick="hide()">关闭</a>
         </div>

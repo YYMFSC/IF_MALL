@@ -111,7 +111,7 @@ public class customHandler : BaseHandler
         IF_SQLPager pager = new MSSQL_help().setPager(sl, context.Request);
         //在查询筛选中加条件
         Expression<Func<customMade, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable ;
-        //seleWhere = seleWhere.And(o => o.jk.Contains(unitkey));
+       // seleWhere = seleWhere.jk;
 
         var linq = from v in mall.Set<customMade>()
                    select v;

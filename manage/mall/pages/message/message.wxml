@@ -13,7 +13,7 @@
           <image class='poster' src='{{item.img}}'></image>
           <view class='meta'>
             <text class='title'>{{item.title}}</text>
-             <text class="kind">{{item.kind}}</text>
+            <text class="kind">{{item.kind}}</text>
             </view>
           </view>
   </view>

@@ -65,13 +65,13 @@
         <table style="width: 100%;" class="tooltable">
             <tr>
                 <td style="width:100%;">
-                    <a class="mini-button" iconCls="icon-add" onclick="add()">增加</a>
-                    <a class="mini-button" iconCls="icon-edit" onclick="editRow()">编辑</a>
-                    <a class="mini-button" iconCls="icon-remove" onclick="remove()">删除</a>
+                    <a class="mini-button" iconCls="icon-add" onclick="add()">增加旗袍咨询</a>
+                    <a class="mini-button" iconCls="icon-edit" onclick="editRow()">编辑旗袍咨询</a>
+                    <a class="mini-button" iconCls="icon-remove" onclick="remove()">删除记录</a>
                 </td>
 
                 <td style="white-space:nowrap;">
-                    <input id="key" class="mini-textbox" emptyText="请输入消息标题" style="width:150px;" onenter="onKeyEnter" />
+                    <input id="key" class="mini-textbox" emptyText="请输入标题的关键字" style="width:150px;" onenter="onKeyEnter" />
                     <a class="mini-button" onclick="search()">查询</a>
                 </td>
             </tr>
@@ -89,24 +89,23 @@
                 <div field="uid" width="30" id="Auid" name="Auid" headeralign="center" align="center" allowsort="true">
                     UID
                 </div>
-                <div field="img" width="30" headeralign="center" align="center" allowsort="true">
+                <div field="img" width="100" headeralign="center" align="center" allowsort="true">
                     图片
                 </div>
-
                 <div field="title" width="100" headeralign="center" align="center" allowsort="true">
                     题目
                 </div>
                 <div field="neirong" width="100" headeralign="center" align="center" allowsort="true">
                     明细
                 </div>
-                <div field="price" width="100" headeralign="center" align="center" allowsort="true">
+                <div field="price" width="30" headeralign="center" align="center" allowsort="true">
                     价格
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="editWindow" class="mini-window" title="添加消息" style="width:1000px;" showmodal="true" allowresize="false" allowdrag="true" showfooter="true">
+    <div id="editWindow" class="mini-window" title="添加旗袍最新资讯" style="width:1000px;" showmodal="true" allowresize="false" allowdrag="true" showfooter="true">
         <div id="editForm" class="form">
             <input class="mini-hidden" name="id" />
             <table style="width:100%;height:100%" class="formtable">
@@ -127,11 +126,14 @@
     <td class="td">
         <input name="img" class="mini-htmlfile" id="file1" style="width:300px;" />
     </td>-->
-                    <th rowspan="5" style="width: 100px">
+                    <!--<th rowspan="5" style="width: 100px">
+                        照片：
+                    </th>-->
+                    <th>
                         照片：
                     </th>
                     <td class="td" rowspan="4">
-                        <img name="img" id="img1" src="" style="width: 100px; height:auto;" />
+                        <img name="img" id="img1" src="" style="width: 200px; height:auto;" />
                     </td>
                     <td class="td">
                         <a id="upload" class="mini-button" iconcls="icon-upload">上传照片</a>
@@ -159,13 +161,13 @@
                         价格：
                     </th>
                     <td class="td">
-                        <input name="price" class="mini-textbox" required="true" style="width: 300px;" />
+                        <input name="price" class="mini-textbox" required="true" style="width: 100px;" />
                     </td>
                 </tr>
             </table>
         </div>
         <div property="footer" style="text-align: center; padding: 5px;">
-            <a class="mini-button" iconcls="icon-save" style="width: 100px;" onclick="saveData()">保存</a>
+            <a class="mini-button" iconcls="icon-save" style="width: 100px;" onclick="saveData()">保存记录</a>
             <span style="display: inline-block; width: 25px;"></span>
             <a class="mini-button" iconcls="icon-close" style="width: 100px;" onclick="hide()">关闭</a>
         </div>
