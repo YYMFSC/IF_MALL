@@ -65,7 +65,7 @@
                 </td>
 
                 <td style="white-space:nowrap;">
-                    <input id="key" class="mini-textbox" emptyText="请输入肩宽数据" style="width:150px;" onenter="onKeyEnter" />
+                    <input id="key" class="mini-textbox" emptytext="请输入肩宽数据" style="width:150px;" onenter="onkeyenter" />
                     <a class="mini-button" onclick="search()">查询</a>
                 </td>
             </tr>
@@ -77,14 +77,17 @@
              pagesize="20" fitcolumns="true" multiselect="false">
             <div property="columns">
                 <div type="indexcolumn" width="20">序号</div>
-                <div field="id" width="30" id="Aid" name="Aid" headeralign="center" align="center" allowsort="true">
+                <!--<div field="id" width="30" id="Aid" name="Aid" headeralign="center" align="center" allowsort="true">
                     ID
                 </div>
                 <div field="uid" width="30" id="Auid" name="Auid" headeralign="center" align="center" allowsort="true">
-                    UID
-                </div>
+                    UID-->
+                <!--</div>
                 <div field="cTime" width="150" headeralign="center" align="center" allowsort="true">
                     订单创建时间
+                </div>-->
+                <div field="kind" width="100" headeralign="center" align="center" allowsort="true" renderer=getEnumMessageKind>
+                    订单状态
                 </div>
                 <div field="jk" width="30" headeralign="center" align="center" allowsort="true">
                     肩宽
@@ -179,18 +182,51 @@
 </body>
 </html>
 
+<div id="kindWin" class="mini-window" title="修改订单状态" style="width:300px;" showmodal="true" allowresize="false" allowdrag="true" showfooter="true">
+    <div id="kindForm" class="form">
+        <input class="mini-hidden" name="id" />
+        <table style="width:100%;height:100%" class="formtable">
+            <tr>
+                <th>
+                    状态：
+                </th>
+                <td class="td">
+                    <input name="kind" class="mini-combobox" required="true" data="mini.clone(enumMessageKind)" style="width: 150px;" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div property="footer" style="text-align: center; padding: 5px;">
+        <a class="mini-button" iconcls="icon-save" style="width: 100px;" onclick="saveKind()">保存</a>
+        <span style="display: inline-block; width: 25px;"></span>
+        <a class="mini-button" iconcls="icon-close" style="width: 100px;" onclick="hide()">关闭</a>
+    </div>
+</div>
+</body>
+</html>
+
 <script type="text/javascript">
-    mini.parse();
-    var grid = mini.get("grid");
-    var win = mini.get("editWindow");
-    var form = new mini.Form("#editForm");
-    var istrue = "Add";
-    search();
+    var enumMessageKind = [{ id: 1, text: '已下单' }, { id: 2, text: '已安排生产' }];
+    function getEnumMessageKind(e) {
+        var record = e.record;
+        var kind = record.kind;
+        if (kind == 1)
+            return '已下单';
+        if (kind == 2)
+            return '安排生产';
+    }
+
+        mini.parse();
+        var grid = mini.get("grid");
+        var win = mini.get("editWindow");
+        var form = new mini.Form("#editForm");
+        var istrue = "Add";
+        search();
     function search() {
         var key = mini.get("key").getValue();
         grid.hideColumn("Aid");
         grid.hideColumn("Auid");
-        grid.load({ key: key });
+        grid.load({key: key });
         grid.sortBy("id", "asc");
     }
 
@@ -198,18 +234,18 @@
         var rows = grid.getSelecteds();
         if (rows.length > 0) {
             grid.loading("操作中，请稍后......");
-            var data = rows[0].id;
+        var data = rows[0].id;
                 $.ajax({
-                    url: "../Controllers/customHandler.ashx?method=Remove",
-                    type: "post",
-                    data: { data: data},
+            url: "../Controllers/customHandler.ashx?method=Remove",
+        type: "post",
+                    data: {data: data},
                     success: function (text) {
-                        grid.reload();
-                    },
+            grid.reload();
+        },
                     error: function (text) {
-                        alert(text);
-                    }
-                });
+            alert(text);
+        }
+    });
         } else {
             alert("请选中一条记录");
         }
@@ -217,23 +253,23 @@
 
     function add()
     {
-        form.reset();
+            form.reset();
         win.setTitle("添加在线数据订单信息");
         if (!win.visible) {
             istrue = "Add";
-            win.show();
-        }
+        win.show();
     }
-  
+}
+
     function editRow() {
         var rows = grid.getSelecteds();
         if (rows.length > 0 && rows.length <=1) {
             form.clear();
-            win.setTitle("编辑在线数据订单信息");
-            form.setData(rows[0]);
-            istrue = "Edit";
-            win.show();
-        }
+        win.setTitle("编辑在线数据订单信息");
+        form.setData(rows[0]);
+        istrue = "Edit";
+        win.show();
+    }
         else if (rows.length>1) {
             alert("只能选中一条记录");
         }
@@ -243,33 +279,33 @@
     }
 
     function saveData() {
-        form.validate();
+            form.validate();
         if (form.isValid() == false) {
             alert("表单验证错误!");
-            return;
-        }
-        var url = "../Controllers/customHandler.ashx?method=";
-        var formData = tools.getControlText(form);
-        var data=JSON.stringify(formData);
-        url = url + istrue;
+        return;
+    }
+    var url = "../Controllers/customHandler.ashx?method=";
+    var formData = tools.getControlText(form);
+    var data=JSON.stringify(formData);
+    url = url + istrue;
         $.ajax({
             url: url,
             data: {
-                data: data
-            },
-            type: "post",
+            data: data
+    },
+    type: "post",
             success: function (text) {
-                alert(text);
-                hide();
-                grid.reload();
-            },
+            alert(text);
+        hide();
+        grid.reload();
+    },
             error: function (text) {
-                alert(text);
-            }
-        });
-    }
+            alert(text);
+        }
+    });
+}
 
     function hide() {
-        win.hide();
-    }
+            win.hide();
+        }
 </script>

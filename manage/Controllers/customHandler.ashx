@@ -127,7 +127,8 @@ public class customHandler : BaseHandler
     {
         //这些是前台列表的一下筛选
         string unitkey = context.Request["key"];
-
+        string jk = context.Request["jk"];
+            
         //这是存在session里的用户id
         //var session = new IF_Session();
         //var userid = session.UserKey;
@@ -140,8 +141,7 @@ public class customHandler : BaseHandler
         //新建一个分页对象
         IF_SQLPager pager = new MSSQL_help().setPager(sl, context.Request);
         //在查询筛选中加条件
-        Expression<Func<customMade, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable ;
-       // seleWhere = seleWhere.jk;
+        Expression<Func<customMade, bool>> seleWhere = o => true;//o.n_state == (int)Enum_BasicInfoStatus.Enable
 
 
         var linq = from v in mall.Set<customMade>()
